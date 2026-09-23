@@ -1,0 +1,231 @@
+/**
+ * Akumulateo – Local SEO & Warsaw Districts Database
+ * Kompletna baza danych pod pozycjonowanie lokalne pogotowia akumulatorowego 24h
+ * dla wszystkich 18 dzielnic Warszawy oraz kluczowych miast aglomeracji.
+ */
+
+export interface DistrictSeoData {
+  slug: string;
+  name: string;
+  isSuburbs: boolean;
+  etaMinutes: string;
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
+  h2: string;
+  popularAreas: string[];
+  serviceScopeText: string;
+}
+
+export const WARSAW_DISTRICTS: DistrictSeoData[] = [
+  {
+    slug: 'mokotow',
+    name: 'Mokotów',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Pogotowie Akumulatorowe Warszawa Mokotów 24/7 | Dojazd w 20 min',
+    metaDescription: 'Auto nie odpala na Mokotowie? Całodobowa wymiana akumulatora z dojazdem, awaryjny rozruch i kodowanie BMS. Dojeżdżamy w 15-25 min. Zadzwoń: 696 556 446!',
+    h1: 'Pogotowie Akumulatorowe Warszawa Mokotów 24h/7',
+    h2: 'Mobilna wymiana i awaryjny rozruch akumulatora na Mokotowie',
+    popularAreas: ['Służew', 'Służewiec', 'Stegny', 'Sadyba', 'Wierzbno', 'Ksawerów', 'Sielce', 'Mordor (Domaniewska)'],
+    serviceScopeText: 'Obsługujemy cały Mokotów – dojeżdżamy pod domy, biurowce na Domaniewskiej oraz garaże podziemne. Pełna diagnostyka alternatora i montaż nowego akumulatora na miejscu.'
+  },
+  {
+    slug: 'ursynow',
+    name: 'Ursynów',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Wymiana Akumulatora z Dojazdem Warszawa Ursynów 24h | Akumulateo',
+    metaDescription: 'Mobilny serwis akumulatorów na Ursynowie (Kabaty, Imielin, Stokłosy, Natolin). Awaryjne uruchamianie auta i montaż akumulatora 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Ursynów 24/7 – Wymiana z Dojazdem',
+    h2: 'Szybki dojazd do rozładowanego auta na Ursynowie',
+    popularAreas: ['Kabaty', 'Natolin', 'Imielin', 'Stokłosy', 'Dąbrówka', 'Grabów', 'Pyry'],
+    serviceScopeText: 'Brak sklepu stacjonarnego – przyjeżdżamy bezpośrednio pod Twój adres na Ursynowie. Dowóz baterii, wymiana z podtrzymaniem pamięci i kodowanie komputerem.'
+  },
+  {
+    slug: 'wola',
+    name: 'Wola',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Pogotowie Akumulatorowe Warszawa Wola 24/7 | Rozruch i Wymiana',
+    metaDescription: 'Rozładowany akumulator na Woli? Przyjedziemy w 20 minut pod Twój dom lub firmę. Awaryjny rozruch i nowa bateria z montażem 24h. Zadzwoń: 696 556 446!',
+    h1: 'Pogotowie Akumulatorowe Warszawa Wola 24h',
+    h2: 'Całodobowy mobilny serwis akumulatorów na Woli',
+    popularAreas: ['Czyste', 'Mirów', 'Młynów', 'Koło', 'Ulrychów', 'Odolany', 'Rondo Daszyńskiego'],
+    serviceScopeText: 'Błyskawiczna pomoc przy awarii akumulatora na Odolanach, Kole, Mirowie i w centrum biznesowym przy Rondzie Daszyńskiego.'
+  },
+  {
+    slug: 'srodmiescie',
+    name: 'Śródmieście',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Awaryjne Odpalanie Auta i Wymiana Akumulatora Śródmieście 24h',
+    metaDescription: 'Śródmieście Warszawa: pogotowie akumulatorowe 24/7. Wjazd do stref i garaży podziemnych. Diagnostyka, montaż i kodowanie akumulatora. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Warszawa Śródmieście 24/7',
+    h2: 'Pomoc z akumulatorem w centrum Warszawy o każdej porze',
+    popularAreas: ['Muranów', 'Powiśle', 'Solec', 'Ujazdów', 'Stare Miasto', 'Plac Zbawiciela', 'Dworzec Centralny'],
+    serviceScopeText: 'Wjeżdżamy do garaży podziemnych i stref ograniczonego ruchu w centrum Warszawy. Sprzęt rozruchowy i nowe akumulatory dostępne od ręki 24/7.'
+  },
+  {
+    slug: 'praga-poludnie',
+    name: 'Praga-Południe',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Wymiana Akumulatora z Dojazdem Praga-Południe (Saska Kępa, Grochów)',
+    metaDescription: 'Pogotowie akumulatorowe Praga-Południe: Grochów, Saska Kępa, Gocław. Dojazd w 20 min, diagnostyka ładowania i wymiana na miejscu 24h. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Praga-Południe 24h',
+    h2: 'Wymiana baterii i awaryjny rozruch: Gocław, Grochów, Saska Kępa',
+    popularAreas: ['Gocław', 'Grochów', 'Saska Kępa', 'Kamionek', 'Gocławek', 'Przyczółek Grochowski'],
+    serviceScopeText: 'Nie musisz szukać sklepów na Zamienieckiej – przywieziemy dobrany akumulator i zamontujemy go pod Twoim blokiem lub na trasie.'
+  },
+  {
+    slug: 'bielany',
+    name: 'Bielany',
+    isSuburbs: false,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Bielany 24/7 | Wymiana Akumulatora z Dojazdem',
+    metaDescription: 'Pomoc z akumulatorem Warszawa Bielany: Chomiczówka, Wrzeciono, Młociny, Słodowiec. Sprawdzenie prądu i nowy akumulator u klienta. Zadzwoń: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Warszawa Bielany 24h',
+    h2: 'Mobilny montaż akumulatora z dojazdem na Bielanach',
+    popularAreas: ['Chomiczówka', 'Wrzeciono', 'Młociny', 'Wawrzyszew', 'Słodowiec', 'Stare Bielany'],
+    serviceScopeText: 'Całodobowy dojazd do kierowców na terenie całych Bielan. Zabieramy zużyty akumulator, testujemy instalację i kodujemy nowy akumulator w systemie auta.'
+  },
+  {
+    slug: 'bemowo',
+    name: 'Bemowo',
+    isSuburbs: false,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Wymiana Akumulatora z Dojazdem Warszawa Bemowo 24h | Akumulateo',
+    metaDescription: 'Auto nie odpala na Bemowie? Jelonki, Górce, Chrzanów, Boernerowo. Dojazd z nowym akumulatorem w 20-30 min. Sprawdź cennik: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Warszawa Bemowo 24/7',
+    h2: 'Awaryjny rozruch i wymiana baterii samochodowej na Bemowie',
+    popularAreas: ['Jelonki', 'Górce', 'Chrzanów', 'Boernerowo', 'Fort Bema', 'Nowe Bemowo'],
+    serviceScopeText: 'Błyskawiczny dojazd na Bemowie pod domy jednorodzinne i nowe osiedla na Chrzanowie oraz Jelonkach.'
+  },
+  {
+    slug: 'bialoleka',
+    name: 'Białołęka',
+    isSuburbs: false,
+    etaMinutes: '25-35 min',
+    metaTitle: 'Pogotowie Akumulatorowe Białołęka 24h | Dojazd z Akumulatorem Tarchomin',
+    metaDescription: 'Pogotowie akumulatorowe Białołęka (Tarchomin, Nowodwory, Derby, Brzeziny). Rozruch auta z kabli/boostera i montaż akumulatora 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Warszawa Białołęka 24h',
+    h2: 'Wymiana akumulatora u klienta: Tarchomin, Nowodwory, Zielona Białołęka',
+    popularAreas: ['Tarchomin', 'Nowodwory', 'Żerań', 'Dąbrówka Szlachecka', 'Brzeziny', 'Grodzisk / Derby'],
+    serviceScopeText: 'Dojazd na całą Białołękę. Wymiana akumulatora bez stania w korkach – technik przyjeżdża z właściwym akumulatorem pod Twoje drzwi.'
+  },
+  {
+    slug: 'ochota',
+    name: 'Ochota',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Wymiana Akumulatora Ochota 24h | Dojazd, Diagnostyka i Kodowanie',
+    metaDescription: 'Ochota (Szczęśliwice, Rakowiec, Stara Ochota): natychmiastowa pomoc z rozładowanym akumulatorem. Dojazd 24/7, test ładowania. Zadzwoń: 696 556 446!',
+    h1: 'Pogotowie Akumulatorowe Warszawa Ochota 24/7',
+    h2: 'Awaryjne uruchamianie auta i montaż akumulatora na Ochocie',
+    popularAreas: ['Szczęśliwice', 'Rakowiec', 'Stara Ochota', 'Filtry', 'Plac Narutowicza'],
+    serviceScopeText: 'Obsługa rejonu Szczęśliwic, Rakowca i Starej Ochoty. Dojazd w 20 minut z pełnym asortymentem akumulatorów AGM, EFB i standardowych.'
+  },
+  {
+    slug: 'targowek',
+    name: 'Targówek',
+    isSuburbs: false,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Targówek 24h | Bródno, Zacisze – Dojazd',
+    metaDescription: 'Wymiana akumulatora Targówek (Bródno, Zacisze, Targówek Mieszkaniowy/Fabryczny). Mobilny serwis z dojazdem i kodowaniem 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Warszawa Targówek 24h',
+    h2: 'Szybki dojazd do rozładowanego auta: Bródno, Zacisze, Targówek',
+    popularAreas: ['Bródno', 'Zacisze', 'Targówek Mieszkaniowy', 'Targówek Fabryczny', 'Elsnerów'],
+    serviceScopeText: 'Całodobowy dojazd na Bródno i Zacisze. Awaryjny rozruch samochodów osobowych i dostawczych.'
+  },
+  {
+    slug: 'wilanow',
+    name: 'Wilanów',
+    isSuburbs: false,
+    etaMinutes: '15-25 min',
+    metaTitle: 'Wymiana Akumulatora Miasteczko Wilanów 24h | Kodowanie AGM Akumulateo',
+    metaDescription: 'Pogotowie akumulatorowe Miasteczko Wilanów, Zawady, Powsinek. Akumulatory AGM/EFB z montażem i kodowaniem w garażach podziemnych 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Warszawa Wilanów 24/7',
+    h2: 'Montaż akumulatorów AGM/EFB i kodowanie BMS w Miasteczku Wilanów',
+    popularAreas: ['Miasteczko Wilanów', 'Zawady', 'Powsinek', 'Kępa Zawadowska', 'Wilanów Wysoki'],
+    serviceScopeText: 'Specjalizujemy się w nowoczesnych autach z systemem Start-Stop wymagających kodowania w Miasteczku Wilanów i na Zawadach. Wjazd do garaży podziemnych.'
+  },
+  {
+    slug: 'piaseczno',
+    name: 'Piaseczno',
+    isSuburbs: true,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Piaseczno 24h | Wymiana Akumulatora z Dojazdem',
+    metaDescription: 'Rozładowany akumulator w Piasecznie lub Józefosławiu? Mobilny serwis akumulatorów 24/7. Przyjedziemy i wymienimy na miejscu. Zadzwoń: 696 556 446!',
+    h1: 'Pogotowie Akumulatorowe Piaseczno i Okolice 24h',
+    h2: 'Dojazd z nowym akumulatorem: Piaseczno, Józefosław, Julianów, Lesznowola',
+    popularAreas: ['Piaseczno Centrum', 'Józefosław', 'Julianów', 'Zalesie Dolne', 'Lesznowola', 'Nowa Iwiczna'],
+    serviceScopeText: 'Obsługujemy całą gminę Piaseczno i Lesznowolę. Szybki dojazd drogą S79/Puławską o każdej porze dnia i nocy.'
+  },
+  {
+    slug: 'pruszkow',
+    name: 'Pruszków',
+    isSuburbs: true,
+    etaMinutes: '25-35 min',
+    metaTitle: 'Wymiana Akumulatora z Dojazdem Pruszków 24h | Pogotowie Akumulateo',
+    metaDescription: 'Pruszków, Piastów, Michałowice: pogotowie akumulatorowe 24/7. Wymiana pod domem, awaryjne odpalanie boosterem. Zadzwoń: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Pruszków 24/7',
+    h2: 'Mobilny serwis akumulatorów w Pruszkowie i Piastowie',
+    popularAreas: ['Pruszków Centrum', 'Gąsin', 'Żbików', 'Ostoja', 'Piastów', 'Michałowice'],
+    serviceScopeText: 'Ekspresowy dojazd autostradą A2 i Alejami Jerozolimskimi do Pruszkowa i Piastowa z nowym akumulatorem.'
+  },
+  {
+    slug: 'marki',
+    name: 'Marki i Ząbki',
+    isSuburbs: true,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Marki, Ząbki 24h | Dojazd z Akumulatorem',
+    metaDescription: 'Padł akumulator w Markach lub Ząbkach? Mobilna wymiana z montażem na miejscu 24/7. Dojazd w 20-30 min. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Marki i Ząbki 24h',
+    h2: 'Awaryjny rozruch i wymiana akumulatora u klienta w Markach',
+    popularAreas: ['Marki Pustelnik', 'Marki Struga', 'Ząbki Centrum', 'Drewnica'],
+    serviceScopeText: 'Dojazd trasą S8 i Radzymińską do Marek i Ząbek. Wymiana na miejscu bez potrzeby holowania auta do warsztatu.'
+  }
+];
+
+export class DistrictSeoHelper {
+  public static getAllDistricts(): DistrictSeoData[] {
+    return WARSAW_DISTRICTS;
+  }
+
+  public static getBySlug(slug: string): DistrictSeoData | undefined {
+    return WARSAW_DISTRICTS.find(d => d.slug.toLowerCase() === slug.toLowerCase());
+  }
+
+  /**
+   * Generuje ustrukturyzowane dane Schema.org (JSON-LD) dla danej dzielnicy
+   */
+  public static generateSchemaOrgJsonLd(district: DistrictSeoData): string {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "EmergencyService",
+      "name": `Akumulateo – Pogotowie Akumulatorowe Warszawa ${district.name}`,
+      "image": "https://www.akumulateo.pl/static/logo.png",
+      "url": `https://www.akumulateo.pl/obszar-dzialania/${district.slug}`,
+      "telephone": "+48696556446",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": `Warszawa ${district.name}`
+      },
+      "description": district.metaDescription
+    };
+
+    return JSON.stringify(schema, null, 2);
+  }
+}

@@ -1,0 +1,41 @@
+# Zmienne środowiskowe i klucze API (bezwzględnie chronione)
+.env
+.env.*
+!.env.example
+
+# Zależności
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+vendor/
+
+# Środowisko Python (jeśli wykorzystywane do skryptów analitycznych)
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Pliki kompilacji i budowania
+dist/
+build/
+out/
+.next/
+.cache/
+coverage/
+
+# Pliki systemowe i edytory
+.DS_Store
+Thumbs.db
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logi i pliki tymczasowe
+*.log
+logs/
+temp/
+tmp/
+scratch/
