@@ -9,14 +9,38 @@
    AKUMULATEO – HOMEPAGE ISOLATION & DESIGN SYSTEM (SQUARESPACE 7.1)
    ======================================================== */
 
-/* 1. Ukrycie szablonu Squarespace na stronie głównej */
+/* 1. Ukrycie szablonu Squarespace na stronie głównej i eliminacja pustego pola */
+body.homepage {
+  background-color: #020617 !important;
+}
+
+body.homepage #siteWrapper {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 body.homepage #header,
 body.homepage footer.sections,
 body.homepage #footer-sections,
 body.homepage #page-regions > section.region > section[data-test="page-section"],
+body.homepage #page-regions section.page-section,
 body.homepage #sections > section {
   display: none !important;
 }
+
+/* Dyskretna stylizacja przycisku zarządzania ciasteczkami */
+.manage-cookies-bar,
+.cookie-banner-manager,
+.cookie-banner-manager button,
+button.manage-cookies-bar {
+  background-color: #0f172a !important;
+  color: #94a3b8 !important;
+  border: 1px solid #1e293b !important;
+  font-size: 11px !important;
+}
+
 
 /* 2. Pełna szerokość i eliminacja marginesów Squarespace */
 body.homepage #page,

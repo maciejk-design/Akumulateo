@@ -203,3 +203,31 @@ a[href^="tel:"] {
   touch-action: manipulation !important;
   cursor: pointer !important;
 }
+
+/* 13. Eliminacja pustego pola na dole strony głównej Squarespace */
+body.homepage {
+  background-color: #020617 !important;
+}
+
+body.homepage #siteWrapper {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body.homepage #page-regions section.page-section {
+  display: none !important;
+}
+
+/* 14. Dyskretna stylizacja przycisku ciasteczek (Ah te ciasteczka...) */
+.manage-cookies-bar,
+.cookie-banner-manager,
+.cookie-banner-manager button,
+button.manage-cookies-bar {
+  background-color: #0f172a !important;
+  color: #94a3b8 !important;
+  border: 1px solid #1e293b !important;
+  font-size: 11px !important;
+}
+
