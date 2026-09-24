@@ -6,7 +6,8 @@
      1. Preconnect do CDN + High-Priority LCP Image Preload
      2. Font Display Swap (Space Grotesk & Raleway - zero CLS)
      3. Google Consent Mode v2 + FastTony Bridge (100% DMA / RODO compliance)
-     4. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★)
+     4. Google Tag (gtag.js) - Google Analytics 4 (G-2KXNL0LQWG) & Google Ads (AW-16941768870)
+     5. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★)
      ======================================================== -->
 
 <!-- 1. Preconnect & LCP Image Preload -->
@@ -99,6 +100,16 @@ function consentCommand() {
 })();
 </script>
 <!-- /Akumulateo: Google Consent Mode v2 + FastTony Bridge -->
+
+<!-- 4. Google Tag (gtag.js) - Google Analytics 4 & Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2KXNL0LQWG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2KXNL0LQWG');
+  gtag('config', 'AW-16941768870');
+</script>
 
 <meta name="google-site-verification" content="8OwML77jaX0fEJRcrK-6dVdvgRRYFvMMemjwvMBqW3s" />
 
