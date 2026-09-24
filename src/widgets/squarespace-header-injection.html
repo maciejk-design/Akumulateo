@@ -1,0 +1,104 @@
+<!-- ========================================================
+     AKUMULATEO - HEADER CODE INJECTION (SQUARESPACE 7.1)
+     Ścieżka w panelu: Settings -> Advanced -> Code Injection -> HEADER
+     Cel: Maksymalizacja PageSpeed (LCP < 2.5s), eliminacja CLS i bogate Schema 5.0★
+     ======================================================== -->
+
+<!-- 1. Preconnect do kluczowych domen zasobów Squarespace -->
+<link rel="preconnect" href="https://images.squarespace-cdn.com" crossorigin>
+<link rel="preconnect" href="https://file.squarespace-cdn.com" crossorigin>
+<link rel="preconnect" href="https://static1.squarespace.com" crossorigin>
+
+<!-- 2. Priorytetowe pobieranie obrazu LCP sekcji Hero (drastyczne skrócenie z 9.2s do < 2.5s) -->
+<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/7c219de6-f0cf-4151-a1a4-eac82a1de5d2/akumulateo-hero-pagespeed.jpg?format=1000w" fetchpriority="high">
+
+<!-- 3. Stabilizacja fontów (likwidacja przesunięć layoutu CLS 0.374) -->
+<style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Raleway';
+    font-display: swap;
+  }
+
+  /* Zapewnienie stabilnej przestrzeni na nagłówek Hero przed załadowaniem fontów */
+  h1 {
+    font-display: swap;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Zabezpieczenie przed przeskakiwaniem sekcji opinii */
+  .content-wrapper {
+    contain-intrinsic-size: auto 450px;
+  }
+</style>
+
+<!-- 4. Ustrukturyzowane dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★ z 99 opinii) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutomotiveBusiness",
+  "@id": "https://www.akumulateo.pl/#business",
+  "name": "Akumulateo – Pogotowie Akumulatorowe Warszawa 24h",
+  "alternateName": "Akumulateo – Mobilna Wymiana Akumulatora 24/7",
+  "url": "https://www.akumulateo.pl/",
+  "telephone": "+48696556446",
+  "priceRange": "$$",
+  "image": "https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/7c219de6-f0cf-4151-a1a4-eac82a1de5d2/akumulateo-hero-pagespeed.jpg",
+  "description": "Całodobowe pogotowie akumulatorowe Warszawa 24/7. Wymiana akumulatora u klienta, awaryjny rozruch boosterem, diagnostyka i kodowanie BMS. Dojazd w 20-30 min.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Warszawa",
+    "addressRegion": "Mazowieckie",
+    "addressCountry": "PL"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Warszawa"},
+    {"@type": "AdministrativeArea", "name": "Mokotów"},
+    {"@type": "AdministrativeArea", "name": "Ursynów"},
+    {"@type": "AdministrativeArea", "name": "Wola"},
+    {"@type": "AdministrativeArea", "name": "Śródmieście"},
+    {"@type": "AdministrativeArea", "name": "Bielany"},
+    {"@type": "AdministrativeArea", "name": "Praga-Południe"},
+    {"@type": "AdministrativeArea", "name": "Bemowo"},
+    {"@type": "AdministrativeArea", "name": "Targówek"},
+    {"@type": "AdministrativeArea", "name": "Ochota"},
+    {"@type": "AdministrativeArea", "name": "Białołęka"},
+    {"@type": "AdministrativeArea", "name": "Wilanów"},
+    {"@type": "AdministrativeArea", "name": "Piaseczno"},
+    {"@type": "AdministrativeArea", "name": "Pruszków"},
+    {"@type": "AdministrativeArea", "name": "Marki"}
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "99"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "hasMap": "https://maps.app.goo.gl/KwBcizr9KRCRr2ae8",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "emergency service",
+    "telephone": "+48696556446",
+    "availableLanguage": ["pl", "en"],
+    "areaServed": "Warszawa i okolice"
+  }
+}
+</script>

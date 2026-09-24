@@ -7,6 +7,8 @@ bez instalowania dodatkowych pakietów npm.
 
 import sys
 import json
+import os
+import ssl
 import urllib.request
 import urllib.parse
 import argparse
@@ -14,17 +16,39 @@ from typing import Dict, Any
 
 DEFAULT_TARGET_URL = "https://www.akumulateo.pl/"
 
-def run_pagespeed_audit(url: str, strategy: str = "mobile", api_key: str = None) -> Dict[str, Any]:
-    endpoint = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
-    params = {
-        "url": url,
-        "strategy": strategy,
-        "category": ["performance", "seo"]
-    }
-    if api_key:
-        params["key"] = api_key
+def load_env_pagespeed_key() -> str:
+    """Odczytuje klucz GOOGLE_PAGESPEED_API_KEY z pliku .env w projekcie."""
+    env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
+    if not os.path.exists(env_path):
+        return ""
+    try:
+        with open(env_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and 'GOOGLE_PAGESPEED_API_KEY=' in line:
+                    val = line.split('=', 1)[1].strip()
+                    return val.strip('"\'')
+    except Exception:
+        pass
+    return ""
 
-    query_str = urllib.parse.urlencode(params, doseq=True)
+def run_pagespeed_audit(url: str, strategy: str = "mobile", api_key: str = None) -> Dict[str, Any]:
+    if not api_key:
+        api_key = load_env_pagespeed_key() or os.environ.get("GOOGLE_PAGESPEED_API_KEY")
+
+    endpoint = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+    params = [
+        ("url", url),
+        ("strategy", strategy),
+        ("category", "performance"),
+        ("category", "seo"),
+        ("category", "accessibility"),
+        ("category", "best-practices")
+    ]
+    if api_key:
+        params.append(("key", api_key))
+
+    query_str = urllib.parse.urlencode(params)
     full_url = f"{endpoint}?{query_str}"
 
     req = urllib.request.Request(
@@ -32,10 +56,15 @@ def run_pagespeed_audit(url: str, strategy: str = "mobile", api_key: str = None)
         headers={"User-Agent": "Akumulateo-PageSpeed-CLI/1.0"}
     )
 
+    # SSL context with graceful fallback for macOS environments
+    ctx = ssl.create_default_context()
     try:
-        with urllib.request.urlopen(req, timeout=45) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            return data
+        with urllib.request.urlopen(req, context=ctx, timeout=60) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except ssl.SSLCertVerificationError:
+        ctx_unverified = ssl._create_unverified_context()
+        with urllib.request.urlopen(req, context=ctx_unverified, timeout=60) as resp:
+            return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
         print(f"❌ Błąd HTTP API [{e.code}]: {e.reason}", file=sys.stderr)
         err_body = e.read().decode("utf-8", errors="ignore")
@@ -56,6 +85,12 @@ def print_audit_report(url: str, strategy: str, data: Dict[str, Any]):
     seo_score_raw = categories.get("seo", {}).get("score")
     seo_score = round(seo_score_raw * 100) if seo_score_raw is not None else None
 
+    a11y_score_raw = categories.get("accessibility", {}).get("score")
+    a11y_score = round(a11y_score_raw * 100) if a11y_score_raw is not None else None
+
+    bp_score_raw = categories.get("best-practices", {}).get("score")
+    bp_score = round(bp_score_raw * 100) if bp_score_raw is not None else None
+
     lcp_ms = round(audits.get("largest-contentful-paint", {}).get("numericValue", 0))
     fcp_ms = round(audits.get("first-contentful-paint", {}).get("numericValue", 0))
     cls = round(audits.get("cumulative-layout-shift", {}).get("numericValue", 0), 3)
@@ -69,6 +104,10 @@ def print_audit_report(url: str, strategy: str, data: Dict[str, Any]):
     print(f" Wynik Performance:{perf_score:>4} / 100")
     if seo_score is not None:
         print(f" Wynik SEO:        {seo_score:>4} / 100")
+    if a11y_score is not None:
+        print(f" Dostępność (A11y):{a11y_score:>4} / 100")
+    if bp_score is not None:
+        print(f" Dobre Praktyki:   {bp_score:>4} / 100")
     print("-" * 65)
     print(" METRYKI CORE WEB VITALS:")
     print(f" • LCP (Czas głównej treści / telefonu):  {lcp_ms:>5} ms  (Cel: <= 2500 ms)")
@@ -76,6 +115,19 @@ def print_audit_report(url: str, strategy: str, data: Dict[str, Any]):
     print(f" • TBT (Blokowanie wątku głównego przez JS):{tbt_ms:>4} ms  (Cel: <= 200 ms)")
     print(f" • CLS (Przesunięcia elementów layoutu):   {cls:>5}     (Cel: <= 0.1)")
     print("-" * 65)
+
+    # Szukanie głównych wąskich gardeł (opportunities)
+    opps = []
+    for k, a in audits.items():
+        if a.get("details", {}).get("type") == "opportunity" and a.get("score") is not None and a.get("score") < 0.9:
+            savings = a.get("displayValue", "")
+            opps.append((a.get("title", k), savings, a.get("score", 1)))
+
+    if opps:
+        print(" GŁÓWNE MOŻLIWOŚCI PRZYSPIESZENIA (SQUARESPACE):")
+        for title, savings, _ in sorted(opps, key=lambda x: x[2])[:5]:
+            print(f" • {title}: {savings}")
+        print("-" * 65)
 
     print(" OCENA BIZNESOWA DLA POGOTOWIA AKUMULATOROWEGO:")
     if lcp_ms <= 2500 and perf_score >= 80:
@@ -98,11 +150,16 @@ def main():
     parser.add_argument("url", nargs="?", default=DEFAULT_TARGET_URL, help="URL strony do zbadania")
     parser.add_argument("--strategy", choices=["mobile", "desktop"], default="mobile", help="mobile lub desktop")
     parser.add_argument("--key", default=None, help="Opcjonalny klucz Google API")
+    parser.add_argument("--save-json", default=None, help="Ścieżka do zapisu pełnego wyniku JSON")
     args = parser.parse_args()
 
     print(f"⏳ Pobieranie audytu PageSpeed dla {args.url} [{args.strategy}]...")
     data = run_pagespeed_audit(args.url, args.strategy, args.key)
     print_audit_report(args.url, args.strategy, data)
+    if args.save_json:
+        with open(args.save_json, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"💾 Zapisano pełne dane do {args.save_json}")
 
 if __name__ == "__main__":
     main()

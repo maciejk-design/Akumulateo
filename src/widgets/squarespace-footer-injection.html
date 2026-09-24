@@ -1,0 +1,167 @@
+<!-- ========================================================
+     AKUMULATEO - FOOTER CODE INJECTION (SQUARESPACE 7.1)
+     Ścieżka w panelu: Settings -> Advanced -> Code Injection -> FOOTER
+     
+     UWAGA: Ten plik zastępuje poprzednią zawartość stopki.
+     Usunięto z niego szkodliwy skrypt 'initHomepageEnhancements()',
+     który powodował skoki układu (CLS) i dublowanie nagłówków H1.
+     ======================================================== -->
+
+<!-- 1. Style paska mobilnego Click-to-Call (widoczny tylko na mobile < 768px) -->
+<style>
+  #akumulateo-sticky-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0f172a; /* Ciemny granat slate-900 */
+    border-top: 2px solid #f59e0b; /* Akcent ostrzegawczy pomarańczowo-żółty */
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)) 14px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 9999999;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    #akumulateo-sticky-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    /* Zapewnia, że treść stopki nie zostanie zasłonięta przez pasek */
+    body {
+      padding-bottom: 74px !important;
+    }
+  }
+
+  .akumulateo-bar-info {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .akumulateo-bar-status {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #10b981; /* Zielony wskaźnik natychmiastowej gotowości */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .akumulateo-pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: akumulateo-pulse 1.8s infinite;
+  }
+
+  @keyframes akumulateo-pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+  }
+
+  .akumulateo-bar-subtext {
+    font-size: 11px;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+
+  .akumulateo-call-btn {
+    flex: 1;
+    max-width: 190px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    white-space: nowrap;
+    transition: transform 0.1s ease, filter 0.2s ease;
+  }
+
+  .akumulateo-call-btn:active {
+    transform: scale(0.97);
+  }
+
+  .akumulateo-call-btn svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+</style>
+
+<!-- 2. Struktura HTML paska Click-to-Call -->
+<div id="akumulateo-sticky-bar" role="complementary" aria-label="Szybki kontakt z pogotowiem akumulatorowym">
+  <div class="akumulateo-bar-info">
+    <div class="akumulateo-bar-status">
+      <span class="akumulateo-pulse-dot" aria-hidden="true"></span>
+      <span>Dojazd 24h/7</span>
+    </div>
+    <div class="akumulateo-bar-subtext">Warszawa w 20-30 min</div>
+  </div>
+
+  <a href="tel:+48696556446" class="akumulateo-call-btn" id="akumulateo-track-call" onclick="akumulateoTrackPhoneClick(event)">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+    </svg>
+    <span>696 556 446</span>
+  </a>
+</div>
+
+<!-- 3. Skrypt śledzenia konwersji (GA4 + Google Ads) bez opóźnień DOM -->
+<script>
+  function akumulateoTrackPhoneClick(e) {
+    try {
+      // Zdarzenie Google Analytics 4 (mierzy realne próby połączenia)
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_call_click', {
+          event_category: 'Contact',
+          event_label: '+48696556446',
+          value: 100
+        });
+
+        // Konwersja Google Ads (aktywna w Twoim tagu Google)
+        gtag('event', 'conversion', {
+          'send_to': 'AW-16941768870',
+          'event_category': 'Phone Call',
+          'event_label': 'Sticky Bar Click'
+        });
+      }
+
+      // Facebook Pixel (jeśli jest skonfigurowany)
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', { content_name: 'Sticky Call Bar 24h' });
+      }
+    } catch (err) {
+      console.warn('Błąd śledzenia kliknięcia:', err);
+    }
+  }
+</script>
