@@ -1,18 +1,21 @@
 <!-- ========================================================
      AKUMULATEO - HEADER CODE INJECTION (SQUARESPACE 7.1)
      Ścieżka w panelu: Settings -> Advanced -> Code Injection -> HEADER
-     Cel: Maksymalizacja PageSpeed (LCP < 2.5s), eliminacja CLS i bogate Schema 5.0★
+
+     Zawiera:
+     1. Preconnect do CDN + High-Priority LCP Image Preload
+     2. Font Display Swap (Space Grotesk & Raleway - zero CLS)
+     3. Google Consent Mode v2 + FastTony Bridge (100% DMA / RODO compliance)
+     4. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★)
      ======================================================== -->
 
-<!-- 1. Preconnect do kluczowych domen zasobów Squarespace -->
+<!-- 1. Preconnect & LCP Image Preload -->
 <link rel="preconnect" href="https://images.squarespace-cdn.com" crossorigin>
 <link rel="preconnect" href="https://file.squarespace-cdn.com" crossorigin>
 <link rel="preconnect" href="https://static1.squarespace.com" crossorigin>
-
-<!-- 2. Priorytetowe pobieranie obrazu LCP sekcji Hero (drastyczne skrócenie z 9.2s do < 2.5s) -->
 <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/7c219de6-f0cf-4151-a1a4-eac82a1de5d2/akumulateo-hero-pagespeed.jpg?format=1000w" fetchpriority="high">
 
-<!-- 3. Stabilizacja fontów (likwidacja przesunięć layoutu CLS 0.374) -->
+<!-- 2. Font Display Swap (Eliminacja CLS) -->
 <style>
   @font-face {
     font-family: 'Space Grotesk';
@@ -22,20 +25,89 @@
     font-family: 'Raleway';
     font-display: swap;
   }
-
-  /* Zapewnienie stabilnej przestrzeni na nagłówek Hero przed załadowaniem fontów */
-  h1 {
-    font-display: swap;
-    text-rendering: optimizeLegibility;
-  }
-
-  /* Zabezpieczenie przed przeskakiwaniem sekcji opinii */
-  .content-wrapper {
-    contain-intrinsic-size: auto 450px;
-  }
 </style>
 
-<!-- 4. Ustrukturyzowane dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★ z 99 opinii) -->
+<!-- 3. Akumulateo: Google Consent Mode v2 + FastTony / Squarespace Bridge -->
+<script>
+// Inicjalizacja standardowych warstw danych dla Google i FastTony
+window.dataLayer = window.dataLayer || [];
+function gtag() { window.dataLayer.push(arguments); }
+window.gtag = gtag;
+
+window.forsantLayer = window.forsantLayer || [];
+function consentCommand() {
+  window.forsantLayer.push(arguments);
+  window.dataLayer.push(arguments);
+}
+
+(function () {
+  'use strict';
+  if (window.akumulateoConsentBridge) return;
+  window.akumulateoConsentBridge = { version: '2.0.0' };
+
+  function allowed(name) {
+    return document.cookie.split(';').some(function (part) {
+      return part.trim() === name + '=true';
+    });
+  }
+
+  function readConsent() {
+    var marketing = allowed('ss_marketingCookiesAllowed') ? 'granted' : 'denied';
+    var performance = allowed('ss_performanceCookiesAllowed') ? 'granted' : 'denied';
+    return {
+      ad_storage: marketing,
+      analytics_storage: performance,
+      ad_user_data: marketing,
+      ad_personalization: marketing
+    };
+  }
+
+  // 1. Google Consent Mode v2 - Wartości domyślne przed załadowaniem jakichkolwiek tagów
+  consentCommand('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+
+  var previous;
+  function sync() {
+    var state = readConsent();
+    var serialized = JSON.stringify(state);
+    if (serialized === previous) return;
+    try { localStorage.setItem('consent', serialized); } catch (e) {}
+    consentCommand('consent', 'update', state);
+    previous = serialized;
+  }
+
+  // 2. Weryfikacja stanu zgód z ciasteczek lub localStorage
+  sync();
+
+  // 3. Nasłuchiwanie zmian zgody na banerze ciasteczek Squarespace
+  if (window.cookieStore && window.cookieStore.addEventListener) {
+    window.cookieStore.addEventListener('change', sync);
+  }
+  document.addEventListener('click', function () { setTimeout(sync, 50); }, true);
+  document.addEventListener('change', function () { setTimeout(sync, 50); }, true);
+  window.addEventListener('pageshow', sync);
+  window.addEventListener('focus', sync);
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) sync();
+  });
+  setInterval(function () { if (!document.hidden) sync(); }, 1000);
+})();
+</script>
+<!-- /Akumulateo: Google Consent Mode v2 + FastTony Bridge -->
+
+<meta name="google-site-verification" content="8OwML77jaX0fEJRcrK-6dVdvgRRYFvMMemjwvMBqW3s" />
+
+<!-- FastTony Pixel Code -->
+<script src="https://pixel.fasttony.com/1cf82dd91068403291d066c568c5b152" async defer></script>
+<meta name="google-site-verification" content="zEmwcjPWS8eGt2FNkFL4M68ydu03bWg2Cz_DAfpJ8BE" />
+<!-- End FastTony Pixel Code -->
+
+<!-- 4. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★ z 99 opinii) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,13 +153,7 @@
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
     ],
     "opens": "00:00",
     "closes": "23:59"

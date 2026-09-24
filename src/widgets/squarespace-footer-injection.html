@@ -137,26 +137,38 @@
   </a>
 </div>
 
-<!-- 3. Skrypt śledzenia konwersji (GA4 + Google Ads) -->
+<!-- 3. Skrypt śledzenia konwersji (GA4 + Google Ads + FastTony) -->
 <script>
   function akumulateoTrackPhoneClick(e) {
     try {
-      if (typeof gtag === 'function') {
-        gtag('event', 'phone_call_click', {
+      // 1. Google Analytics 4
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_call_click', {
           event_category: 'Contact',
           event_label: '+48696556446',
           value: 100
         });
 
-        gtag('event', 'conversion', {
-          'send_to': 'AW-16941768870',
+        // 2. Google Ads z oficjalną etykietą konwersji FastTony
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-16941768870/8xEACOaFl60aEKbBu44_',
           'event_category': 'Phone Call',
           'event_label': 'Sticky Bar Click'
         });
       }
 
-      if (typeof fbq === 'function') {
-        fbq('track', 'Contact', { content_name: 'Sticky Call Bar 24h' });
+      // 3. FastTony DataLayer (forsantLayer)
+      if (window.forsantLayer && Array.isArray(window.forsantLayer)) {
+        window.forsantLayer.push({
+          event: 'phoneClick',
+          phoneTarget: '+48696556446',
+          action: 'click_to_call'
+        });
+      }
+
+      // 4. Facebook Pixel (opcjonalny)
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Contact', { content_name: 'Sticky Call Bar 24h' });
       }
     } catch (err) {
       console.warn('Błąd śledzenia kliknięcia:', err);
@@ -357,113 +369,157 @@
       font-size: 22px;
     }
   }
+
+  /* Eliminacja powtórzenia tekstu o 99 opiniach bezpośrednio pod paskiem dowodu społecznego */
+  #block-6aa7872bc7c1be040db5b83c p:first-of-type {
+    display: none !important;
+  }
 </style>
 
-<!-- 5. Bezpieczny, natychmiastowy montaż na stronie głównej pod Hero (Zero Layout Shift) -->
+<!-- 5. Natychmiastowy montaż na stronie głównej oraz optymalizacje SEO i spójności podstron -->
 <script>
 (function() {
-  function mountAkumulateoConversionHub() {
+  function applyGlobalEnhancements() {
     var path = window.location.pathname;
-    if (path !== '/' && path !== '' && path !== '/home') return;
-    if (document.getElementById('akumulateo-conversion-hub-mount')) return;
 
-    var heroSection = document.querySelector('section[data-section-id="685d17bd78d1f26a9c224e9d"]');
-    if (!heroSection) return;
+    // 1. Strona Główna – Montaż Modułu Konwersji pod Hero
+    if (path === '/' || path === '' || path === '/home') {
+      if (!document.getElementById('akumulateo-conversion-hub-mount')) {
+        var heroSection = document.querySelector('section[data-section-id="685d17bd78d1f26a9c224e9d"]');
+        if (heroSection) {
+          var mount = document.createElement('div');
+          mount.id = 'akumulateo-conversion-hub-mount';
+          mount.innerHTML = 
+            '<div class="akumulateo-conversion-hub">' +
+              '<!-- 1. Ostrzeżenie: brak sklepu stacjonarnego -->' +
+              '<div class="akumulateo-mobility-banner">' +
+                '<div class="mobility-icon">⚡</div>' +
+                '<div class="mobility-text">' +
+                  '<strong>Usługa wyłącznie mobilna z dojazdem – Nie prowadzimy odbioru osobistego.</strong>' +
+                  '<span>Nasz technik przyjeżdża ze sprzętem diagnostycznym i dobranym akumulatorem bezpośrednio pod Twój samochód w Warszawie i okolicach (dojazd w 20–30 minut).</span>' +
+                '</div>' +
+              '</div>' +
 
-    var mount = document.createElement('div');
-    mount.id = 'akumulateo-conversion-hub-mount';
-    mount.innerHTML = 
-      '<div class="akumulateo-conversion-hub">' +
-        '<!-- 1. Ostrzeżenie: brak sklepu stacjonarnego -->' +
-        '<div class="akumulateo-mobility-banner">' +
-          '<div class="mobility-icon">⚡</div>' +
-          '<div class="mobility-text">' +
-            '<strong>Usługa wyłącznie mobilna z dojazdem – Nie prowadzimy odbioru osobistego.</strong>' +
-            '<span>Nasz technik przyjeżdża ze sprzętem diagnostycznym i dobranym akumulatorem bezpośrednio pod Twój samochód w Warszawie i okolicach (dojazd w 20–30 minut).</span>' +
-          '</div>' +
-        '</div>' +
+              '<!-- 2. Społeczny dowód słuszności Google 5.0★ -->' +
+              '<div class="akumulateo-proof-bar">' +
+                '<a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" class="google-badge-link" title="Zobacz opinie o Akumulateo w Google Maps">' +
+                  '<div style="font-size:22px;">⭐</div>' +
+                  '<div>' +
+                    '<div class="google-stars-display">★★★★★ <span class="google-score-text">5.0 / 5.0</span></div>' +
+                    '<div class="google-count-text">Ponad 99 zweryfikowanych opinii kierowców w Google Maps</div>' +
+                  '</div>' +
+                '</a>' +
+                '<a href="tel:+48696556446" class="dispatch-live-status" onclick="if(typeof akumulateoTrackPhoneClick===\'function\')akumulateoTrackPhoneClick(event)">' +
+                  '<span style="display:inline-block;width:8px;height:8px;background:#10b981;border-radius:50%;"></span>' +
+                  '<span>Dyżur Technika 24h/7: <strong>696 556 446</strong> (20-30 min)</span>' +
+                '</a>' +
+              '</div>' +
 
-        '<!-- 2. Społeczny dowód słuszności Google 5.0★ -->' +
-        '<div class="akumulateo-proof-bar">' +
-          '<a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" class="google-badge-link" title="Zobacz opinie o Akumulateo w Google Maps">' +
-            '<div style="font-size:22px;">⭐</div>' +
-            '<div>' +
-              '<div class="google-stars-display">★★★★★ <span class="google-score-text">5.0 / 5.0</span></div>' +
-              '<div class="google-count-text">Ponad 99 zweryfikowanych opinii kierowców w Google Maps</div>' +
-            '</div>' +
-          '</a>' +
-          '<a href="tel:+48696556446" class="dispatch-live-status" onclick="if(typeof akumulateoTrackPhoneClick===\'function\')akumulateoTrackPhoneClick(event)">' +
-            '<span style="display:inline-block;width:8px;height:8px;background:#10b981;border-radius:50%;"></span>' +
-            '<span>Dyżur Technika 24h/7: <strong>696 556 446</strong> (20-30 min)</span>' +
-          '</a>' +
-        '</div>' +
+              '<!-- 3. Transparentny cennik pogotowia -->' +
+              '<div class="akumulateo-pricing-grid">' +
+                '<div class="pricing-card">' +
+                  '<div class="pricing-title">Awaryjny Rozruch</div>' +
+                  '<div class="pricing-amount">od 100 zł</div>' +
+                  '<div class="pricing-note">Odpalenie z profesjonalnego boostera 12V/24V + szybki test ładowania alternatora.</div>' +
+                '</div>' +
+                '<div class="pricing-card">' +
+                  '<div class="pricing-title">Wymiana z Dojazdem</div>' +
+                  '<div class="pricing-amount">od 150 zł</div>' +
+                  '<div class="pricing-note">Dojazd, diagnostyka, montaż akumulatora, zabezpieczenie klem i podtrzymanie pamięci.</div>' +
+                '</div>' +
+                '<div class="pricing-card">' +
+                  '<div class="pricing-title">Nowy Akumulator</div>' +
+                  '<div class="pricing-amount">wg modelu</div>' +
+                  '<div class="pricing-note">Markowe baterie (Varta, Bosch, Centra, Banner). Dobór pod markę, silnik i Start-Stop.</div>' +
+                '</div>' +
+                '<div class="pricing-card">' +
+                  '<div class="pricing-title">Zużyty Akumulator</div>' +
+                  '<div class="pricing-amount pricing-free">GRATIS (-30 zł)</div>' +
+                  '<div class="pricing-note">Odbieramy stary akumulator do legalnego recyklingu. Brak ustawowej kaucji depozytowej.</div>' +
+                '</div>' +
+              '</div>' +
 
-        '<!-- 3. Transparentny cennik pogotowia -->' +
-        '<div class="akumulateo-pricing-grid">' +
-          '<div class="pricing-card">' +
-            '<div class="pricing-title">Awaryjny Rozruch</div>' +
-            '<div class="pricing-amount">od 100 zł</div>' +
-            '<div class="pricing-note">Odpalenie z profesjonalnego boostera 12V/24V + szybki test ładowania alternatora.</div>' +
-          '</div>' +
-          '<div class="pricing-card">' +
-            '<div class="pricing-title">Wymiana z Dojazdem</div>' +
-            '<div class="pricing-amount">od 150 zł</div>' +
-            '<div class="pricing-note">Dojazd, diagnostyka, montaż akumulatora, zabezpieczenie klem i podtrzymanie pamięci.</div>' +
-          '</div>' +
-          '<div class="pricing-card">' +
-            '<div class="pricing-title">Nowy Akumulator</div>' +
-            '<div class="pricing-amount">wg modelu</div>' +
-            '<div class="pricing-note">Markowe baterie (Varta, Bosch, Centra, Banner). Dobór pod markę, silnik i Start-Stop.</div>' +
-          '</div>' +
-          '<div class="pricing-card">' +
-            '<div class="pricing-title">Zużyty Akumulator</div>' +
-            '<div class="pricing-amount pricing-free">GRATIS (-30 zł)</div>' +
-            '<div class="pricing-note">Odbieramy stary akumulator do legalnego recyklingu. Brak ustawowej kaucji depozytowej.</div>' +
-          '</div>' +
-        '</div>' +
+              '<!-- 4. Kafle gwarancji i bezpieczeństwa -->' +
+              '<div class="akumulateo-features-grid">' +
+                '<div class="feature-card">' +
+                  '<div class="feature-icon">💳</div>' +
+                  '<div class="feature-content">' +
+                    '<h4>Karta & BLIK u kierowcy</h4>' +
+                    '<p>Każdy mobilny technik ma terminal. Płacisz wygodnie bez szukania bankomatu.</p>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="feature-card">' +
+                  '<div class="feature-icon">💻</div>' +
+                  '<div class="feature-content">' +
+                    '<h4>Kodowanie BMS / Start-Stop</h4>' +
+                    '<p>Wpisujemy nową pojemność akumulatora do komputera aut marek BMW, Audi, VW, Ford itp.</p>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="feature-card">' +
+                  '<div class="feature-icon">🛡️</div>' +
+                  '<div class="feature-content">' +
+                    '<h4>Gwarancja do 3 lat</h4>' +
+                    '<p>Wszystkie akumulatory są fabrycznie nowe, naładowane i objęte pisemną gwarancją.</p>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="feature-card">' +
+                  '<div class="feature-icon">🧾</div>' +
+                  '<div class="feature-content">' +
+                    '<h4>Faktura VAT 23%</h4>' +
+                    '<p>Wystawiamy faktury dla firm i osób prywatnych bezpośrednio po wykonaniu usługi.</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
 
-        '<!-- 4. Kafle gwarancji i bezpieczeństwa -->' +
-        '<div class="akumulateo-features-grid">' +
-          '<div class="feature-card">' +
-            '<div class="feature-icon">💳</div>' +
-            '<div class="feature-content">' +
-              '<h4>Karta & BLIK u kierowcy</h4>' +
-              '<p>Każdy mobilny technik ma terminal. Płacisz wygodnie bez szukania bankomatu.</p>' +
-            '</div>' +
-          '</div>' +
-          '<div class="feature-card">' +
-            '<div class="feature-icon">💻</div>' +
-            '<div class="feature-content">' +
-              '<h4>Kodowanie BMS / Start-Stop</h4>' +
-              '<p>Wpisujemy nową pojemność akumulatora do komputera aut marek BMW, Audi, VW, Ford itp.</p>' +
-            '</div>' +
-          '</div>' +
-          '<div class="feature-card">' +
-            '<div class="feature-icon">🛡️</div>' +
-            '<div class="feature-content">' +
-              '<h4>Gwarancja do 3 lat</h4>' +
-              '<p>Wszystkie akumulatory są fabrycznie nowe, naładowane i objęte pisemną gwarancją.</p>' +
-            '</div>' +
-          '</div>' +
-          '<div class="feature-card">' +
-            '<div class="feature-icon">🧾</div>' +
-            '<div class="feature-content">' +
-              '<h4>Faktura VAT 23%</h4>' +
-              '<p>Wystawiamy faktury dla firm i osób prywatnych bezpośrednio po wykonaniu usługi.</p>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
+          heroSection.parentNode.insertBefore(mount, heroSection.nextSibling);
+        }
+      }
+    }
 
-    heroSection.parentNode.insertBefore(mount, heroSection.nextSibling);
+    // 2. Podstrona O nas – Optymalizacja H1
+    if (path.indexOf('/about') !== -1) {
+      var h1About = document.querySelector('#block-0c2998e41d7625964455 h1');
+      if (h1About && (h1About.textContent.trim() === 'O nas:' || h1About.textContent.trim() === 'O nas')) {
+        h1About.textContent = 'Pogotowie Akumulatorowe Warszawa – O Akumulateo';
+      }
+    }
+
+    // 3. Podstrona Kontakt – Optymalizacja H1
+    if (path.indexOf('/contact') !== -1) {
+      var h1ContactA = document.querySelector('#block-1bce9e80a77a762e744f h1 a');
+      if (h1ContactA && h1ContactA.textContent.trim() === 'Zadzwoń!') {
+        h1ContactA.textContent = 'Kontakt – Całodobowe Pogotowie Akumulatorowe 24h';
+      }
+    }
+
+    // 4. Ujednolicenie przycisków CTA ("ZADZWOŃ!" -> "Zadzwoń: 696 556 446")
+    document.querySelectorAll('.sqs-block-button-element').forEach(function(btn) {
+      if (btn.innerText && btn.innerText.trim() === 'ZADZWOŃ!') {
+        btn.innerText = 'Zadzwoń: 696 556 446';
+        btn.style.fontWeight = '700';
+      }
+    });
+
+    // 5. Uzupełnienie brakujących atrybutów alt w grafikach (SEO & Dostępność A11y)
+    document.querySelectorAll('img:not([alt]), img[alt=""]').forEach(function(img) {
+      var src = img.getAttribute('data-src') || img.src || '';
+      if (src.indexOf('battery') !== -1 || src.indexOf('akumulator') !== -1) {
+        img.alt = 'Pogotowie akumulatorowe Warszawa – mobilna wymiana akumulatora z dojazdem Akumulateo';
+      } else if (src.indexOf('odpalanie') !== -1 || src.indexOf('uruchomienie') !== -1) {
+        img.alt = 'Awaryjne odpalanie auta z boostera 12V/24V Warszawa – Akumulateo 24h';
+      } else {
+        img.alt = 'Akumulateo – Pogotowie Akumulatorowe Warszawa 24h';
+      }
+    });
   }
 
   // Uruchomienie synchroniczne podczas parsowania HTML
-  mountAkumulateoConversionHub();
+  applyGlobalEnhancements();
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mountAkumulateoConversionHub);
+    document.addEventListener('DOMContentLoaded', applyGlobalEnhancements);
   }
-  window.addEventListener('mercury:load', mountAkumulateoConversionHub);
+  window.addEventListener('mercury:load', applyGlobalEnhancements);
 })();
 </script>
