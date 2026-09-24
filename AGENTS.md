@@ -89,21 +89,35 @@ W katalogu `.antigravity/agents/` zdefiniowano 4 wyspecjalizowanych podagentów 
 
 ---
 
-## 4. Specyfika platformy Squarespace (Ograniczenia architektoniczne)
+## 4. Specyfika platformy Squarespace (Ograniczenia architektoniczne & Guardrails)
 
-Środowiskiem produkcyjnym witryny Akumulateo jest **Squarespace CMS**. Wymusza to bezwzględne przestrzeganie poniższych reguł frontendowych:
+Środowiskiem produkcyjnym witryny Akumulateo jest **Squarespace CMS 7.1**. Wymusza to bezwzględne przestrzeganie poniższych reguł frontendowych:
 
 1. **Brak backendu w środowisku produkcyjnym:**
    * Na serwerze produkcyjnym nie działa Node.js, Express ani Python. Cała logika interaktywna musi być wykonywana po stronie klienta (Client-Side Vanilla JS).
-2. **Dozwolone punkty styku wdrożeniowego:**
-   * **Header Code Injection:** preconnect fontów, tagi analityczne (Google Tag, Consent Mode v2), mikrodane Schema.org JSON-LD.
-   * **Footer Code Injection:** komponenty interaktywne (Conversion Hub, Sticky Call Bar, Pricing Trust Grid, modale), nasłuchiwanie zdarzeń `phone_call_click`.
-   * **Custom CSS:** globalne reguły stylów. Wszystkie selektory MUSZĄ mieć prefiks `.akumulateo-*`, aby nie kolidować z silnikiem Squarespace.
-   * **Bloki Code (Page-level):** lokalne sekcje HTML na dedykowanych podstronach dzielnicowych.
-3. **Wydajność Core Web Vitals:**
-   * Całkowity zakaz zewnętrznych bibliotek (jQuery, Bootstrap, React).
+2. **Ścisły podział miejsc wstrzykiwania kodu (Strict Injection Separation):**
+   * **Website Tools -> Custom CSS:** TYLKO czysty CSS. Całkowity zakaz tagów `<style>`. Wszystkie selektory MUSZĄ mieć prefiks `.akumulateo-*`, aby nie kolidować z silnikiem Squarespace.
+   * **Settings -> Code Injection -> HEADER:** TYLKO tagi HTML/JS (`<link rel="preload">`, Google Tag, Consent Mode v2, mikrodane Schema.org JSON-LD). **BEZWZGLĘDNY ZAKAZ wklejania surowego CSS bez tagu `<style>`** (powoduje wyciek tekstu kodu na stronę główną!).
+   * **Settings -> Code Injection -> FOOTER:** Komponenty interaktywne na dole strony (Sticky Call Bar `#akumulateo-sticky-call-bar`), skrypt `syncCookieBannerWithStickyBar()`, nasłuchiwanie zdarzeń `phone_call_click` (GA4).
+   * **Page Settings -> Advanced -> Page Header Code Injection:** Specyficzny pakiet stylów i układu dedykowany dla konkretnej strony (np. Home).
+   * **Bloki Code (Page-level):** Lokalne sekcje HTML na dedykowanych podstronach dzielnicowych (opcja „Display Source” ZAWSZE wyłączona).
+3. **Koegzystencja z banerem GDPR Cookies Squarespace (Tryb Incognito):**
+   * Selektory `.gdpr-cookie-banner, .cookie-banner-mount-point, .sqs-cookie-banner-v2` MUSZĄ mieć `z-index: 10000005 !important`.
+   * Mobilny pasek telefoniczny (`#akumulateo-sticky-call-bar`) MUSI automatycznie ustępować miejsca banerowi (`display: none !important`), dopóki użytkownik nie zaakceptuje lub nie zamknie ciasteczek. Przyciski „Zarządzaj” i „Akceptuj wszystkie” muszą być w 100% odsłonięte i klikalne.
+4. **Żelazny standard typografii (Zero mikrofontów):**
+   * Wszystkie opisy usług, punkty procedur i akapity (`<p>`): **minimum 15.5px na mobile** i **16.5px na desktopie**, `line-height: 1.65–1.70`, kolor tekstu: `#f1f5f9` (Slate 100) na ciemnym tle.
+   * Całkowity zakaz mikroskopijnych fontów 11–12px oraz wyblakłych szarości (`#64748b`, `#94a3b8`) w tekstach ofertowych.
+5. **Górny pasek dyżuru (Top Emergency Bar) – responsywność 320px+:**
+   * Obowiązkowe użycie elastycznego flexboxa (`flex-wrap gap-x-2.5 gap-y-1`) oraz kompaktowych paddingów.
+   * Pasek nie może ulegać ucięciu na żadnym ekranie smartfona (w tym 320px i 360px).
+6. **Karta wyróżniona w Cenniku („Najczęściej Wybierana Usługa”):**
+   * Wyraziste obramowanie `border-2 border-amber-500` z amber glow.
+   * Solidna pigułka statusowa (czarny tekst na pełnym bursztynie `bg-amber-500 text-slate-950 font-black text-xs uppercase px-3.5 py-1 rounded-full`).
+   * Elastyczny układ nagłówek/cena (`flex-col sm:flex-row sm:items-center sm:justify-between`) zapobiegający ucinaniu kwot na mobile.
+7. **Wydajność Core Web Vitals:**
+   * Całkowity zakaz zewnętrznych ciężkich bibliotek (jQuery, Bootstrap, React).
    * Wszystkie skrypty muszą być hermetyzowane w IIFE `(function() { ... })();`.
-   * Sztywne wymiary dla elementów dynamicznych – zapobieganie przesunięciom layoutu (**CLS = 0.00**).
+   * Sztywne wymiary dla elementów dynamicznych i SVG – zapobieganie przesunięciom layoutu (**CLS = 0.00**).
 
 ---
 
@@ -150,4 +164,11 @@ Każdy agent i podagent bezwzględnie podlega poniższym ograniczeniom:
 4. **Zasada asortymentowa (Centra Exclusion):**
    * Pod żadnym pozorem nie oferuj akumulatorów marki Centra ani Banner. Wszelkie wzmianki zamieniaj na **Yuasa**.
 5. **Weryfikacja jakości przed commitem:**
-   * Przed zatwierdzeniem zmian w repozytorium kod musi przejść testy i analizę typów: `npm test && npm run lint`. Commity muszą być sformatowane zgodnie z **Conventional Commits** (`feat:`, `fix:`, `docs:`, `test:`).
+   * Przed zatwierdzeniem zmian w repozytorium kod musi przejść testy i analizę typów: `npm test && npm run lint` (lub kompilację Pythona/walidację plików). Commity muszą być sformatowane zgodnie z **Conventional Commits** (`feat:`, `fix:`, `docs:`, `test:`).
+6. **Weryfikacja jakościowa wdrożeń (Pre-Flight Frontend QA):**
+   * Przed zgłoszeniem zakończenia prac przy modyfikacji strony WWW lub tworzeniu podstron należy bezwzględnie przeprowadzić testy:
+     - Sprawdzenie wycieku czystego CSS (`curl -s https://www.akumulateo.pl/ | grep "GLOBAL CUSTOM CSS"` = 0).
+     - Weryfikacja działania w trybie Incognito pod kątem widoczności przycisków banera ciasteczek Squarespace (`.gdpr-cookie-banner`).
+     - Weryfikacja responsywności na szerokości 320px bez ucinania górnego paska dyżuru.
+     - Weryfikacja rozmiaru czcionki opisów usług (minimum 15.5px mobile / 16.5px desktop).
+
