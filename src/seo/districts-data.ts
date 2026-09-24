@@ -166,13 +166,25 @@ export const WARSAW_DISTRICTS: DistrictSeoData[] = [
     slug: 'pruszkow',
     name: 'Pruszków',
     isSuburbs: true,
-    etaMinutes: '25-35 min',
+    etaMinutes: '20-30 min',
     metaTitle: 'Wymiana Akumulatora z Dojazdem Pruszków 24h | Pogotowie Akumulateo',
-    metaDescription: 'Pruszków, Piastów, Michałowice: pogotowie akumulatorowe 24/7. Wymiana pod domem, awaryjne odpalanie boosterem. Zadzwoń: 696 556 446.',
+    metaDescription: 'Pruszków, Michałowice, Raszyn: pogotowie akumulatorowe 24/7. Wymiana pod domem, awaryjne odpalanie boosterem. Zadzwoń: 696 556 446.',
     h1: 'Pogotowie Akumulatorowe Pruszków 24/7',
-    h2: 'Mobilny serwis akumulatorów w Pruszkowie i Piastowie',
-    popularAreas: ['Pruszków Centrum', 'Gąsin', 'Żbików', 'Ostoja', 'Piastów', 'Michałowice'],
-    serviceScopeText: 'Ekspresowy dojazd autostradą A2 i Alejami Jerozolimskimi do Pruszkowa i Piastowa z nowym akumulatorem.'
+    h2: 'Mobilny serwis akumulatorów w Pruszkowie',
+    popularAreas: ['Pruszków Centrum', 'Gąsin', 'Żbików', 'Ostoja', 'Bąki', 'Michałowice'],
+    serviceScopeText: 'Ekspresowy dojazd autostradą A2 i Alejami Jerozolimskimi do Pruszkowa z nowym akumulatorem.'
+  },
+  {
+    slug: 'piastow',
+    name: 'Piastów',
+    isSuburbs: true,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Piastów 24h | Wymiana Akumulatora z Dojazdem',
+    metaDescription: 'Rozładowany akumulator w Piastowie? Całodobowa wymiana z dojazdem pod dom lub firmę. Diagnostyka, montaż i kodowanie BMS. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Piastów 24/7',
+    h2: 'Szybki dojazd z nowym akumulatorem na terenie Piastowa',
+    popularAreas: ['Piastów Północ', 'Piastów Południe', 'Osiedle Ogińskiego', 'Al. Tysiąclecia', 'Dworzec PKP Piastów'],
+    serviceScopeText: 'Błyskawiczny dojazd Alejami Jerozolimskimi prosto do Piastowa. Wymieniamy akumulatory pod domem, blokiem lub firmą o każdej porze.'
   },
   {
     slug: 'marki',
@@ -224,15 +236,39 @@ export const WARSAW_DISTRICTS: DistrictSeoData[] = [
   },
   {
     slug: 'grodzisk-mazowiecki',
-    name: 'Grodzisk Mazowiecki i Milanówek',
+    name: 'Grodzisk Mazowiecki',
     isSuburbs: true,
     etaMinutes: '30-45 min',
-    metaTitle: 'Wymiana Akumulatora Grodzisk Mazowiecki, Milanówek 24h | Dojazd',
-    metaDescription: 'Mobilne pogotowie akumulatorowe Grodzisk Mazowiecki, Milanówek, Brwinów. Dowóz markowego akumulatora i montaż pod domem 24/7. Tel: 696 556 446.',
-    h1: 'Pogotowie Akumulatorowe Grodzisk Mazowiecki i Milanówek 24h',
-    h2: 'Montaż akumulatora z dojazdem: Grodzisk Maz., Milanówek, Brwinów',
-    popularAreas: ['Grodzisk Mazowiecki Centrum', 'Milanówek', 'Brwinów', 'Podkowa Leśna', 'Książenice'],
-    serviceScopeText: 'Dojazd autostradą A2 do Grodziska Mazowieckiego i Milanówka. Wymiana akumulatorów w autach osobowych i dostawczych pod domem klienta.'
+    metaTitle: 'Wymiana Akumulatora Grodzisk Mazowiecki 24h | Pogotowie z Dojazdem',
+    metaDescription: 'Mobilne pogotowie akumulatorowe Grodzisk Mazowiecki. Dowóz markowego akumulatora i profesjonalny montaż pod domem 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Grodzisk Mazowiecki 24h',
+    h2: 'Montaż akumulatora z dojazdem: Grodzisk Mazowiecki i okolice',
+    popularAreas: ['Grodzisk Mazowiecki Centrum', 'Łąki', 'Piaskowa', 'Książenice', 'Chlebnia'],
+    serviceScopeText: 'Dojazd autostradą A2 lub trasą S8 do Grodziska Mazowieckiego. Wymiana akumulatorów w autach osobowych i dostawczych pod domem klienta.'
+  },
+  {
+    slug: 'brwinow',
+    name: 'Brwinów',
+    isSuburbs: true,
+    etaMinutes: '25-35 min',
+    metaTitle: 'Wymiana Akumulatora z Dojazdem Brwinów 24h | Pogotowie Akumulateo',
+    metaDescription: 'Awaria akumulatora w Brwinowie, Otrębusach lub Żółwinie? Mobilny serwis akumulatorów 24/7. Wymiana na posesji klienta. Zadzwoń: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Brwinów i Okolice 24h',
+    h2: 'Mobilny montaż akumulatora: Brwinów, Otrębusy, Żółwin, Owczarnia',
+    popularAreas: ['Brwinów Centrum', 'Otrębusy', 'Żółwin', 'Owczarnia', 'Kotowice', 'Biskupice'],
+    serviceScopeText: 'Szybki dojazd drogą 719 oraz A2 do Brwinowa i okolicznych miejscowości. Pełna diagnostyka instalacji i podtrzymanie pamięci sterowników.'
+  },
+  {
+    slug: 'milanowek',
+    name: 'Milanówek',
+    isSuburbs: true,
+    etaMinutes: '25-35 min',
+    metaTitle: 'Pogotowie Akumulatorowe Milanówek 24h | Wymiana Akumulatora z Dojazdem',
+    metaDescription: 'Samochód nie odpala w Milanówku? Całodobowy mobilny serwis akumulatorów z dojazdem. Markowe baterie Varta, Yuasa, Bosch. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Milanówek 24/7',
+    h2: 'Wymiana i awaryjny rozruch akumulatora w Milanówku i Podkowie Leśnej',
+    popularAreas: ['Milanówek Centrum', 'Grudów', 'Turczynek', 'Kazimierówka', 'Podkowa Leśna'],
+    serviceScopeText: 'Dojazd do Milanówka autostradą A2 lub trasą 719. Wjeżdżamy na prywatne posesje, montujemy akumulatory AGM i kodujemy w komputerze pojazdu.'
   },
   {
     slug: 'lomianki',
@@ -247,16 +283,28 @@ export const WARSAW_DISTRICTS: DistrictSeoData[] = [
     serviceScopeText: 'Szybki dojazd trasą DK7 (Wisłostrada) z Bielan prosto do Łomianek i Dziekanowa. Płatność kartą i BLIK u technika.'
   },
   {
-    slug: 'nowy-dwor-mazowiecki',
-    name: 'Nowy Dwór Mazowiecki i Modlin',
+    slug: 'modlin',
+    name: 'Modlin i Nowy Dwór Mazowiecki',
     isSuburbs: true,
     etaMinutes: '35-50 min',
-    metaTitle: 'Pogotowie Akumulatorowe Nowy Dwór Mazowiecki, Modlin 24h | Dojazd',
-    metaDescription: 'Padł akumulator na lotnisku Modlin lub w Nowym Dworze Mazowieckim? Całodobowa pomoc akumulatorowa, rozruch boosterem i wymiana. Tel: 696 556 446.',
-    h1: 'Pogotowie Akumulatorowe Nowy Dwór Mazowiecki i Modlin 24h',
-    h2: 'Ratunek dla rozładowanych aut: Nowy Dwór Maz., Lotnisko Modlin, Czosnów',
-    popularAreas: ['Nowy Dwór Centrum', 'Modlin Twierdza', 'Parkingi Lotnisko Modlin', 'Czosnów', 'Kazuń Nowy'],
-    serviceScopeText: 'Dojazd trasą S7 do Nowego Dworu i na parkingi długoterminowe wokół Lotniska Warszawa-Modlin. Awaryjny rozruch i wymiana akumulatora od ręki.'
+    metaTitle: 'Pogotowie Akumulatorowe Lotnisko Modlin, Nowy Dwór Maz. 24h | Rozruch i Wymiana',
+    metaDescription: 'Rozładowany akumulator na parkingu przy Lotnisku Modlin lub w Nowym Dworze Mazowieckim? Całodobowa pomoc, awaryjny rozruch boosterem i montaż nowej baterii. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Modlin i Nowy Dwór Mazowiecki 24h',
+    h2: 'Ekspresowy rozruch i wymiana na parkingach Lotniska Modlin oraz w Nowym Dworze',
+    popularAreas: ['Parkingi Lotnisko Modlin P1-P7', 'Modlin Twierdza', 'Nowy Dwór Centrum', 'Czosnów', 'Zakroczym'],
+    serviceScopeText: 'Specjalny dyżur z dojazdem trasą S7 na parkingi długoterminowe wokół Lotniska Warszawa-Modlin oraz do Nowego Dworu Mazowieckiego. Ratunek dla podróżnych powracających z lotów.'
+  },
+  {
+    slug: 'nowy-dwor-mazowiecki',
+    name: 'Nowy Dwór Mazowiecki',
+    isSuburbs: true,
+    etaMinutes: '35-50 min',
+    metaTitle: 'Pogotowie Akumulatorowe Nowy Dwór Mazowiecki 24h | Dojazd z Akumulatorem',
+    metaDescription: 'Padł akumulator w Nowym Dworze Mazowieckim? Całodobowa pomoc akumulatorowa, rozruch boosterem i wymiana. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Nowy Dwór Mazowiecki 24h',
+    h2: 'Ratunek dla rozładowanych aut w Nowym Dworze Mazowieckim i okolicach',
+    popularAreas: ['Nowy Dwór Centrum', 'Osiedle Młodych', 'Twierdza Modlin', 'Czosnów', 'Kazuń Nowy'],
+    serviceScopeText: 'Dojazd trasą S7 do Nowego Dworu Mazowieckiego. Awaryjny rozruch i wymiana akumulatora od ręki pod domem lub na parkingu.'
   },
   {
     slug: 'minsk-mazowiecki',

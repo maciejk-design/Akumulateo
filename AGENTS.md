@@ -8,7 +8,7 @@ Niniejszy dokument stanowi nadrzędną specyfikację operacyjną dla Głównego 
 
 Głównym celem systemu jest **maksymalizacja zysku netto i liczby konwertujących połączeń telefonicznych** dla firmy Akumulateo:
 * **Strona WWW:** [https://www.akumulateo.pl](https://www.akumulateo.pl)
-* **Wizytówka Google Maps (5.0★, >160 opinii):** [https://g.page/r/CXjN9llopHR_EBM/](https://g.page/r/CXjN9llopHR_EBM/)
+* **Wizytówka Google Maps (5.0★, >100 opinii):** [https://g.page/r/CXjN9llopHR_EBM/](https://g.page/r/CXjN9llopHR_EBM/)
 * **Telefon alarmowy (Click-to-Call):** `696 556 446`
 * **Obszar działania:** Warszawa (wszystkie 18 dzielnic) oraz aglomeracja (Piaseczno, Pruszków, Legionowo, Marki, Otwock itp.).
 
