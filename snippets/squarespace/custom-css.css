@@ -5,6 +5,10 @@
  * ========================================================
  */
 
+a[href^="tel:"] {
+  white-space: nowrap;
+}
+
 /* 1. Globalne zmienne stylistyczne */
 :root {
   --ak-amber-primary: #f59e0b;
@@ -66,17 +70,25 @@
 }
 
 /* 6. Przyciski Call-to-Action */
-.akumulateo-btn-call {
-  background: linear-gradient(135deg, var(--ak-amber-primary) 0%, var(--ak-amber-dark) 100%);
+.akumulateo-btn-call,
+.akumulateo-root a[href^="tel:"].bg-gradient-to-r,
+.akumulateo-root a.bg-gradient-to-r {
+  background: linear-gradient(135deg, var(--ak-amber-primary) 0%, var(--ak-amber-dark) 100%) !important;
   color: #020617 !important;
   text-decoration: none !important;
-  font-weight: 900;
+  font-weight: 900 !important;
   border-radius: 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.15s ease, filter 0.15s ease;
-  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25) !important;
+}
+
+.akumulateo-btn-call *,
+.akumulateo-root a[href^="tel:"].bg-gradient-to-r *,
+.akumulateo-root a.bg-gradient-to-r * {
+  color: #020617 !important;
 }
 
 .akumulateo-btn-call:hover {
@@ -86,3 +98,45 @@
 .akumulateo-btn-call:active {
   transform: scale(0.97);
 }
+
+/* 7. Ścisłe wymiary wektora Logo */
+.akumulateo-root .w-9,
+.akumulateo-root svg[viewBox="0 0 68 68"] {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+}
+
+/* 8. Top Emergency Bar */
+.akumulateo-root > div:first-child,
+.akumulateo-top-bar {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%) !important;
+  color: #020617 !important;
+}
+.akumulateo-root > div:first-child *,
+.akumulateo-top-bar * {
+  color: #020617 !important;
+}
+
+/* 9. Kontrast typografii w ciemnym motywie */
+.akumulateo-root p {
+  color: #cbd5e1 !important;
+}
+.akumulateo-root .text-slate-300 { color: #cbd5e1 !important; }
+.akumulateo-root .text-slate-400 { color: #94a3b8 !important; }
+.akumulateo-root .text-slate-900 { color: #0f172a !important; }
+.akumulateo-root .text-slate-950 { color: #020617 !important; }
+.akumulateo-root .text-white { color: #ffffff !important; }
+.akumulateo-root .text-amber-400 { color: #fbbf24 !important; }
+.akumulateo-root .text-amber-500 { color: #f59e0b !important; }
+.akumulateo-root .text-emerald-400 { color: #34d399 !important; }
+
+/* 10. Tła sekcji i kart */
+.akumulateo-root .bg-slate-900 { background-color: #0f172a !important; }
+.akumulateo-root .bg-slate-800 { background-color: #1e293b !important; }
+.akumulateo-root .bg-slate-950 { background-color: #020617 !important; }
+.akumulateo-root .border-slate-800 { border-color: #1e293b !important; }
+.akumulateo-root .border-slate-700 { border-color: #334155 !important; }
