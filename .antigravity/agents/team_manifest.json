@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "akumulateo_agent_team",
+  "version": "2.0.0",
+  "architecture": "Master Orchestrator + Dynamic Subagents",
+  "orchestrator": {
+    "role": "Lead Architect & Business Dispatcher",
+    "model": "gemini-3.8-flash",
+    "responsibilities": [
+      "Dekompomowanie zapytań użytkownika na mikro-zadania",
+      "Dynamiczne powoływanie podagentów według protokołu sekwencyjnego/równoległego",
+      "Przekazywanie zwięzłych kontekstów i ścieżek do plików zamiast surowych danych",
+      "Prezentacja biznesowych podsumowań i decyzji dla właściciela firmy"
+    ],
+    "contextBudgetPolicy": "Zakaz wczytywania pełnych zrzutów DOM (>500 linii) i surowych logów do głównego okna dialogowego."
+  },
+  "subagents": [
+    {
+      "id": "seo_auditor",
+      "configFile": ".antigravity/agents/seo_auditor.json",
+      "modelTier": "flash",
+      "specialization": "Inspekcja techniczna DOM, PageSpeed, błędy konsoli, weryfikacja tagów i schema w przeglądarce"
+    },
+    {
+      "id": "copy_strategist",
+      "configFile": ".antigravity/agents/copy_strategist.json",
+      "modelTier": "pro",
+      "specialization": "Strategia perswazyjna CRO, copy ratunkowe, mikrodane JSON-LD, nagłówki Google Ads, Local SEO dzielnic"
+    },
+    {
+      "id": "ppc_margin_auditor",
+      "configFile": ".antigravity/agents/ppc_margin_auditor.json",
+      "modelTier": "flash",
+      "specialization": "Kalkulacja zysku jednostkowego (próg 180 PLN), ochrona budżetu Ads, listy wykluczeń (Negative Keywords)"
+    },
+    {
+      "id": "squarespace_integrator",
+      "configFile": ".antigravity/agents/squarespace_integrator.json",
+      "modelTier": "flash",
+      "specialization": "Pakowanie i optymalizacja komponentów do Code Injection (Header/Footer) i Custom CSS w Squarespace"
+    }
+  ],
+  "pipelines": {
+    "feature_deployment": [
+      "seo_auditor (inspekcja stanu obecnego)",
+      "copy_strategist (opracowanie treści i semantyki)",
+      "squarespace_integrator (spakowanie do wstrzyknięcia)",
+      "seo_auditor (weryfikacja post-deploymentu)"
+    ],
+    "campaign_profit_optimization": [
+      "ppc_margin_auditor (analiza zapytań i rentowności zleceń)",
+      "copy_strategist (odświeżenie nagłówków RSA i landing page)",
+      "ppc_margin_auditor (aktualizacja listy wykluczeń)"
+    ],
+    "technical_health_check": [
+      "seo_auditor (audyt DOM/CWV)",
+      "squarespace_integrator (korekty wstrzykniętych skryptów)"
+    ]
+  },
+  "artifactDirectories": {
+    "auditsTechnical": "audits/technical/",
+    "auditsPpc": "audits/ppc/",
+    "contentSeo": "content/seo/",
+    "contentAds": "content/ads/",
+    "snippetsSquarespace": "snippets/squarespace/"
+  }
+}
