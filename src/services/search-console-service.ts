@@ -122,7 +122,7 @@ export class SearchConsoleService {
     );
 
     const encodedSite = encodeURIComponent(this.siteUrl);
-    const endpoint = `https://searchconsole.googleapis.com/v1/sites/${encodedSite}/searchAnalytics/query`;
+    const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodedSite}/searchAnalytics/query`;
 
     const requestBody = {
       startDate: options.startDate,
