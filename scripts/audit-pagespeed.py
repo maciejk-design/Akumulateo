@@ -153,8 +153,21 @@ def main():
     parser.add_argument("--save-json", default=None, help="Ścieżka do zapisu pełnego wyniku JSON")
     args = parser.parse_args()
 
+    key = args.key
+    if not key:
+        # Odczytaj z .env jeśli istnieje
+        env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
+        if os.path.exists(env_path):
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.startswith("GOOGLE_PAGESPEED_API_KEY="):
+                        key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                        break
+        if not key:
+            key = os.environ.get("GOOGLE_PAGESPEED_API_KEY")
+
     print(f"⏳ Pobieranie audytu PageSpeed dla {args.url} [{args.strategy}]...")
-    data = run_pagespeed_audit(args.url, args.strategy, args.key)
+    data = run_pagespeed_audit(args.url, args.strategy, key)
     print_audit_report(args.url, args.strategy, data)
     if args.save_json:
         with open(args.save_json, "w", encoding="utf-8") as f:
