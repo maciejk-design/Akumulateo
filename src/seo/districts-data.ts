@@ -185,6 +185,102 @@ export const WARSAW_DISTRICTS: DistrictSeoData[] = [
     h2: 'Awaryjny rozruch i wymiana akumulatora u klienta w Markach',
     popularAreas: ['Marki Pustelnik', 'Marki Struga', 'Ząbki Centrum', 'Drewnica'],
     serviceScopeText: 'Dojazd trasą S8 i Radzymińską do Marek i Ząbek. Wymiana na miejscu bez potrzeby holowania auta do warsztatu.'
+  },
+  {
+    slug: 'legionowo',
+    name: 'Legionowo',
+    isSuburbs: true,
+    etaMinutes: '25-35 min',
+    metaTitle: 'Pogotowie Akumulatorowe Legionowo 24h | Wymiana Akumulatora z Dojazdem',
+    metaDescription: 'Rozładowany akumulator w Legionowie lub Jabłonnie? Całodobowa wymiana z dojazdem pod dom. Diagnostyka, montaż i kodowanie BMS. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Legionowo i Jabłonna 24/7',
+    h2: 'Mobilny serwis akumulatorów u klienta w Legionowie',
+    popularAreas: ['Legionowo Centrum', 'Jabłonna', 'Piaski', 'Osiedle Sobieskiego', 'Bukowiec', 'Chotomów'],
+    serviceScopeText: 'Ekspresowy dojazd drogą DK61 z Warszawy do Legionowa i Jabłonny. Wymiana akumulatora pod domem lub firmą 24/7.'
+  },
+  {
+    slug: 'otwock',
+    name: 'Otwock i Józefów',
+    isSuburbs: true,
+    etaMinutes: '25-40 min',
+    metaTitle: 'Wymiana Akumulatora z Dojazdem Otwock, Józefów 24h | Akumulateo',
+    metaDescription: 'Awaria akumulatora w Otwocku, Józefowie lub Karczewie? Pogotowie akumulatorowe 24h z dojazdem. Nowe baterie Varta, Yuasa, Bosch. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Otwock i Józefów 24h',
+    h2: 'Całodobowa wymiana i awaryjny rozruch w powiecie otwockim',
+    popularAreas: ['Otwock Centrum', 'Józefów', 'Świdry Wielkie', 'Karczew', 'Michalin', 'Falenica'],
+    serviceScopeText: 'Dojazd Wałem Miedzeszyńskim oraz trasą S17 do Otwocka, Józefowa i Karczewa. Bezpieczny montaż i kodowanie akumulatorów AGM/EFB.'
+  },
+  {
+    slug: 'wolomin',
+    name: 'Wołomin i Kobyłka',
+    isSuburbs: true,
+    etaMinutes: '25-40 min',
+    metaTitle: 'Pogotowie Akumulatorowe Wołomin, Kobyłka 24h | Montaż pod Domem',
+    metaDescription: 'Auto nie odpala w Wołominie, Kobyłce lub Zielonce? Mobilny serwis akumulatorów 24/7. Dowóz, montaż i kodowanie na miejscu. Zadzwoń: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Wołomin i Kobyłka 24h',
+    h2: 'Szybki dojazd z nowym akumulatorem: Wołomin, Kobyłka, Zielonka',
+    popularAreas: ['Wołomin Centrum', 'Kobyłka', 'Zielonka', 'Ossów', 'Majdan', 'Duczki'],
+    serviceScopeText: 'Obsługujemy powiat wołomiński – szybki dojazd trasą S8 i drogą 634. Pełna diagnostyka alternatora i darmowy recykling starej baterii.'
+  },
+  {
+    slug: 'grodzisk-mazowiecki',
+    name: 'Grodzisk Mazowiecki i Milanówek',
+    isSuburbs: true,
+    etaMinutes: '30-45 min',
+    metaTitle: 'Wymiana Akumulatora Grodzisk Mazowiecki, Milanówek 24h | Dojazd',
+    metaDescription: 'Mobilne pogotowie akumulatorowe Grodzisk Mazowiecki, Milanówek, Brwinów. Dowóz markowego akumulatora i montaż pod domem 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Grodzisk Mazowiecki i Milanówek 24h',
+    h2: 'Montaż akumulatora z dojazdem: Grodzisk Maz., Milanówek, Brwinów',
+    popularAreas: ['Grodzisk Mazowiecki Centrum', 'Milanówek', 'Brwinów', 'Podkowa Leśna', 'Książenice'],
+    serviceScopeText: 'Dojazd autostradą A2 do Grodziska Mazowieckiego i Milanówka. Wymiana akumulatorów w autach osobowych i dostawczych pod domem klienta.'
+  },
+  {
+    slug: 'lomianki',
+    name: 'Łomianki',
+    isSuburbs: true,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Łomianki 24h | Wymiana Akumulatora z Dojazdem',
+    metaDescription: 'Rozładowany akumulator w Łomiankach, Dziekanowie lub Kiełpinie? Pogotowie akumulatorowe 24/7. Przyjedziemy w 20-30 min. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Łomianki 24/7',
+    h2: 'Wymiana akumulatora u klienta: Łomianki, Dziekanów Leśny, Kiełpin',
+    popularAreas: ['Łomianki Centralne', 'Dziekanów Leśny', 'Dziekanów Polski', 'Kiełpin', 'Buraków', 'Dąbrowa'],
+    serviceScopeText: 'Szybki dojazd trasą DK7 (Wisłostrada) z Bielan prosto do Łomianek i Dziekanowa. Płatność kartą i BLIK u technika.'
+  },
+  {
+    slug: 'nowy-dwor-mazowiecki',
+    name: 'Nowy Dwór Mazowiecki i Modlin',
+    isSuburbs: true,
+    etaMinutes: '35-50 min',
+    metaTitle: 'Pogotowie Akumulatorowe Nowy Dwór Mazowiecki, Modlin 24h | Dojazd',
+    metaDescription: 'Padł akumulator na lotnisku Modlin lub w Nowym Dworze Mazowieckim? Całodobowa pomoc akumulatorowa, rozruch boosterem i wymiana. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Nowy Dwór Mazowiecki i Modlin 24h',
+    h2: 'Ratunek dla rozładowanych aut: Nowy Dwór Maz., Lotnisko Modlin, Czosnów',
+    popularAreas: ['Nowy Dwór Centrum', 'Modlin Twierdza', 'Parkingi Lotnisko Modlin', 'Czosnów', 'Kazuń Nowy'],
+    serviceScopeText: 'Dojazd trasą S7 do Nowego Dworu i na parkingi długoterminowe wokół Lotniska Warszawa-Modlin. Awaryjny rozruch i wymiana akumulatora od ręki.'
+  },
+  {
+    slug: 'minsk-mazowiecki',
+    name: 'Mińsk Mazowiecki',
+    isSuburbs: true,
+    etaMinutes: '35-50 min',
+    metaTitle: 'Wymiana Akumulatora Mińsk Mazowiecki 24h | Pogotowie Akumulateo',
+    metaDescription: 'Pogotowie akumulatorowe Mińsk Mazowiecki, Halinów, Sulejówek. Wymiana akumulatora pod domem z kodowaniem BMS 24/7. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Mińsk Mazowiecki 24h',
+    h2: 'Mobilny montaż akumulatora: Mińsk Mazowiecki, Halinów, Dębe Wielkie',
+    popularAreas: ['Mińsk Mazowiecki Centrum', 'Halinów', 'Sulejówek', 'Dębe Wielkie', 'Stojadła'],
+    serviceScopeText: 'Dojazd autostradą A2 do Mińska Mazowieckiego i Halinowa. Kompleksowa wymiana z podtrzymaniem pamięci OBD i gwarancją do 3 lat.'
+  },
+  {
+    slug: 'konstancin-jeziorna',
+    name: 'Konstancin-Jeziorna',
+    isSuburbs: true,
+    etaMinutes: '20-30 min',
+    metaTitle: 'Pogotowie Akumulatorowe Konstancin-Jeziorna 24h | Dojazd z Akumulatorem',
+    metaDescription: 'Konstancin-Jeziorna, Bielawa, Skolimów: mobilny serwis akumulatorów 24/7. Dojazd pod posesję, wymiana baterii AGM i kodowanie. Tel: 696 556 446.',
+    h1: 'Pogotowie Akumulatorowe Konstancin-Jeziorna 24h',
+    h2: 'Montaż akumulatora z dojazdem: Konstancin, Bielawa, Skolimów, Klarysew',
+    popularAreas: ['Konstancin Centrum', 'Skolimów', 'Bielawa', 'Klarysew', 'Chylice', 'Obory'],
+    serviceScopeText: 'Błyskawiczny dojazd od strony Wilanowa i Ursynowa do Konstancina-Jeziornej. Dojeżdżamy na posesje prywatne i do rezydencji o każdej porze.'
   }
 ];
 

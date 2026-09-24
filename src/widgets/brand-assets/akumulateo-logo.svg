@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 90" width="100%" height="100%" fill="none">
+  <!-- Akumulateo – Oficjalny Logotyp Horyzontalny (Primary Vector Logo) -->
+  <defs>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="slateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#F59E0B" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Sygnet: Akumulator z Błyskawicą 12V (Sygnet Technologiczno-Ratunkowy) -->
+  <g transform="translate(10, 10)">
+    <!-- Biegun ujemny (-) lewy -->
+    <rect x="14" y="6" width="10" height="7" rx="2" fill="#64748B" />
+    <!-- Biegun dodatni (+) prawy -->
+    <rect x="44" y="6" width="10" height="7" rx="2" fill="#EF4444" />
+    <path d="M47 3h4M49 1v4" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Korpus baterii -->
+    <rect x="6" y="12" width="56" height="52" rx="10" fill="url(#slateGrad)" stroke="#334155" stroke-width="2" />
+    
+    <!-- Paski zabezpieczające korpusu -->
+    <line x1="6" y1="26" x2="62" y2="26" stroke="#1E293B" stroke-width="2" />
+    <line x1="6" y1="50" x2="62" y2="50" stroke="#1E293B" stroke-width="2" />
+
+    <!-- Centralna błyskawica dynamiczna -->
+    <path d="M37 17L22 38h9l-5 19 19-24h-10l7-16z" fill="url(#amberGrad)" filter="url(#glow)" />
+
+    <!-- Dioda statusowa 24h -->
+    <circle cx="53" cy="56" r="3" fill="#10B981" />
+  </g>
+
+  <!-- Typografia: AKUMULATEO (Space Grotesk style) -->
+  <g transform="translate(85, 48)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Space Grotesk', 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="900" letter-spacing="1.5" fill="#0F172A">
+      AKUMULAT<tspan fill="#F59E0B">E</tspan>O
+    </text>
+  </g>
+
+  <!-- Sub-tytuł: POGOTOWIE AKUMULATOROWE 24H -->
+  <g transform="translate(87, 68)">
+    <!-- Ozdobny pasek statusu -->
+    <rect x="0" y="2" width="6" height="6" rx="3" fill="#10B981" />
+    <text x="12" y="8" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" letter-spacing="2.8" fill="#475569" text-transform="uppercase">
+      POGOTOWIE AKUMULATOROWE 24H
+    </text>
+  </g>
+</svg>

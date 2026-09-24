@@ -36,10 +36,12 @@ def calculate_service_fee(service_type: str, time_slot: str, zone: str, requires
     elif time_slot == 'WEEKEND':
         base_fee += 40
 
-    if zone == 'ZONE_2': # Dalsze dzielnice Warszawy (Białołęka, Wawer itp.)
+    if zone == 'ZONE_2': # Dalsze dzielnice Warszawy (Białołęka, Wawer, Rembertów itp.)
         base_fee += 30
-    elif zone == 'ZONE_3': # Aglomeracja (Piaseczno, Pruszków, Marki itp.)
+    elif zone == 'ZONE_3': # Bliska aglomeracja do 20 km (Piaseczno, Pruszków, Marki, Łomianki)
         base_fee += 60
+    elif zone == 'ZONE_4': # Daleka aglomeracja 20-40 km (Grodzisk Maz., Nowy Dwór Maz., Mińsk Maz., Wołomin)
+        base_fee += 110
 
     if requires_bms:
         base_fee += 60
