@@ -1,0 +1,748 @@
+<style>
+/* ========================================================
+   AKUMULATEO – HOME PAGE STYLES (SQUARESPACE 7.1)
+   ======================================================== */
+/* 1. Ukrycie starego nagłówka, starej stopki i starych sekcji szablonu */
+body.homepage #header,
+body.homepage footer.sections,
+body.homepage #footer-sections,
+body.homepage #page-regions > section.region > section[data-test="page-section"],
+body.homepage #sections > section {
+  display: none !important;
+}
+
+/* 2. Pełna szerokość i eliminacja marginesów Squarespace */
+body.homepage #page,
+body.homepage #page-regions,
+body.homepage section.region,
+body.homepage main#page {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+#akumulateo-home-wrapper {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #020617 !important;
+}
+</style>
+
+<template id="akumulateo-home-template">
+<!-- ========================================================
+     AKUMULATEO – STRONA GŁÓWNA (KOD BLOKU DLA SQUARESPACE)
+     Ścieżka w panelu: Pages -> Home -> Edit -> Add Code Block
+     
+     Uwaga: Upewnij się, że w opcjach bloku kodu opcja "Display Source" jest WYŁĄCZONA.
+     ======================================================== -->
+
+<!-- Tailwind CDN dla niezawodnego renderowania layoutu wewnątrz bloku Squarespace -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+<div class="akumulateo-root bg-slate-950 text-slate-100 font-sans antialiased rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+
+  <!-- 1. PASEK AWARYJNY DYŻURU (TOP NOTIFICATION BAR) -->
+  <div class="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 px-4 py-2 text-xs font-black tracking-wide">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span class="w-2.5 h-2.5 rounded-full bg-slate-950 akumulateo-pulse-dot flex-shrink-0"></span>
+        <span class="uppercase font-black tracking-wider">Dyżur Pogotowia 24h/7</span>
+        <span class="hidden sm:inline font-semibold text-slate-900">• Dojazd 15–25 min w Warszawie i aglomeracji</span>
+      </div>
+      <div class="flex items-center gap-3 flex-shrink-0 text-[11px] font-bold">
+        <span class="hidden md:inline-flex items-center gap-1 font-extrabold text-slate-950 bg-amber-300/90 px-2 py-0.5 rounded text-[10px]" title="We speak English – call us directly">🇬🇧 We speak English</span>
+        <a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" data-ak-cfg="googleMapsUrl" class="hover:text-slate-800 hover:underline flex items-center gap-1 transition cursor-pointer" title="Zobacz opinie Akumulateo w Google Maps">
+          <span>⭐ <span data-ak-cfg="ratingValue">5.0</span> w Google (<span data-ak-cfg="reviewsCount">100+</span> opinii) ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. PASEK NAWIGACJI (STICKY HEADER) -->
+  <header class="bg-slate-900/95 backdrop-filter backdrop-blur-md sticky top-0 z-40 border-b border-slate-800 px-4 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 group text-decoration-none">
+        <div class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-1.5 shadow-md group-hover:border-amber-500 transition">
+          <svg viewBox="0 0 68 68" class="w-full h-full" fill="none">
+            <rect x="14" y="6" width="10" height="7" rx="2" fill="#94A3B8" />
+            <rect x="44" y="6" width="10" height="7" rx="2" fill="#EF4444" />
+            <rect x="6" y="12" width="56" height="52" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2" />
+            <path d="M37 17L22 38h9l-5 19 19-24h-10l7-16z" fill="#F59E0B" />
+            <circle cx="53" cy="56" r="3" fill="#10B981" />
+          </svg>
+        </div>
+        <div class="leading-none">
+          <div class="text-lg md:text-xl font-black tracking-wider text-white">
+            AKUMULAT<span class="text-amber-500">E</span>O
+          </div>
+          <div class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mt-1 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Pogotowie 24h
+          </div>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
+        <a href="#uslugi" class="hover:text-amber-400 transition font-bold">Usługi mobilne</a>
+        <a href="#cennik" class="hover:text-amber-400 transition font-bold">Cennik</a>
+        <a href="#marki" class="hover:text-amber-400 transition font-bold">Oficjalne Marki</a>
+        <a href="#obszar" class="hover:text-amber-400 transition font-bold">Warszawa & Aglomeracja</a>
+        <a href="#opinie" class="hover:text-amber-400 transition font-bold">Opinie Google</a>
+        <a href="#faq" class="hover:text-amber-400 transition font-bold">FAQ</a>
+      </nav>
+
+      <!-- Telefon & Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="tel:+48696556446" class="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-3.5 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition transform active:scale-95 text-xs sm:text-sm">
+          <span class="text-base sm:text-lg">📞</span>
+          <span class="tracking-wide">696 556 446</span>
+        </a>
+        <button onclick="var m=document.getElementById('akMobileDrawer');if(m)m.classList.toggle('hidden');" aria-label="Menu" class="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white border border-slate-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobilny Drawer -->
+    <div id="akMobileDrawer" class="hidden pt-4 pb-3 border-t border-slate-800 mt-3 space-y-2">
+      <a href="#uslugi" onclick="document.getElementById('akMobileDrawer').classList.add('hidden')" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">⚡ Usługi mobilne</a>
+      <a href="#cennik" onclick="document.getElementById('akMobileDrawer').classList.add('hidden')" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">💰 Cennik usług</a>
+      <a href="#marki" onclick="document.getElementById('akMobileDrawer').classList.add('hidden')" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">🔋 Oficjalne marki (Varta, Yuasa, Bosch)</a>
+      <a href="#obszar" onclick="document.getElementById('akMobileDrawer').classList.add('hidden')" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">📍 Obszar działania (Warszawa & Aglomeracja do 40 km)</a>
+      <a href="#opinie" onclick="document.getElementById('akMobileDrawer').classList.add('hidden')" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">⭐ Opinie klientów (5.0 w Google Maps)</a>
+      <a href="#faq" onclick="document.getElementById('akMobileDrawer').classList.add('hidden')" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">❓ FAQ – Pytania i Odpowiedzi</a>
+      <a href="tel:+48696556446" class="block w-full text-center bg-amber-500 text-slate-950 font-black py-3.5 rounded-xl text-base shadow-xl mt-2">📞 Zadzwoń: 696 556 446 (Pomoc 24h)</a>
+      <div class="px-4 pt-2 text-center text-xs font-semibold text-slate-400 flex items-center justify-center gap-1.5">
+        <span>🇬🇧</span>
+        <span>English speaking service available 24/7</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. SEKCJA GŁÓWNA (HERO) -->
+  <section class="relative px-4 py-12 md:py-20 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-b border-slate-800 text-center">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-6">
+        <span>⚡ Pogotowie Akumulatorowe Warszawa 24h</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight mb-6">
+        Wymiana Akumulatora z Dojazdem w <span class="text-amber-400">15–25 Minut</span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+        Samochód unieruchomiony pod domem, biurem lub w ciasnym garażu podziemnym? <strong class="text-white">Nie musisz holować auta ani szukać sklepu stacjonarnego.</strong> Dojeżdżamy natychmiast z nowym, dobranym akumulatorem.
+      </p>
+
+      <!-- Przyciski akcji -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-3.5 mb-8">
+        <a href="tel:+48696556446" class="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-lg sm:text-xl px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/25 transition transform active:scale-95">
+          <span class="text-2xl">📞</span>
+          <span>Zadzwoń: 696 556 446</span>
+        </a>
+        <a href="#cennik" class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm px-6 py-4 rounded-2xl transition">
+          <span>💰 Zobacz Cennik</span>
+        </a>
+      </div>
+
+      <!-- Pasek zaufania (2x2 na mobile, 4 kolumny od md) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 pt-6 border-t border-slate-800 text-xs font-bold text-slate-300">
+        <a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" data-ak-cfg="googleMapsUrl" class="bg-slate-800/50 hover:bg-slate-800 p-3 rounded-xl border border-slate-700/60 hover:border-amber-500/50 flex flex-col items-center justify-center text-center transition group cursor-pointer" title="Otwórz opinie w Google Maps">
+          <span class="text-amber-400 text-base mb-0.5 group-hover:scale-105 transition font-black">⭐ <span data-ak-cfg="ratingValue">5.0</span> / 5.0</span>
+          <span class="text-[11px] text-slate-300 group-hover:text-amber-400 font-bold flex items-center justify-center gap-1 whitespace-nowrap"><span data-ak-cfg="reviewsCount">100+</span> opinii w Google ↗</span>
+        </a>
+        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center text-center">
+          <span class="text-emerald-400 text-base mb-0.5 font-black">⏱️ 15–25 min</span>
+          <span class="text-[11px] text-slate-300 font-bold whitespace-nowrap">Średni czas dojazdu</span>
+        </div>
+        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center text-center">
+          <span class="text-blue-400 text-base mb-0.5 font-black">💳 Na miejscu</span>
+          <span class="text-[11px] text-slate-300 font-bold whitespace-nowrap">Karta, BLIK, FV 23%</span>
+        </div>
+        <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/60 flex flex-col items-center justify-center text-center">
+          <span class="text-amber-400 text-base mb-0.5 font-black">🛡️ Gwarancja</span>
+          <span class="text-[11px] text-slate-300 font-bold whitespace-nowrap">Do 3 lat na baterię</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. SZYBKA POMOC W 3 KROKACH -->
+  <section id="uslugi" class="px-4 py-12 md:py-16 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400">Jak działamy</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Pomoc z Akumulatorem w 3 Prostych Krokach</h2>
+        <p class="text-sm text-slate-300 mt-2">Bezpiecznie, bez lawety i bez wizyty w warsztacie stacjonarnym.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 font-black text-lg flex items-center justify-center mb-4">1</div>
+          <h3 class="text-lg font-black text-white mb-2">Telefon i dobór baterii</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Dzwonisz pod <strong class="text-amber-400">696 556 446</strong>. Podajesz markę, model auta i lokalizację. Dobieramy fabryczny akumulator i podajemy dokładną wycenę z góry.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 font-black text-lg flex items-center justify-center mb-4">2</div>
+          <h3 class="text-lg font-black text-white mb-2">Dojazd technika</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Nasz serwisant przyjeżdża na wskazany adres w <strong class="text-emerald-400">15–25 minut</strong> pod dom, biuro lub zjeżdża na poziom -2 garażu podziemnego.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 font-black text-lg flex items-center justify-center mb-4">3</div>
+          <h3 class="text-lg font-black text-white mb-2">Montaż, OBD & Kodowanie</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Wymiana z podtrzymaniem pamięci OBD, adaptacja komputerowa BMS, test alternatora, bezpłatny odbiór starej baterii i płatność kartą/BLIK.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. TRANSPARENTNY CENNIK -->
+  <section id="cennik" class="px-4 py-12 md:py-16 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400">Jasne reguły</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Transparentny Cennik Pogotowia</h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Koszt całej usługi znasz przez telefon przed wyjazdem serwisu. Zero ukrytych opłat za dojazd.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-slate-700 transition">
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h3 class="text-base sm:text-lg font-black text-white">1. Awaryjny Rozruch Auta (Booster 12V/24V)</h3>
+            <span class="text-xl font-black text-amber-400 whitespace-nowrap">od 150 zł</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Dojazd technika, bezpieczne uruchomienie profesjonalnym boosterem mikroprocesorowym (12V/24V) oraz komputerowy test parametrów ładowania alternatora.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-2 border-amber-500/70 rounded-2xl p-5 shadow-xl relative">
+          <div class="inline-block bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full mb-2">
+            ⭐ Najczęściej Wybierana Usługa
+          </div>
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h3 class="text-base sm:text-lg font-black text-white">2. Kompleksowa Wymiana Akumulatora z Dojazdem</h3>
+            <span class="text-xl font-black text-amber-400 whitespace-nowrap">od 150 zł</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+            Dojazd serwisu pod wskazany adres, demontaż starego akumulatora, profesjonalny montaż z podtrzymaniem zasilania przez OBD, programowanie/kodowanie BMS oraz bezpłatny odbiór starego akumulatora do recyklingu.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[11px] font-bold text-slate-300">
+            <span class="bg-slate-800 px-2.5 py-1 rounded-md">✓ Podtrzymanie OBD</span>
+            <span class="bg-slate-800 px-2.5 py-1 rounded-md">✓ Kodowanie BMS</span>
+            <span class="bg-slate-800 px-2.5 py-1 rounded-md">✓ Test alternatora</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-slate-700 transition">
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h3 class="text-base sm:text-lg font-black text-white">3. Nowy Fabryczny Akumulator</h3>
+            <span class="text-xl font-black text-amber-400 whitespace-nowrap">wg modelu</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Oferujemy wyłącznie fabrycznie nowe, w 100% naładowane akumulatory z oficjalnej dystrybucji z gwarancją producenta do 3 lat (Varta, Yuasa, Bosch, 4Max, Eco-Force).
+          </p>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-slate-700 transition">
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <h3 class="text-base sm:text-lg font-black text-white">4. Odbiór Starego Akumulatora (Złom)</h3>
+            <span class="text-xl font-black text-emerald-400 whitespace-nowrap">GRATIS (-30 zł)</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Zgodnie z ustawą odbieramy stary akumulator do ekologicznego recyklingu BDO, zwalniając Cię z ustawowej kaucji 30 zł.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Gwarancja 100% Przejrzystości Cenowej -->
+      <div class="mt-6 p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-start gap-3.5">
+        <span class="text-2xl flex-shrink-0">🤝</span>
+        <div>
+          <h4 class="text-sm font-black text-white mb-1">Gwarancja 100% Przejrzystości Cenowej</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Zawsze podajemy dokładną, pełną wycenę z góry podczas rozmowy telefonicznej, zanim technik wyruszy w trasę. Płacisz wyłącznie ustaloną kwotę – bez ukrytych dopłat za dojazd na osiedle czy do garażu podziemnego, bez opłat za komputerowy test ładowania alternatora i z bezpłatnym odbiorem starego akumulatora.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. OFICJALNE MARKI I OBSŁUGIWANE MODELE AUT -->
+  <section id="marki" class="px-4 py-12 md:py-16 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-slate-400">Gwarancja Niezawodności</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Oficjalne Marki w Flocie Akumulateo</h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Montujemy wyłącznie oryginalne akumulatory z bieżących dostaw fabrycznych. Żadnych leżaków magazynowych.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-500/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xl font-black text-white tracking-wider">VARTA</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">Niemiecka jakość</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Fabryczne wyposażenie większości marek europejskich. Serie Black, Blue i Silver Dynamic do aut bez i z systemem Start-Stop.
+            </p>
+          </div>
+          <div class="text-[11px] text-amber-400 font-bold mt-4 pt-3 border-t border-slate-800">✓ Wysoka żywotność cykliczna</div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-500/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xl font-black text-white tracking-wider">YUASA</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Japoński lider</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Jeden z największych światowych producentów baterii. Niezrównana odporność na głębokie rozładowanie i wysoki prąd rozruchowy na mrozie.
+            </p>
+          </div>
+          <div class="text-[11px] text-emerald-400 font-bold mt-4 pt-3 border-t border-slate-800">✓ Niezawodny w niskich temperaturach</div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-500/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xl font-black text-white tracking-wider">BOSCH</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400">Technologia PowerFrame</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Opatentowana kratka w technologii PowerFrame zapewnia optymalny przepływ prądu i minimalizuje korozję płyt ołowianych.
+            </p>
+          </div>
+          <div class="text-[11px] text-amber-400 font-bold mt-4 pt-3 border-t border-slate-800">✓ Szybkie doładowywanie w mieście</div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-500/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xl font-black text-white tracking-wider">4MAX</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-400">Ekonomiczny wybór</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Bardzo dobry stosunek ceny do jakości. Sprawdzona linia akumulatorów do standardowych samochodów benzynowych i starszych diesli.
+            </p>
+          </div>
+          <div class="text-[11px] text-amber-400 font-bold mt-4 pt-3 border-t border-slate-800">✓ Korzystna cena z pełną gwarancją</div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-500/50 transition sm:col-span-2 lg:col-span-2">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xl font-black text-white tracking-wider">ECO-FORCE (AGM & EFB)</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Systemy Start-Stop</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Specjalistyczne akumulatory wyprodukowane w technologii mikrowłókien szklanych (AGM) i wzmocnionego elektrolitu (EFB). Przeznaczone do pojazdów z odzyskiwaniem energii hamowania i bogatym wyposażeniem elektrycznym.
+            </p>
+          </div>
+          <div class="text-[11px] text-emerald-400 font-bold mt-4 pt-3 border-t border-slate-800">✓ 3x większa odporność na częste cykle rozruchu</div>
+        </div>
+
+      </div>
+
+      <!-- Obsługiwane Marki Samochodów & Standard Kodowania BMS -->
+      <div class="mt-8 p-6 rounded-2xl bg-slate-900 border border-slate-800">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-800">
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-white">Obsługujemy Wszystkie Marki Samochodów</h3>
+            <p class="text-xs text-slate-400 mt-1">Precyzyjny dobór technologii baterii (AGM, EFB, Kwasowo-Ołowiowy) według specyfikacji producenta.</p>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-bold text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 whitespace-nowrap self-start md:self-auto">
+            <span>💻 Kodowanie BMS na miejscu</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs font-bold text-slate-300">
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">BMW</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Audi</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Mercedes-Benz</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Volkswagen</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Toyota</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Volvo</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Ford</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Skoda</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Kia</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Hyundai</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Renault</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Opel</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Mazda</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">Peugeot</span>
+          <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700/70">+ wszystkie pozostałe</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. OBSZAR DZIAŁANIA -->
+  <section id="obszar" class="px-4 py-12 md:py-16 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400">Zasięg Pogotowia</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Obszar Działania z Dojazdem w 15–25 Minut</h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Obsługujemy wszystkie 18 dzielnic Warszawy oraz kluczowe miasta aglomeracji (zasięg do 40 km od stolicy).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">🏙️</span>
+            <h3 class="text-lg font-black text-white">Warszawa (Wszystkie 18 Dzielnic)</h3>
+          </div>
+          <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+            Szybki dojazd na osiedla, do biurowców oraz do ciasnych parkingów podziemnych:
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[11px] text-slate-300">
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Mokotów</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Ursynów</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Wola</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Bemowo</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Śródmieście</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Białołęka</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Praga Południe</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Praga Północ</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Targówek</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Bielany</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Żoliborz</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Ochota</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Włochy</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Ursus</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Wilanów</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Wawer</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Wesoła</span>
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800">Rembertów</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">📍</span>
+            <h3 class="text-lg font-black text-white">Aglomeracja (Zasięg do 40 km)</h3>
+          </div>
+          <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+            Dojazd pod domy jednorodzinne, posesje prywatne i firmy w okolicznych powiatach:
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[11px] text-slate-300">
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Piaseczno & Józefosław</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Pruszków</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Piastów</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Brwinów</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Milanówek</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Grodzisk Mazowiecki</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Legionowo & Jabłonna</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Nowy Dwór Maz. & Modlin</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Mińsk Mazowiecki</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Marki & Ząbki</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Otwock & Józefów</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Wołomin & Kobyłka</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Łomianki</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Konstancin-Jeziorna</span>
+            <span class="bg-slate-900 px-2.5 py-1 rounded border border-slate-800">Sulejówek & Halinów</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. OPINIE KLIENTÓW -->
+  <section id="opinie" class="px-4 py-12 md:py-16 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400">Głos Kierowców</span>
+        <h2 class="text-2xl md:text-3xl font-black text-white mt-1">Ocena 5.0 ★★★★★ w Google Maps</h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Zaufało nam ponad <span data-ak-cfg="reviewsCount">100+</span> kierowców z Warszawy i aglomeracji. 100% autentyczne opinie z realnych interwencji.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-xs text-slate-300 leading-relaxed italic mb-4">
+              „Awaria akumulatora na podziemnym parkingu w biurowcu na Mokotowie. Szybki przyjazd w 20 minut, nowa Yuasa zamontowana i zakodowana komputerem od ręki. Pełen profesjonalizm.”
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-[11px]">
+            <span class="font-bold text-white">Tomasz M.</span>
+            <span class="text-slate-400">Warszawa Mokotów</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-xs text-slate-300 leading-relaxed italic mb-4">
+              „Niedziela rano, auto unieruchomione przed wyjazdem rodzinnym. Pan przyjechał do Piaseczna z nowym akumulatorem, sprawdził instalację, płatność BLIKiem u technika. Uratowana niedziela!”
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-[11px]">
+            <span class="font-bold text-white">Katarzyna P.</span>
+            <span class="text-slate-400">Piaseczno</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-xs text-slate-300 leading-relaxed italic mb-4">
+              „Bez holowania i bez straty czasu na szukanie sklepu. Komputerowy test ładowania alternatora, montaż nowej Varty i darmowy odbiór starej baterii. Polecam każdemu.”
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-[11px]">
+            <span class="font-bold text-white">Marcin W.</span>
+            <span class="text-slate-400">Warszawa Wola</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" data-ak-cfg="googleMapsUrl" class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl border border-slate-700 hover:border-amber-500/50 transition">
+          <span>⭐ Zobacz wszystkie ponad <span data-ak-cfg="reviewsCount">100+</span> opinii w profilu Google Maps ↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. FAQ AKORDEON -->
+  <section id="faq" class="px-4 py-12 md:py-16 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-3xl mx-auto">
+      
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400">Pytania i Odpowiedzi</span>
+        <h2 class="text-2xl font-black text-white mt-1">Często Zadawane Pytania</h2>
+      </div>
+
+      <div class="space-y-3">
+        
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+          <button onclick="var el=document.getElementById('akFaq1');var ic=document.getElementById('akFaq1-icon');if(el.classList.contains('hidden')){el.classList.remove('hidden');ic.innerText='−';}else{el.classList.add('hidden');ic.innerText='+';}" class="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-white text-sm focus:outline-none">
+            <span>1. Czy wjeżdżacie do ciasnych garaży podziemnych?</span>
+            <span id="akFaq1-icon" class="text-amber-400 text-lg font-black">+</span>
+          </button>
+          <div id="akFaq1" class="hidden px-5 pb-4 text-xs md:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+            Tak! Nasze mobilne załogi dysponują niskoprofilowymi pojazdami oraz profesjonalnymi, lekkimi boosterami mikroprocesorowymi. Bez trudu zjeżdżamy na poziomy -1, -2 i -3 dowolnego parkingu podziemnego.
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+          <button onclick="var el=document.getElementById('akFaq2');var ic=document.getElementById('akFaq2-icon');if(el.classList.contains('hidden')){el.classList.remove('hidden');ic.innerText='−';}else{el.classList.add('hidden');ic.innerText='+';}" class="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-white text-sm focus:outline-none">
+            <span>2. Czy po wymianie akumulatora nie zresetują się ustawienia auta?</span>
+            <span id="akFaq2-icon" class="text-amber-400 text-lg font-black">+</span>
+          </button>
+          <div id="akFaq2" class="hidden px-5 pb-4 text-xs md:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+            Wymianę przeprowadzamy ze stałym podtrzymaniem zasilania pamięci przez złącze diagnostyczne OBD. Dzięki temu radio, zegar, adaptacje szyb oraz kody sterowników pozostają nienaruszone.
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+          <button onclick="var el=document.getElementById('akFaq3');var ic=document.getElementById('akFaq3-icon');if(el.classList.contains('hidden')){el.classList.remove('hidden');ic.innerText='−';}else{el.classList.add('hidden');ic.innerText='+';}" class="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-white text-sm focus:outline-none">
+            <span>3. Czy prowadzicie sklep stacjonarny lub odbiór osobisty?</span>
+            <span id="akFaq3-icon" class="text-amber-400 text-lg font-black">+</span>
+          </button>
+          <div id="akFaq3" class="hidden px-5 pb-4 text-xs md:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+            Nie prowadzimy sklepu stacjonarnego. Działamy w 100% mobilnie z bezpośrednim dojazdem do klienta na terenie Warszawy i całej aglomeracji. Każda sprzedaż jest połączona z profesjonalną usługą diagnostyki i montażu.
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+          <button onclick="var el=document.getElementById('akFaq4');var ic=document.getElementById('akFaq4-icon');if(el.classList.contains('hidden')){el.classList.remove('hidden');ic.innerText='−';}else{el.classList.add('hidden');ic.innerText='+';}" class="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-white text-sm focus:outline-none">
+            <span>4. Co się dzieje ze starym akumulatorem (ustawowa kaucja 30 zł)?</span>
+            <span id="akFaq4-icon" class="text-amber-400 text-lg font-black">+</span>
+          </button>
+          <div id="akFaq4" class="hidden px-5 pb-4 text-xs md:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+            Zgodnie z przepisami o ochronie środowiska bezpłatnie odbieramy Twój stary akumulator do legalnego i ekologicznego recyklingu BDO. Dzięki temu jesteś całkowicie zwolniony z ustawowej opłaty depozytowej (kaucji 30 zł).
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+          <button onclick="var el=document.getElementById('akFaq5');var ic=document.getElementById('akFaq5-icon');if(el.classList.contains('hidden')){el.classList.remove('hidden');ic.innerText='−';}else{el.classList.add('hidden');ic.innerText='+';}" class="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-white text-sm focus:outline-none">
+            <span>5. Czy montowane akumulatory są fabrycznie nowe i naładowane?</span>
+            <span id="akFaq5-icon" class="text-amber-400 text-lg font-black">+</span>
+          </button>
+          <div id="akFaq5" class="hidden px-5 pb-4 text-xs md:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+            Tak! Oferujemy wyłącznie fabrycznie nowe akumulatory z bieżących partii dostaw od oficjalnych dystrybutorów (Varta, Yuasa, Bosch, 4Max). Każda bateria przed zamontowaniem jest sprawdzana cyfrowym testerem pod kątem napięcia spoczynkowego i prądu rozruchowego w Twojej obecności.
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+          <button onclick="var el=document.getElementById('akFaq6');var ic=document.getElementById('akFaq6-icon');if(el.classList.contains('hidden')){el.classList.remove('hidden');ic.innerText='−';}else{el.classList.add('hidden');ic.innerText='+';}" class="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-white text-sm focus:outline-none">
+            <span>6. Do you speak English? / Czy obsłużycie mnie po angielsku?</span>
+            <span id="akFaq6-icon" class="text-amber-400 text-lg font-black">+</span>
+          </button>
+          <div id="akFaq6" class="hidden px-5 pb-4 text-xs md:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+            Yes, we provide full mobile battery replacement and emergency jump-start assistance in English. Our technicians and dispatchers will assist you smoothly without any language barrier. Call us directly at 696 556 446.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. NOWOCZESNA STOPKA (FOOTER) -->
+  <footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-800 pt-12 pb-16 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      
+      <!-- Kolumna 1: Brand & Telefon -->
+      <div class="space-y-3">
+        <div class="text-lg font-black text-white tracking-wider">
+          AKUMULAT<span class="text-amber-500">E</span>O
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          Całodobowe mobilne pogotowie akumulatorowe Warszawa i aglomeracja. Usługa w 100% z dojazdem.
+        </p>
+        <div class="pt-2 space-y-1 text-slate-300 font-medium">
+          <div>📞 Telefon 24h: <strong class="text-amber-400 font-bold">696 556 446</strong></div>
+          <div>⭐ Ocena Google: <a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" data-ak-cfg="googleMapsUrl" class="text-white hover:text-amber-400 font-bold hover:underline inline-flex items-center gap-1 cursor-pointer" title="Zobacz opinie w Google Maps"><span data-ak-cfg="ratingValue">5.0</span> / 5.0 (<span data-ak-cfg="reviewsCount">100+</span> opinii) ↗</a></div>
+          <div>🕒 Tryb pracy: 24h na dobę / 7 dni w tygodniu</div>
+        </div>
+      </div>
+
+      <!-- Kolumna 2: Usługi -->
+      <div class="space-y-2">
+        <h4 class="text-xs font-black uppercase tracking-wider text-slate-200">Usługi Pogotowia</h4>
+        <ul class="space-y-1.5 text-slate-300">
+          <li><a href="#cennik" class="hover:text-amber-400 transition">Awaryjny rozruch 12V / 24V</a></li>
+          <li><a href="#cennik" class="hover:text-amber-400 transition">Wymiana akumulatora u klienta</a></li>
+          <li><a href="#cennik" class="hover:text-amber-400 transition">Kodowanie komputerowe BMS</a></li>
+          <li><a href="#cennik" class="hover:text-amber-400 transition">Test alternatora i prądu upływu</a></li>
+          <li><a href="#cennik" class="hover:text-amber-400 transition">Bezpłatny odbiór starego akumulatora</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolumna 3: Obszar -->
+      <div class="space-y-2">
+        <h4 class="text-xs font-black uppercase tracking-wider text-slate-200">Obszar Działania</h4>
+        <div class="text-[11px] text-slate-300 leading-relaxed space-y-1">
+          <div><strong class="text-amber-400">Warszawa:</strong> Wszystkie 18 dzielnic (Mokotów, Ursynów, Wola, Praga, Białołęka, Bielany, Śródmieście itd.)</div>
+          <div class="pt-1"><strong class="text-emerald-400">Aglomeracja:</strong> Piaseczno, Pruszków, Piastów, Brwinów, Milanówek, Grodzisk Maz., Legionowo, Modlin / Nowy Dwór Maz., Mińsk Mazowiecki, Marki, Ząbki, Otwock, Wołomin, Łomianki, Konstancin.</div>
+        </div>
+      </div>
+
+      <!-- Kolumna 4: Płatności -->
+      <div class="space-y-2">
+        <h4 class="text-xs font-black uppercase tracking-wider text-slate-200">Płatności na Miejscu</h4>
+        <p class="text-slate-400 leading-relaxed">
+          Rozliczenie bezpośrednio u technika po wykonaniu usługi i sprawdzeniu parametrów rozruchu.
+        </p>
+        <div class="flex flex-wrap gap-1.5 pt-1 text-[10px] font-bold text-slate-300">
+          <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded">💳 Karta</span>
+          <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded">📱 BLIK</span>
+          <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded">💵 Gotówka</span>
+          <span class="bg-slate-900 border border-slate-800 px-2 py-1 rounded">🧾 Faktura VAT 23%</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+      <div>© 2026 Akumulateo. Wszystkie prawa zastrzeżone. Mobilny serwis akumulatorów.</div>
+      <div class="flex items-center gap-4">
+        <span class="text-emerald-400 font-semibold">Eko Recykling BDO</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</template>
+
+<script>
+(function() {
+  function mountAkumulateoHome() {
+    if (document.getElementById('akumulateo-home-wrapper')) return;
+    
+    var tpl = document.getElementById('akumulateo-home-template');
+    if (!tpl) return;
+    
+    var parent = document.querySelector('#page-regions > section.region') || 
+                 document.querySelector('#page-regions') || 
+                 document.querySelector('main#page') || 
+                 document.body;
+    if (!parent) return;
+    
+    var wrapper = document.createElement('div');
+    wrapper.id = 'akumulateo-home-wrapper';
+    wrapper.appendChild(tpl.content.cloneNode(true));
+    
+    if (parent.firstChild) {
+      parent.insertBefore(wrapper, parent.firstChild);
+    } else {
+      parent.appendChild(wrapper);
+    }
+    
+    // Zastosuj centralną konfigurację ocen i linków do opinii Google
+    try {
+      var cfg = window.AKUMULATEO_CONFIG || {
+        reviewsCount: "100+",
+        ratingValue: "5.0",
+        googleMapsUrl: "https://g.page/r/CXjN9llopHR_EBM/"
+      };
+      var elements = wrapper.querySelectorAll('[data-ak-cfg]');
+      for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        var key = el.getAttribute('data-ak-cfg');
+        if (key === 'googleMapsUrl' && el.tagName === 'A') {
+          if (cfg.googleMapsUrl) el.href = cfg.googleMapsUrl;
+        } else if (cfg[key]) {
+          el.textContent = cfg[key];
+        }
+      }
+    } catch(e) {
+      console.warn('Config error:', e);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mountAkumulateoHome);
+  } else {
+    mountAkumulateoHome();
+  }
+})();
+</script>
