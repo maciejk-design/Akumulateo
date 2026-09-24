@@ -32,7 +32,7 @@ Akumulateo/
 ├── src/
 │   ├── core/           # Logika marżowa: margin-calculator.ts (kalkulator rentowności zlecenia)
 │   ├── seo/            # Local SEO: districts-data.ts, districts-content.ts (18 dzielnic + aglomeracja)
-│   ├── widgets/        # Komponenty WWW: sticky-call-bar.html (pasek Click-to-Call na telefonie)
+│   ├── widgets/        # Komponenty WWW: sticky-call-bar.html (pasek Click-to-Call), trust-badges.html
 │   ├── services/       # Planowane integracje: Google Ads API, FastTony, bramki SMS
 │   └── utils/          # Walidatory numerów, formatery walut i narzędzia pomocnicze
 ├── tests/              # Testy automatyczne: tests/unit/margin-calculator.test.ts (Vitest)
