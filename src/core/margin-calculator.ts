@@ -6,6 +6,17 @@
 
 export type BatteryTechnology = 'CONVENTIONAL' | 'EFB' | 'AGM' | 'GEL';
 
+export type BatteryBrand = 'VARTA' | 'YUASA' | 'BOSCH' | '4MAX' | 'BP' | 'ECO_FORCE';
+
+export const SUPPORTED_BATTERY_BRANDS: readonly BatteryBrand[] = [
+  'VARTA',
+  'YUASA',
+  'BOSCH',
+  '4MAX',
+  'BP',
+  'ECO_FORCE'
+] as const;
+
 export type TimeSlot = 'DAY_STANDARD' | 'NIGHT_24H' | 'HOLIDAY_WEEKEND';
 
 export type DistrictZone =
@@ -20,6 +31,7 @@ export type ServiceType =
 
 export interface JobQuoteInput {
   serviceType: ServiceType;
+  batteryBrand?: BatteryBrand;
   batteryTechnology?: BatteryTechnology;
   batteryCapacityAh?: number;
   batteryWholesaleCostPln?: number; // Koszt zakupu akumulatora w hurtowni (brutto)

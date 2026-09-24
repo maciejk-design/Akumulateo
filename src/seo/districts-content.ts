@@ -94,7 +94,7 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
       services: [
         {
           title: 'Kompleksowa Wymiana Akumulatora',
-          description: 'Dowozimy akumulator renomowanej marki (Varta, Bosch, Banner itp.), demontujemy stary i profesjonalnie montujemy nowy. Zabieramy zużytą baterię do legalnej utylizacji bez opłaty depozytowej.'
+          description: 'Dowozimy akumulator renomowanej marki (Varta, Yuasa, Bosch itp.), demontujemy stary i profesjonalnie montujemy nowy. Zabieramy zużytą baterię do legalnej utylizacji bez opłaty depozytowej.'
         },
         {
           title: 'Podtrzymanie Pamięci i Kodowanie BMS',

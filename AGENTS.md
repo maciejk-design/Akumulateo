@@ -20,6 +20,9 @@ Głównym celem tego projektu jest **osiąganie i maksymalizacja zysku z działa
    * Zysk ze złomu ołowianego (odbiór zużytego akumulatora od klienta).
 3. **Zasada ochrony budżetu reklamowego:**
    * Bezwzględny zakaz przepalania budżetu w Google Ads / FastTony na zapytania o sklepy stacjonarne, darmowe assistance ubezpieczeniowe (PZU, Warta), stacjonarne warsztaty czy wulkanizację.
+4. **Oferowane marki akumulatorów (Zasada asortymentowa):**
+   * **Oficjalne marki w ofercie:** **Varta, Yuasa (YUASA), Bosch, 4Max, BP, Eco-Force**.
+   * **Brak w ofercie marki Centra:** Firma **NIE oferuje i NIE posiada** akumulatorów Centra (ani Banner). Wszelkie wzmianki na stronie, w kodzie, widgetach czy kampaniach reklamowych muszą wskazywać na **Yuasa** lub pozostałe oficjalne marki.
 
 ---
 
@@ -88,4 +91,5 @@ Każdy agent AI pracujący w tym repozytorium musi przestrzegać poniższych zas
 1. **Biznesowy filtr decyzji:** Każda zmiana kodu, kampanii czy treści musi odpowiadać na pytanie: *„Czy to przyniesie realne telefony i marżę dla Akumulateo, czy spali budżet?”*.
 2. **Jasny komunikat braku sklepu stacjonarnego:** Wszelkie tworzone teksty i metadane muszą jednoznacznie komunikować usługę mobilną 24h z dojazdem, eliminując nieopłacalne zapytania o odbiór osobisty.
 3. **Ochrona poufności i kluczy API:** Bezwzględny zakaz commitowania kluczy API, tokenów (Google Ads, FastTony, GitHub, bramki SMS) oraz danych klientów. Pliki `.env*` muszą pozostać wykluczone w `.gitignore`.
-4. **Minimalne, przetestowane diffy:** Modyfikacje kodu muszą być celowe, poparte testami jednostkowymi i opisane w języku polskim.
+4. **Zgodność z ofertą marek (Zakaz marki Centra):** Nigdy nie dodawaj marki Centra ani Banner do tekstów reklamowych ani oferty. Oficjalnie oferowane akumulatory to: Varta, Yuasa, Bosch, 4Max, BP, Eco-Force.
+5. **Minimalne, przetestowane diffy:** Modyfikacje kodu muszą być celowe, poparte testami jednostkowymi i opisane w języku polskim.

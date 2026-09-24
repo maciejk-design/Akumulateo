@@ -54,7 +54,7 @@ Obecnie na stronie `akumulateo.pl` znajduje się jeden stały numer telefonu (`6
 * **Architektura:** Prosty interfejs lub CLI, w którym dyspozytor wpisuje markę, model, rok i silnik (np. `BMW 320d F30 2014`), a system podaje:
   * Wymagany typ: AGM, 80Ah, 800A CCA.
   * Czy wymagane jest kodowanie BMS: TAK (+60 PLN).
-  * Numery katalogowe w hurtowni (Varta Silver Dynamic AGM F21, Bosch S5 A11 itp.).
+  * Numery katalogowe w hurtowni (Varta Silver Dynamic AGM F21, Yuasa YBX9019, Bosch S5 A11 itp.).
   * Rekomendowaną cenę dla klienta z montażem i minimalną marżą.
 
 ---
