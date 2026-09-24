@@ -12,43 +12,49 @@ def main():
     # AppleScript to navigate to /config/pages if not already there
     nav_script = '''
     tell application "Google Chrome"
-        set w to front window
-        repeat with t in tabs of w
-            if (URL of t) contains "celery-robin-sffx.squarespace.com" then
-                set active tab index of w to (get index of t)
-                tell t
-                    if not ((URL of t) contains "config/pages") then
-                        set URL to "https://celery-robin-sffx.squarespace.com/config/pages"
-                    end if
-                end tell
-                return "On pages"
-            end if
+        repeat with w in windows
+            repeat with t in tabs of w
+                if (URL of t) contains "celery-robin-sffx.squarespace.com" then
+                    set index of w to 1
+                    set active tab index of w to (get index of t)
+                    tell t
+                        if (URL of t) is not "https://celery-robin-sffx.squarespace.com/config/pages" then
+                            set URL to "https://celery-robin-sffx.squarespace.com/config/pages"
+                        end if
+                    end tell
+                    return "On pages"
+                end if
+            end repeat
         end repeat
         return "Squarespace tab not found"
     end tell
     '''
     res = subprocess.run(['osascript', '-e', nav_script], capture_output=True, text=True)
     print("Nav result:", res.stdout.strip())
-    time.sleep(2)
+    time.sleep(4)
 
-    # Open Page Settings Home -> Advanced
+    # Open Page Settings Home -> Advanced (with retry)
     open_adv_js = '''
     (() => {
-        // If dialog already open, check if it's on advanced
         let dialog = document.querySelector('[role=dialog]');
         if (!dialog) {
             const btns = Array.from(document.querySelectorAll('button[data-test=collection-settings]'));
             const homeBtn = btns.find(b => b.getAttribute('aria-label') === 'Page settings Home');
-            if (!homeBtn) return JSON.stringify({ error: 'Home settings button not found' });
+            if (!homeBtn) return JSON.stringify({ error: 'Home settings button not found', btnCount: btns.length });
             homeBtn.click();
         }
         return JSON.stringify({ status: 'CLICKED_HOME_SETTINGS' });
     })()
     '''
-    run_js_in_sqsp(open_adv_js)
-    time.sleep(1.5)
+    for attempt in range(5):
+        open_res = run_js_in_sqsp(open_adv_js)
+        print(f"Open settings attempt {attempt+1}:", open_res)
+        if "CLICKED_HOME_SETTINGS" in open_res:
+            break
+        time.sleep(2)
+    time.sleep(2)
 
-    # Click Advanced tab
+    # Click Advanced tab (with retry)
     click_adv_js = '''
     (() => {
         const dialog = document.querySelector('[role=dialog]');
@@ -60,9 +66,13 @@ def main():
         return JSON.stringify({ status: 'CLICKED_ADVANCED' });
     })()
     '''
-    res = run_js_in_sqsp(click_adv_js)
-    print("Click advanced result:", res)
-    time.sleep(1.5)
+    for attempt in range(5):
+        adv_res = run_js_in_sqsp(click_adv_js)
+        print(f"Click advanced attempt {attempt+1}:", adv_res)
+        if "CLICKED_ADVANCED" in adv_res:
+            break
+        time.sleep(1.5)
+    time.sleep(2)
 
     # Paste into CodeMirror
     paste_js = f'''
@@ -118,13 +128,14 @@ def main():
 def run_js_in_sqsp(js_code):
     script = f'''
     tell application "Google Chrome"
-        set w to front window
-        repeat with t in tabs of w
-            if (URL of t) contains "celery-robin-sffx.squarespace.com" then
-                tell t
-                    return (execute javascript {json.dumps(js_code)})
-                end tell
-            end if
+        repeat with w in windows
+            repeat with t in tabs of w
+                if (URL of t) contains "celery-robin-sffx.squarespace.com" then
+                    tell t
+                        return (execute javascript {json.dumps(js_code)})
+                    end tell
+                end if
+            end repeat
         end repeat
         return "Not found"
     end tell

@@ -121,11 +121,23 @@ a[href^="tel:"] {
   color: #020617 !important;
 }
 
-/* 9. Kontrast typografii w ciemnym motywie */
+/* 9. Kontrast i optymalna wielkość typografii (wysoka czytelność na mobile) */
 .akumulateo-root p {
-  color: #cbd5e1 !important;
+  color: #f1f5f9 !important;
+  font-size: 15.5px !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
 }
-.akumulateo-root .text-slate-300 { color: #cbd5e1 !important; }
+@media (min-width: 640px) {
+  .akumulateo-root p {
+    font-size: 16.5px !important;
+    line-height: 1.7 !important;
+  }
+}
+
+.akumulateo-root .text-slate-100 { color: #f8fafc !important; }
+.akumulateo-root .text-slate-200 { color: #f1f5f9 !important; }
+.akumulateo-root .text-slate-300 { color: #e2e8f0 !important; }
 .akumulateo-root .text-slate-400 { color: #94a3b8 !important; }
 .akumulateo-root .text-slate-900 { color: #0f172a !important; }
 .akumulateo-root .text-slate-950 { color: #020617 !important; }
@@ -140,3 +152,54 @@ a[href^="tel:"] {
 .akumulateo-root .bg-slate-950 { background-color: #020617 !important; }
 .akumulateo-root .border-slate-800 { border-color: #1e293b !important; }
 .akumulateo-root .border-slate-700 { border-color: #334155 !important; }
+
+/* 11. Karta wyróżniona (Najczęściej Wybierana Usługa) */
+.akumulateo-root .akumulateo-featured-card {
+  border: 2px solid #f59e0b !important;
+  box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.35) !important;
+  background: linear-gradient(145deg, #090e1a 0%, #0f172a 100%) !important;
+}
+
+.akumulateo-root .akumulateo-featured-card .bg-amber-500,
+.akumulateo-root .bg-amber-500 {
+  background-color: #f59e0b !important;
+  color: #020617 !important;
+}
+
+.akumulateo-root .akumulateo-featured-card .bg-amber-500 *,
+.akumulateo-root .bg-amber-500 * {
+  color: #020617 !important;
+}
+
+.akumulateo-root .border-amber-500 {
+  border-color: #f59e0b !important;
+}
+
+/* 12. Bezpieczeństwo i pełna dostępność banera Cookie Squarespace */
+.gdpr-cookie-banner,
+.cookie-banner-mount-point,
+.sqs-cookie-banner-v2,
+.sqs-cookie-banner-v2-container,
+.sqs-cookie-banner-v2-cta-container,
+[data-cookie-banner],
+[data-cookie-banner-v2],
+.manage-cookies-bar {
+  z-index: 10000005 !important;
+}
+
+.gdpr-cookie-banner {
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+.gdpr-cookie-banner .button-group {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: 12px !important;
+}
+
+.gdpr-cookie-banner button {
+  min-height: 42px !important;
+  touch-action: manipulation !important;
+  cursor: pointer !important;
+}

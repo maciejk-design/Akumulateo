@@ -11,15 +11,19 @@ def main():
     # Navigate to custom-css
     nav_script = '''
     tell application "Google Chrome"
-        set w to front window
-        repeat with t in tabs of w
-            if (URL of t) contains "celery-robin-sffx.squarespace.com" then
-                set active tab index of w to (get index of t)
-                tell t
-                    set URL to "https://celery-robin-sffx.squarespace.com/config/pages/custom-css"
-                end tell
-                return "Navigated to custom-css"
-            end if
+        repeat with w in windows
+            repeat with t in tabs of w
+                if (URL of t) contains "celery-robin-sffx.squarespace.com" then
+                    set index of w to 1
+                    set active tab index of w to (get index of t)
+                    tell t
+                        if not ((URL of t) contains "config/pages/custom-css") then
+                            set URL to "https://celery-robin-sffx.squarespace.com/config/pages/custom-css"
+                        end if
+                    end tell
+                    return "Navigated to custom-css"
+                end if
+            end repeat
         end repeat
         return "Squarespace tab not found"
     end tell
@@ -77,13 +81,14 @@ def main():
 def run_js_in_sqsp(js_code):
     script = f'''
     tell application "Google Chrome"
-        set w to front window
-        repeat with t in tabs of w
-            if (URL of t) contains "celery-robin-sffx.squarespace.com" then
-                tell t
-                    return (execute javascript {json.dumps(js_code)})
-                end tell
-            end if
+        repeat with w in windows
+            repeat with t in tabs of w
+                if (URL of t) contains "celery-robin-sffx.squarespace.com" then
+                    tell t
+                        return (execute javascript {json.dumps(js_code)})
+                    end tell
+                end if
+            end repeat
         end repeat
         return "Not found"
     end tell

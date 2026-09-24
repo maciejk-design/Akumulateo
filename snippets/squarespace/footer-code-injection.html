@@ -102,6 +102,26 @@
     transform: scale(0.96);
     filter: brightness(0.95);
   }
+
+  /* Zapewnienie, że baner zgody na pliki cookie Squarespace jest ponad paskiem mobilnym */
+  .gdpr-cookie-banner,
+  .cookie-banner-mount-point,
+  .sqs-cookie-banner-v2,
+  .sqs-cookie-banner-v2-container,
+  [data-cookie-banner],
+  [data-cookie-banner-v2],
+  .manage-cookies-bar {
+    z-index: 10000005 !important;
+  }
+
+  @media (max-width: 768px) {
+    .gdpr-cookie-banner,
+    .sqs-cookie-banner-v2,
+    .sqs-cookie-banner-v2-container,
+    [data-cookie-banner] {
+      z-index: 10000005 !important;
+    }
+  }
 </style>
 
 <!-- 2. Pasek mobilny HTML -->
@@ -174,11 +194,38 @@
     }
   });
 
-  // 5. Inicjalizacja po załadowaniu DOM
+  // 5. Obsługa banera zgody cookies Squarespace (Incognito)
+  function syncCookieBannerWithStickyBar() {
+    var banner = document.querySelector('.gdpr-cookie-banner, .cookie-banner-mount-point, .sqs-cookie-banner-v2, [data-cookie-banner], .manage-cookies-bar');
+    var bar = document.getElementById('akumulateo-sticky-call-bar');
+    if (!bar) return;
+    
+    // Sprawdź czy baner cookie istnieje w DOM i jest renderowany
+    var isBannerActive = banner && (banner.offsetHeight > 0 || (banner.children && banner.children.length > 0)) && window.getComputedStyle(banner).display !== 'none' && window.getComputedStyle(banner).visibility !== 'hidden';
+    
+    if (isBannerActive) {
+      // Baner cookie jest aktywny – całkowicie ukryj dolny pasek telefonu, aby przyciski banera (Zarządzaj, Akceptuj wszystkie) były w 100% odsłonięte i klikalne
+      bar.style.setProperty('display', 'none', 'important');
+      document.body.style.setProperty('padding-bottom', '0px', 'important');
+    } else {
+      if (window.innerWidth <= 768) {
+        bar.style.removeProperty('display');
+        document.body.style.setProperty('padding-bottom', '74px', 'important');
+      }
+    }
+  }
+
+  // 6. Inicjalizacja po załadowaniu DOM
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyConfig);
+    document.addEventListener('DOMContentLoaded', function() {
+      applyConfig();
+      syncCookieBannerWithStickyBar();
+    });
   } else {
     applyConfig();
+    syncCookieBannerWithStickyBar();
   }
+  window.addEventListener('load', syncCookieBannerWithStickyBar);
+  setInterval(syncCookieBannerWithStickyBar, 250);
 })();
 </script>
