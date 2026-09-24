@@ -1,10 +1,12 @@
 <!-- ========================================================
      AKUMULATEO - FOOTER CODE INJECTION (SQUARESPACE 7.1)
      Ścieżka w panelu: Settings -> Advanced -> Code Injection -> FOOTER
-     
-     UWAGA: Ten plik zastępuje poprzednią zawartość stopki.
-     Usunięto z niego szkodliwy skrypt 'initHomepageEnhancements()',
-     który powodował skoki układu (CLS) i dublowanie nagłówków H1.
+
+     Zawiera:
+     1. Pasek mobilny Click-to-Call (#akumulateo-sticky-bar)
+     2. Moduł CRO: Cennik, Gwarancja, BLIK, Google 5.0★ i prekwalifikacja mobilna (.akumulateo-conversion-hub)
+     3. Analityka GA4 + Google Ads (zdarzenie phone_call_click)
+     4. Zero-CLS natychmiastowe osadzenie pod sekcją Hero na stronie głównej
      ======================================================== -->
 
 <!-- 1. Style paska mobilnego Click-to-Call (widoczny tylko na mobile < 768px) -->
@@ -18,7 +20,7 @@
     background: #0f172a; /* Ciemny granat slate-900 */
     border-top: 2px solid #f59e0b; /* Akcent ostrzegawczy pomarańczowo-żółty */
     padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)) 14px;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.45);
     z-index: 9999999;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -31,7 +33,6 @@
       justify-content: space-between;
       gap: 12px;
     }
-    /* Zapewnia, że treść stopki nie zostanie zasłonięta przez pasek */
     body {
       padding-bottom: 74px !important;
     }
@@ -49,7 +50,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #10b981; /* Zielony wskaźnik natychmiastowej gotowości */
+    color: #10b981;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -136,11 +137,10 @@
   </a>
 </div>
 
-<!-- 3. Skrypt śledzenia konwersji (GA4 + Google Ads) bez opóźnień DOM -->
+<!-- 3. Skrypt śledzenia konwersji (GA4 + Google Ads) -->
 <script>
   function akumulateoTrackPhoneClick(e) {
     try {
-      // Zdarzenie Google Analytics 4 (mierzy realne próby połączenia)
       if (typeof gtag === 'function') {
         gtag('event', 'phone_call_click', {
           event_category: 'Contact',
@@ -148,7 +148,6 @@
           value: 100
         });
 
-        // Konwersja Google Ads (aktywna w Twoim tagu Google)
         gtag('event', 'conversion', {
           'send_to': 'AW-16941768870',
           'event_category': 'Phone Call',
@@ -156,7 +155,6 @@
         });
       }
 
-      // Facebook Pixel (jeśli jest skonfigurowany)
       if (typeof fbq === 'function') {
         fbq('track', 'Contact', { content_name: 'Sticky Call Bar 24h' });
       }
@@ -164,4 +162,308 @@
       console.warn('Błąd śledzenia kliknięcia:', err);
     }
   }
+</script>
+
+<!-- 4. Style dla Modułu Konwersji (Cennik, Prekwalifikacja, Google 5.0★, Atrybuty) -->
+<style>
+  .akumulateo-conversion-hub {
+    max-width: 1200px;
+    margin: 20px auto 40px auto;
+    padding: 0 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+  }
+
+  /* 1. Ostrzeżenie o usłudze mobilnej - ochrona budżetu reklamowego */
+  .akumulateo-mobility-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-left: 5px solid #f59e0b;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  }
+  .mobility-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .mobility-text strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .mobility-text span {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* 2. Pasek zaufania Google 5.0★ + status dyżuru */
+  .akumulateo-proof-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 20px;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+  .google-badge-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .google-badge-link:hover .google-score-text {
+    color: #f59e0b;
+  }
+  .google-stars-display {
+    color: #eab308;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .google-score-text {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f172a;
+    transition: color 0.15s ease;
+  }
+  .google-count-text {
+    font-size: 12px;
+    color: #64748b;
+  }
+  .dispatch-live-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #047857;
+    background: #ecfdf5;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1px solid #a7f3d0;
+    text-decoration: none !important;
+    transition: background 0.15s ease;
+  }
+  .dispatch-live-status:hover {
+    background: #d1fae5;
+  }
+
+  /* 3. Transparentny cennik usług */
+  .akumulateo-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .pricing-card {
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .pricing-card:hover {
+    transform: translateY(-2px);
+    border-color: #f59e0b;
+  }
+  .pricing-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .pricing-amount {
+    font-size: 26px;
+    font-weight: 800;
+    color: #f59e0b;
+    margin-bottom: 6px;
+  }
+  .pricing-note {
+    font-size: 12px;
+    color: #cbd5e1;
+    line-height: 1.35;
+  }
+  .pricing-free {
+    color: #10b981 !important;
+  }
+
+  /* 4. Kafle gwarancji i bezpieczeństwa */
+  .akumulateo-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .feature-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .feature-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  .feature-content h4 {
+    margin: 0 0 3px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .feature-content p {
+    margin: 0;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.35;
+  }
+
+  @media (max-width: 640px) {
+    .akumulateo-mobility-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .akumulateo-proof-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .pricing-amount {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<!-- 5. Bezpieczny, natychmiastowy montaż na stronie głównej pod Hero (Zero Layout Shift) -->
+<script>
+(function() {
+  function mountAkumulateoConversionHub() {
+    var path = window.location.pathname;
+    if (path !== '/' && path !== '' && path !== '/home') return;
+    if (document.getElementById('akumulateo-conversion-hub-mount')) return;
+
+    var heroSection = document.querySelector('section[data-section-id="685d17bd78d1f26a9c224e9d"]');
+    if (!heroSection) return;
+
+    var mount = document.createElement('div');
+    mount.id = 'akumulateo-conversion-hub-mount';
+    mount.innerHTML = 
+      '<div class="akumulateo-conversion-hub">' +
+        '<!-- 1. Ostrzeżenie: brak sklepu stacjonarnego -->' +
+        '<div class="akumulateo-mobility-banner">' +
+          '<div class="mobility-icon">⚡</div>' +
+          '<div class="mobility-text">' +
+            '<strong>Usługa wyłącznie mobilna z dojazdem – Nie prowadzimy odbioru osobistego.</strong>' +
+            '<span>Nasz technik przyjeżdża ze sprzętem diagnostycznym i dobranym akumulatorem bezpośrednio pod Twój samochód w Warszawie i okolicach (dojazd w 20–30 minut).</span>' +
+          '</div>' +
+        '</div>' +
+
+        '<!-- 2. Społeczny dowód słuszności Google 5.0★ -->' +
+        '<div class="akumulateo-proof-bar">' +
+          '<a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" class="google-badge-link" title="Zobacz opinie o Akumulateo w Google Maps">' +
+            '<div style="font-size:22px;">⭐</div>' +
+            '<div>' +
+              '<div class="google-stars-display">★★★★★ <span class="google-score-text">5.0 / 5.0</span></div>' +
+              '<div class="google-count-text">Ponad 99 zweryfikowanych opinii kierowców w Google Maps</div>' +
+            '</div>' +
+          '</a>' +
+          '<a href="tel:+48696556446" class="dispatch-live-status" onclick="if(typeof akumulateoTrackPhoneClick===\'function\')akumulateoTrackPhoneClick(event)">' +
+            '<span style="display:inline-block;width:8px;height:8px;background:#10b981;border-radius:50%;"></span>' +
+            '<span>Dyżur Technika 24h/7: <strong>696 556 446</strong> (20-30 min)</span>' +
+          '</a>' +
+        '</div>' +
+
+        '<!-- 3. Transparentny cennik pogotowia -->' +
+        '<div class="akumulateo-pricing-grid">' +
+          '<div class="pricing-card">' +
+            '<div class="pricing-title">Awaryjny Rozruch</div>' +
+            '<div class="pricing-amount">od 100 zł</div>' +
+            '<div class="pricing-note">Odpalenie z profesjonalnego boostera 12V/24V + szybki test ładowania alternatora.</div>' +
+          '</div>' +
+          '<div class="pricing-card">' +
+            '<div class="pricing-title">Wymiana z Dojazdem</div>' +
+            '<div class="pricing-amount">od 150 zł</div>' +
+            '<div class="pricing-note">Dojazd, diagnostyka, montaż akumulatora, zabezpieczenie klem i podtrzymanie pamięci.</div>' +
+          '</div>' +
+          '<div class="pricing-card">' +
+            '<div class="pricing-title">Nowy Akumulator</div>' +
+            '<div class="pricing-amount">wg modelu</div>' +
+            '<div class="pricing-note">Markowe baterie (Varta, Bosch, Centra, Banner). Dobór pod markę, silnik i Start-Stop.</div>' +
+          '</div>' +
+          '<div class="pricing-card">' +
+            '<div class="pricing-title">Zużyty Akumulator</div>' +
+            '<div class="pricing-amount pricing-free">GRATIS (-30 zł)</div>' +
+            '<div class="pricing-note">Odbieramy stary akumulator do legalnego recyklingu. Brak ustawowej kaucji depozytowej.</div>' +
+          '</div>' +
+        '</div>' +
+
+        '<!-- 4. Kafle gwarancji i bezpieczeństwa -->' +
+        '<div class="akumulateo-features-grid">' +
+          '<div class="feature-card">' +
+            '<div class="feature-icon">💳</div>' +
+            '<div class="feature-content">' +
+              '<h4>Karta & BLIK u kierowcy</h4>' +
+              '<p>Każdy mobilny technik ma terminal. Płacisz wygodnie bez szukania bankomatu.</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="feature-card">' +
+            '<div class="feature-icon">💻</div>' +
+            '<div class="feature-content">' +
+              '<h4>Kodowanie BMS / Start-Stop</h4>' +
+              '<p>Wpisujemy nową pojemność akumulatora do komputera aut marek BMW, Audi, VW, Ford itp.</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="feature-card">' +
+            '<div class="feature-icon">🛡️</div>' +
+            '<div class="feature-content">' +
+              '<h4>Gwarancja do 3 lat</h4>' +
+              '<p>Wszystkie akumulatory są fabrycznie nowe, naładowane i objęte pisemną gwarancją.</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="feature-card">' +
+            '<div class="feature-icon">🧾</div>' +
+            '<div class="feature-content">' +
+              '<h4>Faktura VAT 23%</h4>' +
+              '<p>Wystawiamy faktury dla firm i osób prywatnych bezpośrednio po wykonaniu usługi.</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    heroSection.parentNode.insertBefore(mount, heroSection.nextSibling);
+  }
+
+  // Uruchomienie synchroniczne podczas parsowania HTML
+  mountAkumulateoConversionHub();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mountAkumulateoConversionHub);
+  }
+  window.addEventListener('mercury:load', mountAkumulateoConversionHub);
+})();
 </script>
