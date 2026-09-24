@@ -35,44 +35,48 @@
 
 <!-- KROK 2: WKLEJ JAKO BLOK KODU (CODE BLOCK) NA NOWEJ PODSTRONIE W SQUARESPACE -->
 <style>
-  /* Hermetyczne style podstrony aglomeracyjnej Akumulateo */
-  .akumulateo-suburb-wrapper {
-    max-width: 980px;
+  /* ==========================================================================
+     AKUMULATEO SUBURB LANDING - ULTRA READABLE MOBILE FIRST STYLES
+     ========================================================================== */
+  .akumulateo-page-container {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 12px 16px 60px 16px;
+    padding: 10px 14px 60px 14px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #0f172a;
     line-height: 1.6;
     box-sizing: border-box;
+    width: 100%;
     overflow-x: hidden;
   }
 
-  .akumulateo-suburb-wrapper * {
+  .akumulateo-page-container * {
     box-sizing: border-box;
   }
 
-  /* 1. Hero Card */
-  .ak-hero-card {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  /* 1. HERO SECTION */
+  .ak-hero {
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
     color: #ffffff;
-    border-radius: 18px;
-    padding: 40px 24px;
+    border-radius: 20px;
+    padding: 36px 18px;
     margin-bottom: 24px;
     border: 1px solid #334155;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     text-align: center;
+    width: 100%;
   }
 
-  .ak-badge-status {
+  .ak-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(245, 158, 11, 0.16);
-    border: 1px solid rgba(245, 158, 11, 0.45);
+    background: rgba(245, 158, 11, 0.2);
+    border: 1.5px solid #f59e0b;
     color: #f59e0b;
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: 30px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -80,35 +84,43 @@
     max-width: 100%;
   }
 
-  .ak-pulse-dot {
-    width: 9px;
-    height: 9px;
+  .ak-dot {
+    width: 10px;
+    height: 10px;
     background-color: #10b981;
     border-radius: 50%;
     display: inline-block;
     flex-shrink: 0;
-    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
   }
 
-  .ak-hero-h1 {
+  .ak-title-h1 {
     color: #ffffff;
-    font-size: clamp(26px, 5.5vw, 42px);
+    font-size: 30px;
     font-weight: 900;
-    line-height: 1.2;
-    margin: 0 0 18px 0;
+    line-height: 1.25;
+    margin: 0 0 16px 0;
     letter-spacing: -0.5px;
   }
 
-  .ak-hero-lead {
-    color: #e2e8f0;
-    font-size: clamp(16px, 3vw, 18px);
-    max-width: 740px;
-    margin: 0 auto 28px auto;
-    line-height: 1.65;
+  @media (min-width: 640px) {
+    .ak-title-h1 { font-size: 40px; }
+    .ak-hero { padding: 44px 30px; }
   }
 
-  .ak-cta-btn-primary {
-    display: inline-flex;
+  .ak-lead {
+    color: #f1f5f9;
+    font-size: 17px;
+    line-height: 1.65;
+    margin: 0 auto 26px auto;
+    max-width: 720px;
+  }
+
+  @media (min-width: 640px) {
+    .ak-lead { font-size: 19px; }
+  }
+
+  .ak-btn-call {
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -116,565 +128,668 @@
     color: #000000 !important;
     text-decoration: none !important;
     font-weight: 900;
-    font-size: clamp(17px, 3.5vw, 20px);
-    padding: 16px 28px;
-    border-radius: 12px;
-    box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
+    font-size: 20px;
+    padding: 18px 24px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
     width: 100%;
-    max-width: 360px;
-    transition: transform 0.15s ease, filter 0.2s ease;
+    max-width: 380px;
+    margin: 0 auto;
+    transition: transform 0.15s ease;
   }
 
-  .ak-cta-btn-primary:active {
+  .ak-btn-call:active {
     transform: scale(0.98);
   }
 
-  .ak-trust-row {
-    font-size: 14px;
-    color: #cbd5e1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 18px;
-    align-items: center;
+  .ak-trust-list {
     margin-top: 24px;
-    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    color: #e2e8f0;
+    font-weight: 600;
   }
 
-  .ak-trust-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  @media (min-width: 640px) {
+    .ak-trust-list {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      font-size: 16px;
+    }
   }
 
-  /* 2. Mobility Alert Banner */
-  .ak-alert-banner {
+  /* 2. ALERT BANNER */
+  .ak-alert {
     background: #fffbeb;
-    border: 1px solid #fde68a;
-    border-left: 6px solid #f59e0b;
-    border-radius: 14px;
-    padding: 18px 20px;
+    border: 2px solid #fde68a;
+    border-left: 8px solid #f59e0b;
+    border-radius: 16px;
+    padding: 20px 18px;
     margin-bottom: 26px;
     display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .ak-alert-icon {
-    font-size: 28px;
-    line-height: 1;
-    flex-shrink: 0;
-    margin-top: 2px;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .ak-alert-title {
-    display: block;
     color: #92400e;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 4px;
+    font-size: 17px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.35;
   }
 
   .ak-alert-desc {
     color: #b45309;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
   }
 
-  /* 3. Section Styling */
-  .ak-content-card {
+  /* 3. SECTION WHITE CARD */
+  .ak-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 32px 24px;
+    border-radius: 18px;
+    padding: 26px 18px;
     margin-bottom: 26px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    width: 100%;
   }
 
-  .ak-section-h2 {
-    font-size: clamp(21px, 4vw, 27px);
-    font-weight: 800;
+  @media (min-width: 640px) {
+    .ak-card { padding: 34px 28px; }
+  }
+
+  .ak-title-h2 {
+    font-size: 24px;
+    font-weight: 900;
     color: #0f172a;
     margin: 0 0 16px 0;
     line-height: 1.3;
   }
 
-  .ak-text-body {
-    color: #334155;
+  @media (min-width: 640px) {
+    .ak-title-h2 { font-size: 28px; }
+  }
+
+  .ak-text {
     font-size: 16px;
     line-height: 1.7;
+    color: #334155;
     margin-bottom: 18px;
   }
 
-  /* 4. Benefits Grid (Responsive) */
-  .ak-benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 22px;
+  @media (min-width: 640px) {
+    .ak-text { font-size: 17px; }
   }
 
-  @media (max-width: 640px) {
-    .ak-benefits-grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
+  /* 4. BENEFITS (Zawsze 1 pod 2-3 lub pionowo na mobile) */
+  .ak-benefits-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .ak-benefits-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
   }
 
-  .ak-benefit-item {
+  .ak-benefit-box {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .ak-benefit-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
-  .ak-benefit-icon {
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-
-  .ak-benefit-title {
-    font-size: 16px;
-    font-weight: 800;
-    color: #0f172a;
-    margin: 0;
-  }
-
-  .ak-benefit-text {
-    font-size: 14px;
-    color: #475569;
-    line-height: 1.55;
-    margin: 0;
-  }
-
-  /* 5. Rejony Obsługi (Pills Grid) */
-  .ak-pills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 14px;
-  }
-
-  .ak-pill {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    padding: 8px 14px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1e293b;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    max-width: 100%;
-    word-break: break-word;
-  }
-
-  /* 6. Pricing Grid (Brak overflow na mobile) */
-  .ak-pricing-wrapper {
-    background: #0f172a;
-    color: #ffffff;
-    border-radius: 16px;
-    padding: 34px 22px;
-    margin-bottom: 26px;
-  }
-
-  .ak-pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-top: 24px;
-  }
-
-  @media (max-width: 900px) {
-    .ak-pricing-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .ak-pricing-grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-  }
-
-  .ak-price-card {
-    background: #1e293b;
-    border: 1px solid #334155;
     border-radius: 14px;
-    padding: 22px 18px;
-    text-align: center;
+    padding: 20px 16px;
+  }
+
+  .ak-benefit-heading {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 200px;
-  }
-
-  .ak-price-card.featured {
-    border: 2px solid #f59e0b;
-    background: #19253c;
-    position: relative;
-  }
-
-  .ak-featured-badge {
-    background: #f59e0b;
-    color: #000000;
-    font-size: 11px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 3px 10px;
-    border-radius: 12px;
-    display: inline-block;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 8px;
-    align-self: center;
   }
 
-  .ak-price-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-  }
-
-  .ak-price-val {
-    font-size: 28px;
-    font-weight: 900;
-    color: #f59e0b;
-    margin: 8px 0;
-  }
-
-  .ak-price-val.green {
-    color: #10b981;
-  }
-
-  .ak-price-desc {
-    font-size: 13px;
-    color: #cbd5e1;
-    line-height: 1.45;
+  .ak-benefit-h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
     margin: 0;
   }
 
-  /* 7. FAQ Styling */
-  .ak-faq-item {
-    border-bottom: 1px solid #e2e8f0;
-    padding: 18px 0;
-  }
-
-  .ak-faq-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .ak-faq-q {
-    font-size: 17px;
-    font-weight: 800;
-    color: #0f172a;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-  }
-
-  .ak-faq-a {
+  .ak-benefit-p {
     font-size: 15px;
     color: #475569;
     line-height: 1.6;
     margin: 0;
   }
 
-  /* 8. Bottom CTA */
-  .ak-bottom-banner {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    border-radius: 16px;
-    padding: 30px 20px;
-    text-align: center;
-    color: #000000;
-    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+  /* 5. REJONY OBSŁUGI - DOKŁADNIE JEDEN POD DRUGIM (100% Full-Width Rows) */
+  .ak-regions-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 14px;
   }
 
-  .ak-bottom-title {
-    font-size: clamp(20px, 4vw, 24px);
+  .ak-region-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  }
+
+  @media (min-width: 640px) {
+    .ak-region-row { font-size: 17px; }
+  }
+
+  .ak-region-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .ak-region-details {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    margin-left: auto;
+  }
+
+  @media (max-width: 480px) {
+    .ak-region-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .ak-region-details {
+      margin-left: 32px;
+    }
+  }
+
+  /* 6. CENNIK MOBILNY - CZYTELNY, PIONOWY STACK (BEZ WĄSKICH KOLUMN) */
+  .ak-pricing-box {
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 30px 16px;
+    margin-bottom: 26px;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .ak-pricing-box { padding: 38px 26px; }
+  }
+
+  .ak-pricing-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .ak-pricing-h2 {
+    color: #ffffff;
+    font-size: 24px;
     font-weight: 900;
     margin: 0 0 8px 0;
-    line-height: 1.25;
   }
 
-  .ak-bottom-sub {
+  @media (min-width: 640px) {
+    .ak-pricing-h2 { font-size: 28px; }
+  }
+
+  .ak-pricing-sub {
+    color: #94a3b8;
     font-size: 15px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Zawsze jeden pod drugim na mobile (Flex Column) */
+  .ak-pricing-vertical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .ak-price-row-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 22px 18px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ak-price-row-card.highlight {
+    border: 2.5px solid #f59e0b;
+    background: #172540;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+  }
+
+  .ak-price-badge-top {
+    background: #f59e0b;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .ak-price-flex-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ak-price-name {
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .ak-price-amount {
+    font-size: 28px;
+    font-weight: 900;
+    color: #f59e0b;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .ak-price-amount.green {
+    color: #10b981;
+  }
+
+  .ak-price-explanation {
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* 7. FAQ */
+  .ak-faq-block {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .ak-faq-single {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 18px;
+  }
+
+  .ak-faq-single:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .ak-faq-quest {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 8px 0;
     line-height: 1.4;
   }
 
-  .ak-bottom-btn {
-    display: inline-flex;
+  .ak-faq-answ {
+    font-size: 16px;
+    color: #475569;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* 8. FOOTER CTA */
+  .ak-footer-cta {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-radius: 18px;
+    padding: 32px 20px;
+    text-align: center;
+    color: #000000;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+    width: 100%;
+  }
+
+  .ak-footer-h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+  }
+
+  @media (min-width: 640px) {
+    .ak-footer-h3 { font-size: 26px; }
+  }
+
+  .ak-footer-sub {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 22px 0;
+    line-height: 1.5;
+  }
+
+  .ak-footer-btn {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     background: #0f172a;
     color: #ffffff !important;
     text-decoration: none !important;
-    font-weight: 800;
-    font-size: 18px;
-    padding: 16px 32px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 900;
+    font-size: 19px;
+    padding: 18px 28px;
+    border-radius: 14px;
     width: 100%;
-    max-width: 320px;
-    transition: transform 0.15s ease;
-  }
-
-  .ak-bottom-btn:active {
-    transform: scale(0.98);
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
   }
 </style>
 
-<div class="akumulateo-suburb-wrapper">
+<div class="akumulateo-page-container">
 
   <!-- 1. Strefa Ratunkowa Hero -->
-  <section class="ak-hero-card">
-    <div class="ak-badge-status">
-      <span class="ak-pulse-dot"></span>
+  <section class="ak-hero">
+    <div class="ak-badge">
+      <span class="ak-dot"></span>
       <span>Dojazd w 20–30 min • Piaseczno i Powiat</span>
     </div>
 
-    <h1 class="ak-hero-h1">
+    <h1 class="ak-title-h1">
       Wymiana Akumulatora z Dojazdem <span style="color: #f59e0b;">Piaseczno</span> (24/7)
     </h1>
 
-    <p class="ak-hero-lead">
-      Samochód nie odpala pod domem w Piasecznie, Józefosławiu lub Lesznowoli? <strong>Nie musisz holować auta ani szukać sklepu stacjonarnego.</strong> Nasz mobilny technik przyjedzie ze specjalistycznym sprzętem, sprawdzi stan instalacji i zamontuje fabrycznie nowy akumulator na miejscu postoju auta.
+    <p class="ak-lead">
+      Samochód nie odpala pod domem w Piasecznie, Józefosławiu lub Lesznowoli? <strong style="color:#ffffff;">Nie musisz holować auta ani szukać sklepu stacjonarnego.</strong> Nasz technik przyjedzie ze specjalistycznym sprzętem, sprawdzi stan instalacji i zamontuje fabrycznie nowy akumulator na miejscu.
     </p>
 
-    <div style="display: flex; justify-content: center;">
-      <a href="tel:+48696556446" class="ak-cta-btn-primary" onclick="if(typeof akumulateoTrackPhoneClick==='function')akumulateoTrackPhoneClick(event)">
-        <span>📞 Zadzwoń: 696 556 446</span>
-      </a>
-    </div>
+    <a href="tel:+48696556446" class="ak-btn-call" onclick="if(typeof akumulateoTrackPhoneClick==='function')akumulateoTrackPhoneClick(event)">
+      <span>📞 Zadzwoń: 696 556 446</span>
+    </a>
 
-    <div class="ak-trust-row">
-      <span class="ak-trust-item">⭐ <strong>5.0 / 5.0 w Google</strong> (ponad 99 opinii)</span>
-      <span class="ak-trust-item">💳 <strong>Karta & BLIK</strong> u technika</span>
-      <span class="ak-trust-item">🛡️ <strong>Gwarancja do 3 lat</strong></span>
+    <div class="ak-trust-list">
+      <span>⭐ <strong>5.0 / 5.0 w Google</strong> (ponad 99 opinii)</span>
+      <span>💳 <strong>Karta & BLIK</strong> u technika</span>
+      <span>🛡️ <strong>Gwarancja do 3 lat</strong></span>
     </div>
   </section>
 
-  <!-- 2. Ostrzeżenie o braku sklepu stacjonarnego (Prekwalifikacja CRO) -->
-  <div class="ak-alert-banner">
-    <div class="ak-alert-icon">⚡</div>
-    <div>
-      <strong class="ak-alert-title">
-        Usługa wyłącznie mobilna z dojazdem – Brak odbioru osobistego w Piasecznie.
-      </strong>
-      <span class="ak-alert-desc">
-        Nie musisz tracić czasu na dojazdy do sklepów i transport ciężkiego, 20-kilogramowego akumulatora. Pogotowie Akumulateo przyjeżdża ze sprzętem pod Twój samochód na terenie całego powiatu piaseczyńskiego.
-      </span>
+  <!-- 2. Ostrzeżenie o usłudze wyłącznie mobilnej -->
+  <div class="ak-alert">
+    <div class="ak-alert-title">
+      <span style="font-size: 22px;">⚡</span>
+      <span>Usługa wyłącznie mobilna z dojazdem – Brak sklepu stacjonarnego w Piasecznie.</span>
     </div>
+    <p class="ak-alert-desc">
+      Nie musisz do nas przyjeżdżać ani dźwigać ciężkiego, 20-kilogramowego akumulatora. Pogotowie Akumulateo przyjeżdża z dobraną baterią pod Twój samochód na terenie całego powiatu piaseczyńskiego.
+    </p>
   </div>
 
-  <!-- 3. Dlaczego Akumulateo w Piasecznie -->
-  <section class="ak-content-card">
-    <h2 class="ak-section-h2">
+  <!-- 3. Korzyści dla kierowcy w Piasecznie -->
+  <section class="ak-card">
+    <h2 class="ak-title-h2">
       Pogotowie akumulatorowe w Piasecznie – Jak pomagamy kierowcom?
     </h2>
-    <p class="ak-text-body">
+    <p class="ak-text">
       Gmina Piaseczno oraz przyległe miejscowości (Józefosław, Julianów, Lesznowola) to rejon o intensywnej zabudowie jednorodzinnej i apartamentowej. Większość mieszkańców codziennie dojeżdża do pracy trasą S79 lub ul. Puławską. Gdy rano rozładuje się akumulator, tradycyjna naprawa oznacza odwołany dzień w pracy i kosztowne holowanie lawetą do Warszawy.
     </p>
-    <p class="ak-text-body" style="font-weight: 700; color: #0f172a;">
+    <p class="ak-text" style="font-weight: 800; color: #0f172a; margin-bottom: 12px;">
       Akumulateo eliminuje ten problem – przyjeżdżamy i wymieniamy baterię od ręki:
     </p>
 
-    <!-- Grid 4 korzyści -->
-    <div class="ak-benefits-grid">
-      <div class="ak-benefit-item">
-        <div class="ak-benefit-head">
-          <span class="ak-benefit-icon">⏱️</span>
-          <h3 class="ak-benefit-title">Dojazd w 20–30 min</h3>
+    <div class="ak-benefits-stack">
+      <div class="ak-benefit-box">
+        <div class="ak-benefit-heading">
+          <span style="font-size: 24px;">⏱️</span>
+          <h3 class="ak-benefit-h3">Dojazd w 20–30 min</h3>
         </div>
-        <p class="ak-benefit-text">
+        <p class="ak-benefit-p">
           Dzięki trasie S79 i ul. Puławskiej nasz technik melduje się pod Twoim domem lub biurem błyskawicznie, 24 godziny na dobę.
         </p>
       </div>
 
-      <div class="ak-benefit-item">
-        <div class="ak-benefit-head">
-          <span class="ak-benefit-icon">💻</span>
-          <h3 class="ak-benefit-title">Kodowanie BMS na miejscu</h3>
+      <div class="ak-benefit-box">
+        <div class="ak-benefit-heading">
+          <span style="font-size: 24px;">💻</span>
+          <h3 class="ak-benefit-h3">Kodowanie BMS na miejscu</h3>
         </div>
-        <p class="ak-benefit-text">
+        <p class="ak-benefit-p">
           W autach z systemem Start-Stop rejestrujemy nową baterię w komputerze pokładowym (BMW, Audi, Mercedes, VW, Volvo).
         </p>
       </div>
 
-      <div class="ak-benefit-item">
-        <div class="ak-benefit-head">
-          <span class="ak-benefit-icon">🔌</span>
-          <h3 class="ak-benefit-title">Podtrzymanie pamięci OBD</h3>
+      <div class="ak-benefit-box">
+        <div class="ak-benefit-heading">
+          <span style="font-size: 24px;">🔌</span>
+          <h3 class="ak-benefit-h3">Podtrzymanie pamięci OBD</h3>
         </div>
-        <p class="ak-benefit-text">
+        <p class="ak-benefit-p">
           Wymiana z zasilaniem awaryjnym – nie tracisz ustawień stacji radiowych, szyb, zegarów ani adaptacji skrzyni biegów.
         </p>
       </div>
 
-      <div class="ak-benefit-item">
-        <div class="ak-benefit-head">
-          <span class="ak-benefit-icon">♻️</span>
-          <h3 class="ak-benefit-title">Bezpłatny recykling złomu</h3>
+      <div class="ak-benefit-box">
+        <div class="ak-benefit-heading">
+          <span style="font-size: 24px;">♻️</span>
+          <h3 class="ak-benefit-h3">Bezpłatny recykling złomu</h3>
         </div>
-        <p class="ak-benefit-text">
+        <p class="ak-benefit-p">
           Zabieramy stary akumulator do legalnego recyklingu. Oszczędzasz 30 zł ustawowej kaucji depozytowej.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- 4. Rejony obsługi w Powiecie Piaseczyńskim -->
-  <section class="ak-content-card" style="background: #f8fafc;">
-    <h2 class="ak-section-h2" style="font-size: 20px;">
+  <!-- 4. REJONY OBSŁUGI - JEDEN POD DRUGIM (100% PIONOWA LISTA) -->
+  <section class="ak-card" style="background: #f8fafc;">
+    <h2 class="ak-title-h2">
       Obsługiwane rejony w Powiecie Piaseczyńskim:
     </h2>
-    <p class="ak-text-body" style="font-size: 15px; margin-bottom: 12px;">
-      Nasi mobilni technicy dojeżdżają pod domy jednorodzinne, bloki oraz do garaży podziemnych w miejscowościach:
+    <p class="ak-text" style="margin-bottom: 16px;">
+      Nasi mobilni technicy dojeżdżają pod domy jednorodzinne, bloki oraz do garaży podziemnych w rejonach:
     </p>
-    <div class="ak-pills-container">
-      <span class="ak-pill">📍 Piaseczno Centrum</span>
-      <span class="ak-pill">📍 Józefosław (ul. Geodetów, Wilanowska)</span>
-      <span class="ak-pill">📍 Julianów (ul. Cyraneczki)</span>
-      <span class="ak-pill">📍 Nowa Iwiczna & Stara Iwiczna</span>
-      <span class="ak-pill">📍 Mysiadło</span>
-      <span class="ak-pill">📍 Lesznowola & Zgorzała</span>
-      <span class="ak-pill">📍 Zalesie Dolne & Zalesie Górne</span>
-      <span class="ak-pill">📍 Konstancin-Jeziorna & Bielawa</span>
-      <span class="ak-pill">📍 Głosków & Bobrowiec</span>
+
+    <div class="ak-regions-vertical-list">
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Piaseczno Centrum</span>
+        <span class="ak-region-details">ul. Puławska, Kościuszki, Okulickiego</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Józefosław</span>
+        <span class="ak-region-details">ul. Geodetów, Wilanowska, Ogrodowa</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Julianów</span>
+        <span class="ak-region-details">ul. Cyraneczki, Kormoranów</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Nowa Iwiczna & Stara Iwiczna</span>
+        <span class="ak-region-details">ul. Krasickiego, Nowa, Torowa</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Mysiadło</span>
+        <span class="ak-region-details">ul. Graniczna, Łabędzia, Puławska</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Lesznowola & Zgorzała</span>
+        <span class="ak-region-details">ul. Gminna, Słoneczna, Postępu</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Zalesie Dolne & Zalesie Górne</span>
+        <span class="ak-region-details">ul. Pionierów, Koralowych Dębów</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Konstancin-Jeziorna & Bielawa</span>
+        <span class="ak-region-details">ul. Warszawska, Piaseczyńska</span>
+      </div>
+
+      <div class="ak-region-row">
+        <span class="ak-region-icon">📍</span>
+        <span>Głosków & Bobrowiec</span>
+        <span class="ak-region-details">ul. Radnych, Mazowiecka</span>
+      </div>
     </div>
   </section>
 
-  <!-- 5. Transparentny Cennik Usług z Dojazdem -->
-  <section class="ak-pricing-wrapper">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #ffffff; font-size: clamp(22px, 4vw, 28px); font-weight: 900; margin: 0 0 8px 0;">
-        Cennik Pogotowia – Piaseczno
+  <!-- 5. TRANSPARENTNY CENNIK - JEDEN POD DRUGIM (PIONOWE DUŻE KARTY) -->
+  <section class="ak-pricing-box">
+    <div class="ak-pricing-header">
+      <h2 class="ak-pricing-h2">
+        Transparentny Cennik Usług – Piaseczno
       </h2>
-      <p style="color: #94a3b8; font-size: 15px; margin: 0;">
-        Koszt jest zawsze potwierdzany z góry przez telefon przed wyjazdem serwisu. Bez ukrytych dopłat.
+      <p class="ak-pricing-sub">
+        Koszt jest zawsze potwierdzany z góry przez telefon przed wyjazdem serwisu. Bez żadnych ukrytych dopłat.
       </p>
     </div>
 
-    <div class="ak-pricing-grid">
-      
-      <!-- Karta 1 -->
-      <div class="ak-price-card">
-        <div>
-          <div class="ak-price-title">Awaryjny Rozruch</div>
-          <div class="ak-price-val">od 150 zł</div>
+    <div class="ak-pricing-vertical-stack">
+
+      <!-- Usługa 1 -->
+      <div class="ak-price-row-card">
+        <div class="ak-price-flex-head">
+          <div class="ak-price-name">1. Awaryjny Rozruch Auta</div>
+          <div class="ak-price-amount">od 150 zł</div>
         </div>
-        <p class="ak-price-desc">
-          Dojazd pod dom, bezpieczne odpalenie boosterem mikroprocesorowym + test alternatora.
+        <p class="ak-price-explanation">
+          Dojazd pod dom, bezpieczne odpalenie boosterem mikroprocesorowym 12V/24V oraz komputerowy test ładowania alternatora.
         </p>
       </div>
 
-      <!-- Karta 2 (Wyróżniona) -->
-      <div class="ak-price-card featured">
-        <span class="ak-featured-badge">Najczęściej wybierane</span>
-        <div>
-          <div class="ak-price-title">Wymiana z Dojazdem</div>
-          <div class="ak-price-val">od 150 zł</div>
+      <!-- Usługa 2 (Wyróżniona) -->
+      <div class="ak-price-row-card highlight">
+        <span class="ak-price-badge-top">⭐ Najczęściej wybierana usługa</span>
+        <div class="ak-price-flex-head">
+          <div class="ak-price-name">2. Kompleksowa Wymiana z Dojazdem</div>
+          <div class="ak-price-amount">od 150 zł</div>
         </div>
-        <p class="ak-price-desc">
-          Dojazd, montaż, podtrzymanie OBD, kodowanie BMS i darmowy odbiór starego akumulatora.
+        <p class="ak-price-explanation">
+          Dojazd technika pod wskazany adres, demontaż starej baterii, profesjonalny montaż z podtrzymaniem pamięci OBD, kodowanie BMS w komputerze auta i bezpłatny odbiór zużytego akumulatora.
         </p>
       </div>
 
-      <!-- Karta 3 -->
-      <div class="ak-price-card">
-        <div>
-          <div class="ak-price-title">Nowy Akumulator</div>
-          <div class="ak-price-val">wg modelu</div>
+      <!-- Usługa 3 -->
+      <div class="ak-price-row-card">
+        <div class="ak-price-flex-head">
+          <div class="ak-price-name">3. Nowy Fabryczny Akumulator</div>
+          <div class="ak-price-amount">wg modelu</div>
         </div>
-        <p class="ak-price-desc">
-          Markowe akumulatory Varta, Yuasa, Bosch z fabryczną gwarancją 2–3 lata, dobrane pod auto.
+        <p class="ak-price-explanation">
+          Oficjalne, fabrycznie nowe baterie renomowanych marek (Varta, Yuasa, Bosch) objęte pisemną gwarancją producenta od 2 do 3 lat. Dobieramy pojemność (Ah) i prąd rozruchowy (A) ściśle według specyfikacji Twojego auta.
         </p>
       </div>
 
-      <!-- Karta 4 -->
-      <div class="ak-price-card">
-        <div>
-          <div class="ak-price-title">Stary Akumulator</div>
-          <div class="ak-price-val green">GRATIS (-30 zł)</div>
+      <!-- Usługa 4 -->
+      <div class="ak-price-row-card">
+        <div class="ak-price-flex-head">
+          <div class="ak-price-name">4. Odbiór Starego Akumulatora</div>
+          <div class="ak-price-amount green">GRATIS (-30 zł)</div>
         </div>
-        <p class="ak-price-desc">
-          Odbieramy zużytą baterię do utylizacji. Brak ustawowej opłaty depozytowej.
+        <p class="ak-price-explanation">
+          Odbieramy zużytą baterię do legalnego recyklingu ołowiu. Zwalnia Cię to z konieczności płacenia ustawowej kaucji depozytowej (30 zł).
         </p>
       </div>
 
     </div>
   </section>
 
-  <!-- 6. Najczęściej zadawane pytania (FAQ) -->
-  <section class="ak-content-card">
-    <h2 class="ak-section-h2">
+  <!-- 6. NAJCZĘŚCIEJ ZADAWANE PYTANIA (FAQ) -->
+  <section class="ak-card">
+    <h2 class="ak-title-h2">
       Często zadawane pytania kierowców z Piaseczna (FAQ)
     </h2>
 
-    <div class="ak-faq-item">
-      <h3 class="ak-faq-q">
-        1. Czy pobieracie dodatkowe opłaty za dojazd poza granice Warszawy?
-      </h3>
-      <p class="ak-faq-a">
-        Nie ma u nas żadnych ukrytych opłat ani zaskakujących dopłat za kilometry. Koszt całej usługi podajemy dokładnie przez telefon przed wysłaniem mobilnego serwisu. Wiesz z góry, ile dokładnie zapłacisz.
-      </p>
-    </div>
+    <div class="ak-faq-block">
+      <div class="ak-faq-single">
+        <h3 class="ak-faq-quest">
+          1. Czy pobieracie dodatkowe opłaty za dojazd poza Warszawę?
+        </h3>
+        <p class="ak-faq-answ">
+          Nie ma u nas żadnych ukrytych opłat ani zaskakujących dopłat za kilometry. Koszt całej usługi podajemy dokładnie przez telefon przed wysłaniem mobilnego serwisu. Wiesz z góry, ile dokładnie zapłacisz.
+        </p>
+      </div>
 
-    <div class="ak-faq-item">
-      <h3 class="ak-faq-q">
-        2. Czy technik dojedzie pod mój dom w nocy lub w niedzielę?
-      </h3>
-      <p class="ak-faq-a">
-        Tak! Akumulateo działa w trybie pogotowia ratunkowego 24h na dobę, 7 dni w tygodniu, również w niedziele i święta. Dojeżdżamy na posesje prywatne, parkingi osiedlowe w Józefosławiu oraz do garaży podziemnych.
-      </p>
-    </div>
+      <div class="ak-faq-single">
+        <h3 class="ak-faq-quest">
+          2. Czy technik dojedzie pod mój dom w nocy lub w niedzielę?
+        </h3>
+        <p class="ak-faq-answ">
+          Tak! Akumulateo działa w trybie pogotowia ratunkowego 24h na dobę, 7 dni w tygodniu, również w niedziele i święta. Dojeżdżamy na posesje prywatne, parkingi osiedlowe w Józefosławiu oraz do garaży podziemnych.
+        </p>
+      </div>
 
-    <div class="ak-faq-item">
-      <h3 class="ak-faq-q">
-        3. Skąd mam wiedzieć, jaki akumulator pasuje do mojego samochodu?
-      </h3>
-      <p class="ak-faq-a">
-        Nie musisz tego wiedzieć. Wystarczy, że podasz dyspozytorowi markę, model, rok produkcji i wersję silnikową. Dobieramy fabryczny rozmiar, prąd rozruchowy i technologię (AGM, EFB lub kwasowy) z oficjalnego katalogu producenta.
-      </p>
-    </div>
+      <div class="ak-faq-single">
+        <h3 class="ak-faq-quest">
+          3. Skąd mam wiedzieć, jaki akumulator pasuje do mojego samochodu?
+        </h3>
+        <p class="ak-faq-answ">
+          Nie musisz tego wiedzieć. Wystarczy, że podasz dyspozytorowi markę, model, rok produkcji i wersję silnikową. Dobieramy fabryczny rozmiar, prąd rozruchowy i technologię (AGM, EFB lub kwasowy) z oficjalnego katalogu producenta.
+        </p>
+      </div>
 
-    <div class="ak-faq-item">
-      <h3 class="ak-faq-q">
-        4. Czy po wymianie akumulatora nie zresetują się ustawienia radia i komputera?
-      </h3>
-      <p class="ak-faq-a">
-        Wymianę przeprowadzamy z podłączeniem zasilania awaryjnego przez złącze diagnostyczne OBD. Zasilanie w aucie jest podtrzymane przez cały czas wymiany, dzięki czemu radio, szyby, kody i adaptacje pozostają nienaruszone.
-      </p>
+      <div class="ak-faq-single">
+        <h3 class="ak-faq-quest">
+          4. Czy po wymianie akumulatora nie zresetują się ustawienia radia i komputera?
+        </h3>
+        <p class="ak-faq-answ">
+          Wymianę przeprowadzamy z podłączeniem zasilania awaryjnego przez złącze diagnostyczne OBD. Zasilanie w aucie jest podtrzymane przez cały czas wymiany, dzięki czemu radio, szyby, kody i adaptacje pozostają nienaruszone.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- 7. Dolny Pasek CTA -->
-  <div class="ak-bottom-banner">
-    <h3 class="ak-bottom-title">
-      Potrzebujesz natychmiastowej pomocy z akumulatorem w Piasecznie?
+  <!-- 7. DOLNY PASEK WEZWANIA DO DZIAŁANIA (CTA) -->
+  <div class="ak-footer-cta">
+    <h3 class="ak-footer-h3">
+      Potrzebujesz pomocy z akumulatorem w Piasecznie?
     </h3>
-    <p class="ak-bottom-sub">
+    <p class="ak-footer-sub">
       Technik dyżurny odbiera natychmiast. Dojazd w 20–30 minut pod Twój dom lub firmę.
     </p>
-    <a href="tel:+48696556446" class="ak-bottom-btn" onclick="if(typeof akumulateoTrackPhoneClick==='function')akumulateoTrackPhoneClick(event)">
+    <a href="tel:+48696556446" class="ak-footer-btn" onclick="if(typeof akumulateoTrackPhoneClick==='function')akumulateoTrackPhoneClick(event)">
       <span>📞 Zadzwoń: 696 556 446</span>
     </a>
   </div>
