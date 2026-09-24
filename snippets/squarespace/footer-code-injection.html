@@ -1,0 +1,184 @@
+<!-- ========================================================
+     AKUMULATEO – FOOTER CODE INJECTION (SQUARESPACE 7.1)
+     Ścieżka w panelu: Settings -> Advanced -> Code Injection -> FOOTER
+     
+     Zawiera:
+     1. Centralną konfigurację danych firmy (window.AKUMULATEO_CONFIG)
+     2. Pasek mobilny Click-to-Call (#akumulateo-sticky-call-bar)
+     3. Analitykę GA4 i Google Ads (zdarzenie phone_call_click)
+     4. Skrypt dynamicznego uzupełniania danych na stronie (data-ak-cfg)
+     ======================================================== -->
+
+<!-- 1. Style paska mobilnego pod kciuk (wyświetlany tylko na smartfonach < 768px) -->
+<style>
+  #akumulateo-sticky-call-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #090d16;
+    border-top: 2px solid #f59e0b;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)) 14px;
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.6);
+    z-index: 999999;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    #akumulateo-sticky-call-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    body {
+      padding-bottom: 74px !important;
+    }
+  }
+
+  .ak-sticky-info {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .ak-sticky-status {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .ak-pulse-dot-footer {
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: akPulseFooter 1.8s infinite;
+  }
+
+  @keyframes akPulseFooter {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  .ak-sticky-subtext {
+    font-size: 11px;
+    color: #cbd5e1;
+    font-weight: 600;
+  }
+
+  .ak-sticky-btn {
+    flex: 1;
+    max-width: 195px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #020617 !important;
+    text-decoration: none !important;
+    font-weight: 900;
+    font-size: 15px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  .ak-sticky-btn:active {
+    transform: scale(0.96);
+    filter: brightness(0.95);
+  }
+</style>
+
+<!-- 2. Pasek mobilny HTML -->
+<div id="akumulateo-sticky-call-bar">
+  <div class="ak-sticky-info">
+    <div class="ak-sticky-status">
+      <span class="ak-pulse-dot-footer"></span>
+      <span>Dyżur 24/7</span>
+    </div>
+    <div class="ak-sticky-subtext">Dojazd 15–25 min</div>
+  </div>
+  <a href="tel:+48696556446" class="ak-sticky-btn" onclick="akumulateoTrackPhone(event)">
+    <span>📞</span>
+    <span>696 556 446</span>
+  </a>
+</div>
+
+<!-- 3. Skrypt Centralnej Konfiguracji i Śledzenia Konwersji -->
+<script>
+(function() {
+  'use strict';
+
+  // 1. GŁÓWNA KONFIGURACJA – 1 miejsce zmiany opinii i numeru w całym serwisie
+  window.AKUMULATEO_CONFIG = {
+    reviewsCount: "100+",
+    ratingValue: "5.0",
+    googleMapsUrl: "https://g.page/r/CXjN9llopHR_EBM/",
+    phone: "696 556 446",
+    phoneRaw: "+48696556446",
+    responseTime: "15–25 min"
+  };
+
+  // 2. Automatyczne uzupełnianie elementów z atrybutem data-ak-cfg
+  function applyConfig() {
+    var cfg = window.AKUMULATEO_CONFIG;
+    if (!cfg) return;
+
+    var elements = document.querySelectorAll('[data-ak-cfg]');
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      var key = el.getAttribute('data-ak-cfg');
+      if (key === 'googleMapsUrl' && el.tagName === 'A') {
+        if (cfg.googleMapsUrl) el.href = cfg.googleMapsUrl;
+      } else if (cfg[key]) {
+        el.textContent = cfg[key];
+      }
+    }
+  }
+
+  // 3. Śledzenie kliknięć w telefon (GA4 + Ads)
+  window.akumulateoTrackPhone = function(e) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_call_click', {
+          event_category: 'engagement',
+          event_label: '696 556 446',
+          value: 1.0
+        });
+      }
+    } catch(err) {
+      console.warn('Analytics tracking error:', err);
+    }
+  };
+
+  // 4. Globalny nasłuchiwacz na wszystkie linki tel:
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('a[href^="tel:"]');
+    if (target) {
+      window.akumulateoTrackPhone(e);
+    }
+  });
+
+  // 5. Inicjalizacja po załadowaniu DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyConfig);
+  } else {
+    applyConfig();
+  }
+})();
+</script>

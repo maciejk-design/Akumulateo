@@ -1,0 +1,88 @@
+/**
+ * ========================================================
+ * AKUMULATEO – GLOBAL CUSTOM CSS (SQUARESPACE 7.1)
+ * Ścieżka w panelu: Website -> Pages -> Custom CSS (lub Design -> Custom CSS)
+ * ========================================================
+ */
+
+/* 1. Globalne zmienne stylistyczne */
+:root {
+  --ak-amber-primary: #f59e0b;
+  --ak-amber-dark: #d97706;
+  --ak-amber-light: #fbbf24;
+  --ak-bg-darkest: #030712;
+  --ak-bg-card: #0f172a;
+  --ak-bg-card-hover: #1e293b;
+  --ak-border-card: #1e293b;
+  --ak-emerald: #10b981;
+  --ak-blue: #3b82f6;
+}
+
+/* 2. Glassmorphism & Tła */
+.akumulateo-glass {
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 3. Karty usług, cennika i marek */
+.akumulateo-card {
+  background-color: var(--ak-bg-card);
+  border: 1px solid var(--ak-border-card);
+  border-radius: 16px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.akumulateo-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* 4. Pulsacyjna dioda statusu dyżuru 24/7 */
+.akumulateo-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--ak-emerald);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: akPulseAnim 1.8s infinite;
+}
+
+@keyframes akPulseAnim {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* 5. Gwarancja braku rozjazdu paska zaufania na mobile */
+@media (max-width: 767px) {
+  .akumulateo-trust-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .akumulateo-trust-bar > * {
+    padding: 10px 8px !important;
+  }
+}
+
+/* 6. Przyciski Call-to-Action */
+.akumulateo-btn-call {
+  background: linear-gradient(135deg, var(--ak-amber-primary) 0%, var(--ak-amber-dark) 100%);
+  color: #020617 !important;
+  text-decoration: none !important;
+  font-weight: 900;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+}
+
+.akumulateo-btn-call:hover {
+  filter: brightness(1.06);
+}
+
+.akumulateo-btn-call:active {
+  transform: scale(0.97);
+}

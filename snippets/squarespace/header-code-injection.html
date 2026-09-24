@@ -1,22 +1,19 @@
 <!-- ========================================================
-     AKUMULATEO - HEADER CODE INJECTION (SQUARESPACE 7.1)
+     AKUMULATEO – HEADER CODE INJECTION (SQUARESPACE 7.1)
      Ścieżka w panelu: Settings -> Advanced -> Code Injection -> HEADER
-
+     
      Zawiera:
-     1. Preconnect do CDN + High-Priority LCP Image Preload
-     2. Font Display Swap (Space Grotesk & Raleway - zero CLS)
-     3. Google Consent Mode v2 + FastTony Bridge (100% DMA / RODO compliance)
-     4. Google Tag (gtag.js) - Google Analytics 4 (G-2KXNL0LQWG) & Google Ads (AW-16941768870)
-     5. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★)
+     1. Preconnect & Optymalizacja Fontów (zero CLS)
+     2. Google Consent Mode v2 + FastTony Bridge (100% RODO / DMA)
+     3. Google Tag (GA4: G-2KXNL0LQWG & Google Ads: AW-16941768870)
+     4. FastTony Pixel
+     5. Schema.org JSON-LD (AutomotiveBusiness + AggregateRating 5.0★ 100+ opinii)
      ======================================================== -->
 
-<!-- 1. Preconnect & LCP Image Preload -->
+<!-- 1. Preconnect & Font Swap -->
 <link rel="preconnect" href="https://images.squarespace-cdn.com" crossorigin>
 <link rel="preconnect" href="https://file.squarespace-cdn.com" crossorigin>
 <link rel="preconnect" href="https://static1.squarespace.com" crossorigin>
-<link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/7c219de6-f0cf-4151-a1a4-eac82a1de5d2/akumulateo-hero-pagespeed.jpg?format=1000w" fetchpriority="high">
-
-<!-- 2. Font Display Swap (Eliminacja CLS) -->
 <style>
   @font-face {
     font-family: 'Space Grotesk';
@@ -28,9 +25,8 @@
   }
 </style>
 
-<!-- 3. Akumulateo: Google Consent Mode v2 + FastTony / Squarespace Bridge -->
+<!-- 2. Google Consent Mode v2 + FastTony / Squarespace Bridge -->
 <script>
-// Inicjalizacja standardowych warstw danych dla Google i FastTony
 window.dataLayer = window.dataLayer || [];
 function gtag() { window.dataLayer.push(arguments); }
 window.gtag = gtag;
@@ -44,7 +40,7 @@ function consentCommand() {
 (function () {
   'use strict';
   if (window.akumulateoConsentBridge) return;
-  window.akumulateoConsentBridge = { version: '2.0.0' };
+  window.akumulateoConsentBridge = { version: '2.1.0' };
 
   function allowed(name) {
     return document.cookie.split(';').some(function (part) {
@@ -63,7 +59,7 @@ function consentCommand() {
     };
   }
 
-  // 1. Google Consent Mode v2 - Wartości domyślne przed załadowaniem jakichkolwiek tagów
+  // Google Consent Mode v2 - Domyślne wartości blokujące przed zgodą
   consentCommand('consent', 'default', {
     ad_storage: 'denied',
     analytics_storage: 'denied',
@@ -82,10 +78,8 @@ function consentCommand() {
     previous = serialized;
   }
 
-  // 2. Weryfikacja stanu zgód z ciasteczek lub localStorage
   sync();
 
-  // 3. Nasłuchiwanie zmian zgody na banerze ciasteczek Squarespace
   if (window.cookieStore && window.cookieStore.addEventListener) {
     window.cookieStore.addEventListener('change', sync);
   }
@@ -99,9 +93,8 @@ function consentCommand() {
   setInterval(function () { if (!document.hidden) sync(); }, 1000);
 })();
 </script>
-<!-- /Akumulateo: Google Consent Mode v2 + FastTony Bridge -->
 
-<!-- 4. Google Tag (gtag.js) - Google Analytics 4 & Google Ads -->
+<!-- 3. Google Tag (gtag.js) - GA4 & Google Ads -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2KXNL0LQWG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -112,13 +105,12 @@ function consentCommand() {
 </script>
 
 <meta name="google-site-verification" content="8OwML77jaX0fEJRcrK-6dVdvgRRYFvMMemjwvMBqW3s" />
-
-<!-- FastTony Pixel Code -->
-<script src="https://pixel.fasttony.com/1cf82dd91068403291d066c568c5b152" async defer></script>
 <meta name="google-site-verification" content="zEmwcjPWS8eGt2FNkFL4M68ydu03bWg2Cz_DAfpJ8BE" />
-<!-- End FastTony Pixel Code -->
 
-<!-- 4. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + AggregateRating 5.0★ z 99 opinii) -->
+<!-- 4. FastTony Pixel Code -->
+<script src="https://pixel.fasttony.com/1cf82dd91068403291d066c568c5b152" async defer></script>
+
+<!-- 5. Ustrukturyzowane Dane Schema.org (AutomotiveBusiness + 5.0★ 100+ opinii) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -130,7 +122,7 @@ function consentCommand() {
   "telephone": "+48696556446",
   "priceRange": "$$",
   "image": "https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/7c219de6-f0cf-4151-a1a4-eac82a1de5d2/akumulateo-hero-pagespeed.jpg",
-  "description": "Całodobowe pogotowie akumulatorowe Warszawa 24/7. Wymiana akumulatora u klienta, awaryjny rozruch boosterem, diagnostyka i kodowanie BMS. Dojazd w 20-30 min.",
+  "description": "Całodobowe pogotowie akumulatorowe Warszawa 24/7. Mobilna wymiana akumulatora z dojazdem w 15–25 min, awaryjny rozruch boosterem 12V/24V i komputerowe kodowanie BMS. Obszar: Warszawa i aglomeracja do 40 km.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Warszawa",
@@ -152,7 +144,19 @@ function consentCommand() {
     {"@type": "AdministrativeArea", "name": "Wilanów"},
     {"@type": "AdministrativeArea", "name": "Piaseczno"},
     {"@type": "AdministrativeArea", "name": "Pruszków"},
-    {"@type": "AdministrativeArea", "name": "Marki"}
+    {"@type": "AdministrativeArea", "name": "Piastów"},
+    {"@type": "AdministrativeArea", "name": "Brwinów"},
+    {"@type": "AdministrativeArea", "name": "Milanówek"},
+    {"@type": "AdministrativeArea", "name": "Grodzisk Mazowiecki"},
+    {"@type": "AdministrativeArea", "name": "Legionowo"},
+    {"@type": "AdministrativeArea", "name": "Nowy Dwór Mazowiecki"},
+    {"@type": "AdministrativeArea", "name": "Mińsk Mazowiecki"},
+    {"@type": "AdministrativeArea", "name": "Marki"},
+    {"@type": "AdministrativeArea", "name": "Ząbki"},
+    {"@type": "AdministrativeArea", "name": "Otwock"},
+    {"@type": "AdministrativeArea", "name": "Wołomin"},
+    {"@type": "AdministrativeArea", "name": "Łomianki"},
+    {"@type": "AdministrativeArea", "name": "Konstancin-Jeziorna"}
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -169,13 +173,13 @@ function consentCommand() {
     "opens": "00:00",
     "closes": "23:59"
   },
-  "hasMap": "https://maps.app.goo.gl/KwBcizr9KRCRr2ae8",
+  "hasMap": "https://g.page/r/CXjN9llopHR_EBM/",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "emergency service",
     "telephone": "+48696556446",
-    "availableLanguage": ["pl", "en", "uk"],
-    "areaServed": "Warszawa i okolice"
+    "availableLanguage": ["pl", "en"],
+    "areaServed": "Warszawa i aglomeracja do 40 km"
   }
 }
 </script>
