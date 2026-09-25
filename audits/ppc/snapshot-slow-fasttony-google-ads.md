@@ -138,3 +138,21 @@
 11. `herbsta` *(ODBLOKOWANE)*
 12. `herbstadolna` *(ODBLOKOWANE)*
 13. `dolna` *(ODBLOKOWANE)*
+
+---
+
+## 4. Wyniki Weryfikacji po 24 Godzinach (25 września 2026 r.)
+
+### A. Potwierdzenie Stabilności FastTony:
+- **0 zmian samoistnych:** Wszystkie 70 słów pozytywnych, fraza `sklepy` (OFF), promień 40 km oraz 13 odblokowanych wykluczeń zachowały swoje stany bez jakiejkolwiek ingerencji.
+
+### B. Wyniki Biznesowe w Google Ads (Pierwsze 24h):
+- Fraza `sklepy` wygenerowała **0 kliknięć i 0 zł kosztu** (skuteczna ochrona budżetu).
+- Nowo odblokowana fraza `akumulator 24h` wygenerowała **1 kliknięcie przy CTR 50%** (koszt 8,58 zł).
+- Fraza `awaryjne uruchamianie hybrydy` przyniosła **2 kliknięcia** (16,64 zł).
+- Fraza `akumulatory grodzisk mazowiecki` wygenerowała **1 kliknięcie** z nowego promienia 40 km.
+
+### C. Wnioski Dotyczące Wykluczeń w Google Ads:
+- W FastTony wykluczenia są wyłączone, co oznacza, że reguły FastTony nie blokują tych zapytań.
+- Współdzielona lista wykluczeń w Google Ads (`[Forsant API] Negative keyword list - 1742476080`) wymaga manualnego zgłoszenia do supportu FastTony lub nadania uprawnień edycyjnych dla konta Google Ads w celu fizycznego usunięcia wpisów takich jak `akumulator ursus`.
+
