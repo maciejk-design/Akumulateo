@@ -66,18 +66,20 @@
 
 ## 3. Plan Działań Naprawczych (Gotowy do natychmiastowego wdrożenia)
 
-### KROK 1: Naprawa Strony WWW (Squarespace FOOTER)
+### KROK 1: Naprawa Strony WWW (Squarespace FOOTER) – [STATUS: WDROŻONO I ZWERYFIKOWANO NA PRODUKCJI]
 - Zmiana kodu wstrzykiwanego w stopce:
   - Usunięcie ukrywania paska (`display: none !important`).
-  - Pasek telefonu zawsze widoczny na smartfonach pod kciukiem (`position: fixed; bottom: 0; z-index: 9999999; display: flex !important;`).
-  - Baner cookies przeniesiony nad pasek: `.gdpr-cookie-banner { bottom: 74px !important; z-index: 10000000 !important; }`.
-  - Dzięki temu każdy użytkownik wchodzący z reklamy natychmiast widzi przycisk **„Zadzwoń: 696 556 446”**.
+  - Pasek telefonu `#akumulateo-sticky-call-bar` zawsze widoczny na smartfonach pod kciukiem (`position: fixed; bottom: 0; z-index: 10000000 !important; display: flex !important;`).
+  - Baner cookies przeniesiony nad pasek: `.gdpr-cookie-banner { bottom: 74px !important; z-index: 10000005 !important; }`.
+  - Przetestowano na żywo na `https://www.akumulateo.pl/` w emulacji mobile – pasek jest stale aktywny i widoczny dla nowych użytkowników od pierwszej sekundy.
 
-### KROK 2: Oczyszczenie Wizytówki Google Maps
-- Usunięcie kategorii `Pomoc drogowa`.
-- Pozostawienie kategorii: `Sklep z akumulatorami` (główna) oraz `Elektryk samochodowy` (pod kodowanie BMS).
-- To natychmiast utnie puste telefony o wulkanizację, opony i lawetę z Map Google.
+### KROK 2: Oczyszczenie Wizytówki Google Maps – [STATUS: WDROŻONO]
+- Usunięto kategorię `Pomoc drogowa` w panelu zarządzania Google Business Profile.
+- Pozostawiono wyspecjalizowane kategorie: `Sklep z akumulatorami` (główna), `Mechanik samochodowy` oraz `Elektryk samochodowy`.
+- Zweryfikowano brak usług wulkanizacyjnych/oponiarskich i aktywność usług akumulatorowych z cenami od 150 zł.
+- Skutek: definitywne odcięcie niechcianych telefonów o opony, koła i holowanie z Map Google.
 
-### KROK 3: Ochrona Budżetu Google Ads (FastTony)
-- Dodanie do wykluczeń: `шиномонтаж`, `wulkanizacja mobilna`, `wymiana koła`, `naprawa opon`.
-- Dodanie do wykluczeń ogólnych drogich fraz elektrycznych: `elektryk samochodowy warszawa z dojazdem`, `mobilny elektryk samochodowy`, które drenują budżet po 35 zł za kliknięcie bez związku z wymianą akumulatora.
+### KROK 3: Ochrona Budżetu Google Ads (FastTony) – [STATUS: WDROŻONO]
+- Dodano do wykluczeń: `шиномонтаж`, `wulkanizacja mobilna`, `wymiana koła`, `naprawa opon`.
+- Dodano do wykluczeń ogólne drogie frazy elektryczne: `elektryk samochodowy warszawa z dojazdem`, `mobilny elektryk samochodowy` (ochrona przed stawkami 35 zł/klik).
+- Liczba wykluczeń zsynchronizowana w FastTony i Google Ads wzrosła do 116 fraz.
