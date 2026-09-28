@@ -60,14 +60,14 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
     slug: 'mokotow',
     districtName: 'Mokotów',
     isWarsawDistrict: true,
-    eta: '15-25 minut',
+    eta: '20-30 minut',
     urlPath: '/wymiana-akumulatora-warszawa-mokotow',
     meta: {
       title: 'Wymiana Akumulatora z Dojazdem Warszawa Mokotów 24/7 | Akumulateo',
-      description: 'Padł akumulator na Mokotowie? Całodobowa wymiana z dojazdem w 15-25 min (Mordor, Służew, Stegny, Sadyba). Dobór, montaż, kodowanie BMS. Zadzwoń: 696 556 446!'
+      description: 'Padł akumulator na Mokotowie? Całodobowa wymiana z dojazdem w 20-30 min (Mordor, Służew, Stegny, Sadyba). Dobór, montaż, kodowanie BMS. Zadzwoń: 696 556 446!'
     },
     hero: {
-      badge: '⚡ Pogotowie Akumulatorowe 24h – Dojazd w 15-25 min na Mokotów',
+      badge: '⚡ Pogotowie Akumulatorowe 24h – Dojazd w 20-30 min na Mokotów',
       h1: 'Wymiana Akumulatora z Dojazdem Warszawa Mokotów (24/7)',
       lead: 'Auto nie odpala na Mokotowie? Nie musisz holować auta ani szukać stacjonarnego sklepu. Przyjeżdżamy bezpośrednio pod Twój blok, dom, biurowiec lub do garażu podziemnego z nowym, dobranym akumulatorem.',
       ctaButtonText: 'Zadzwoń po pomoc: 696 556 446',
@@ -78,7 +78,7 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
       h2: 'Mobilny serwis akumulatorów na Mokotowie – Dlaczego to najlepszy wybór?',
       paragraphs: [
         'Mokotów to jedna z najbardziej zatłoczonych dzielnic Warszawy. W godzinach szczytu holowanie unieruchomionego samochodu z osiedli na Służewie, Stegnach czy z zagłębia biurowego na Domaniewskiej (Mordor) do warsztatu to strata kilku godzin i setek złotych.',
-        'Akumulateo działa w 100% mobilnie. Nasze mobilne warsztaty stacjonują w strategicznych punktach Warszawy, dzięki czemu na terenie Górnego i Dolnego Mokotowa meldujemy się zazwyczaj w 15 do 25 minut od zgłoszenia telefonicznego.',
+        'Akumulateo działa w 100% mobilnie. Nasze mobilne warsztaty stacjonują w strategicznych punktach Warszawy, dzięki czemu na terenie Górnego i Dolnego Mokotowa meldujemy się zazwyczaj w 20 do 30 minut od zgłoszenia telefonicznego.',
         'Dysponujemy sprzętem o niskim profilu, co pozwala nam bez problemu wjechać do ciasnych garaży podziemnych (np. przy Galerii Mokotów, w nowych apartamentowcach na Sadybie czy przy ul. Konstruktorskiej).'
       ],
       localLandmarks: [
@@ -112,7 +112,7 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
     },
     pricingAndEtaSection: {
       h2: 'Cennik usług z dojazdem – Warszawa Mokotów',
-      etaText: 'Średni czas dojazdu technika na Mokotów: 15–25 minut (dostępność 24h / 7 dni w tygodniu).',
+      etaText: 'Średni czas dojazdu technika na Mokotów: 20–30 minut (dostępność 24h / 7 dni w tygodniu).',
       pricingItems: [
         {
           service: 'Awaryjny rozruch auta (Booster)',
@@ -166,14 +166,14 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
     "opens": "00:00",
     "closes": "23:59"
   },
-  "description": "Całodobowa wymiana akumulatora z dojazdem Warszawa Mokotów. Szybki dojazd w 15-25 min, diagnostyka, montaż i kodowanie BMS."
+  "description": "Całodobowa wymiana akumulatora z dojazdem Warszawa Mokotów. Szybki dojazd w 20-30 min, diagnostyka, montaż i kodowanie BMS."
 }`
   },
   {
     slug: 'ursynow',
     districtName: 'Ursynów',
     isWarsawDistrict: true,
-    eta: '15-25 minut',
+    eta: '20-30 minut',
     urlPath: '/wymiana-akumulatora-warszawa-ursynow',
     meta: {
       title: 'Wymiana Akumulatora z Dojazdem Warszawa Ursynów 24h | Akumulateo',
@@ -225,7 +225,7 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
     },
     pricingAndEtaSection: {
       h2: 'Cennik pogotowia akumulatorowego – Ursynów',
-      etaText: 'Średni czas dojazdu na Ursynowie: 15–25 minut, 24 godziny na dobę.',
+      etaText: 'Średni czas dojazdu na Ursynowie: 20–30 minut, 24 godziny na dobę.',
       pricingItems: [
         {
           service: 'Awaryjny rozruch 12V',
@@ -286,14 +286,14 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
     slug: 'wola',
     districtName: 'Wola',
     isWarsawDistrict: true,
-    eta: '15-25 minut',
+    eta: '20-30 minut',
     urlPath: '/wymiana-akumulatora-warszawa-wola',
     meta: {
       title: 'Pogotowie Akumulatorowe Warszawa Wola 24/7 – Wymiana z Dojazdem',
-      description: 'Rozładowany akumulator na Woli (Odolany, Mirów, Koło, Czyste)? Wymiana akumulatora u klienta w 20 min. Diagnostyka, montaż i kodowanie 24h. Tel: 696 556 446.'
+      description: 'Rozładowany akumulator na Woli (Odolany, Mirów, Koło, Czyste)? Wymiana akumulatora u klienta w 20-30 min. Diagnostyka, montaż i kodowanie 24h. Tel: 696 556 446.'
     },
     hero: {
-      badge: '⚡ Pogotowie Akumulatorowe Wola 24h – Dojazd w 20 min',
+      badge: '⚡ Pogotowie Akumulatorowe Wola 24h – Dojazd w 20-30 min',
       h1: 'Pogotowie Akumulatorowe Warszawa Wola 24/7',
       lead: 'Auto uwięzione na podziemnym parkingu na Odolanach lub pod biurowcem przy Rondzie Daszyńskiego? Przyjedziemy z nowym akumulatorem, zamontujemy go na miejscu i bezpiecznie uruchomimy Twój samochód.',
       ctaButtonText: 'Wezwij technika na Wolę: 696 556 446',
@@ -338,7 +338,7 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
     },
     pricingAndEtaSection: {
       h2: 'Cennik i orientacyjny czas reakcji – Warszawa Wola',
-      etaText: 'Średni czas dojazdu na terenie Woli: 15–25 minut (24/7).',
+      etaText: 'Średni czas dojazdu na terenie Woli: 20–30 minut (24/7).',
       pricingItems: [
         {
           service: 'Awaryjne odpalanie z boostera',
@@ -366,7 +366,7 @@ export const DISTRICTS_CONTENT: DistrictContentPage[] = [
         },
         {
           question: 'Ile trwa cała usługa na miejscu?',
-          answer: 'Standardowa wymiana akumulatora wraz z diagnostyką i adaptacją komputerową zajmuje technikowi od 15 do 25 minut.'
+          answer: 'Standardowa wymiana akumulatora wraz z diagnostyką i adaptacją komputerową zajmuje technikowi od 20 do 30 minut.'
         },
         {
           question: 'Czy otrzymam gwarancję na nowy akumulator?',

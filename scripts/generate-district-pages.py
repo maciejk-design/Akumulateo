@@ -12,20 +12,20 @@ DISTRICTS = [
         "slug": "ursynow",
         "url_slug": "wymiana-akumulatora-warszawa-ursynow",
         "name": "Ursynów",
-        "eta": "15-25 min",
+        "eta": "20-30 min",
         "title": "Wymiana Akumulatora z Dojazdem Warszawa Ursynów 24h | Akumulateo",
         "desc": "Mobilny serwis akumulatorów na Ursynowie (Kabaty, Imielin, Stokłosy, Natolin). Awaryjny rozruch i wymiana akumulatora z dojazdem 24/7. Tel: 696 556 446.",
         "h1": "Wymiana Akumulatora z Dojazdem Warszawa Ursynów 24/7",
         "areas": "Kabaty, Imielin, Stokłosy, Natolin, Dąbrówka, Grabów, Pyry",
-        "description_body": "Rozładowany akumulator na Ursynowie? Dojedziemy pod Twój blok, dom jednorodzinny lub do garażu podziemnego w 15–25 minut. Sprawdzimy stan starej baterii testerem obciążeniowym, a gdy to konieczne – zamontujemy fabrycznie nowy akumulator AGM lub kwasowy i zakodujemy go w komputerze auta."
+        "description_body": "Rozładowany akumulator na Ursynowie? Dojedziemy pod Twój blok, dom jednorodzinny lub do garażu podziemnego w 20–30 minut. Sprawdzimy stan starej baterii testerem obciążeniowym, a gdy to konieczne – zamontujemy fabrycznie nowy akumulator AGM lub kwasowy i zakodujemy go w komputerze auta."
     },
     {
         "slug": "wola",
         "url_slug": "wymiana-akumulatora-warszawa-wola",
         "name": "Wola",
-        "eta": "15-25 min",
+        "eta": "20-30 min",
         "title": "Pogotowie Akumulatorowe Warszawa Wola 24/7 | Rozruch i Wymiana",
-        "desc": "Rozładowany akumulator na Woli (Odolany, Koło, Mirów, Czyste)? Przyjedziemy w 20 minut. Awaryjny rozruch boosterem i montaż akumulatora 24h. Tel: 696 556 446.",
+        "desc": "Rozładowany akumulator na Woli (Odolany, Koło, Mirów, Czyste)? Przyjedziemy w 20-30 minut. Awaryjny rozruch boosterem i montaż akumulatora 24h. Tel: 696 556 446.",
         "h1": "Pogotowie Akumulatorowe Warszawa Wola 24h/7",
         "areas": "Odolany, Koło, Czyste, Mirów, Młynów, Ulrychów, Rondo Daszyńskiego",
         "description_body": "Błyskawiczna pomoc z akumulatorem na warszawskiej Woli. Obsługujemy zarówno nowe osiedla na Odolanach, jak i biurowce w centrum biznesowym przy Rondzie Daszyńskiego. Wjeżdżamy do podziemnych hal garażowych."
@@ -34,7 +34,7 @@ DISTRICTS = [
         "slug": "srodmiescie",
         "url_slug": "wymiana-akumulatora-warszawa-srodmiescie",
         "name": "Śródmieście",
-        "eta": "15-25 min",
+        "eta": "20-30 min",
         "title": "Awaryjne Odpalanie i Wymiana Akumulatora Śródmieście 24h | Akumulateo",
         "desc": "Śródmieście Warszawa: pogotowie akumulatorowe 24/7. Wjazd do stref i garaży podziemnych. Diagnostyka, montaż i kodowanie akumulatora. Tel: 696 556 446.",
         "h1": "Wymiana Akumulatora z Dojazdem Warszawa Śródmieście 24/7",
@@ -56,12 +56,12 @@ DISTRICTS = [
         "slug": "praga-poludnie",
         "url_slug": "wymiana-akumulatora-warszawa-praga-poludnie",
         "name": "Praga-Południe",
-        "eta": "15-25 min",
+        "eta": "20-30 min",
         "title": "Wymiana Akumulatora z Dojazdem Praga-Południe (Gocław, Grochów, Saska Kępa)",
-        "desc": "Pogotowie akumulatorowe Praga-Południe: Grochów, Saska Kępa, Gocław. Dojazd w 20 min, diagnostyka ładowania i wymiana na miejscu 24h. Tel: 696 556 446.",
+        "desc": "Pogotowie akumulatorowe Praga-Południe: Grochów, Saska Kępa, Gocław. Dojazd w 20-30 min, diagnostyka ładowania i wymiana na miejscu 24h. Tel: 696 556 446.",
         "h1": "Pogotowie Akumulatorowe Praga-Południe 24/7",
         "areas": "Gocław, Grochów, Saska Kępa, Kamionek, Gocławek, Przyczółek Grochowski",
-        "description_body": "Nie trać czasu na szukanie stacjonarnych sklepów po prawej stronie Wisły. Technik Akumulateo przyjedzie na Gocław, Grochów lub Saską Kępę w 15–25 minut i wymieni akumulator na miejscu."
+        "description_body": "Nie trać czasu na szukanie stacjonarnych sklepów po prawej stronie Wisły. Technik Akumulateo przyjedzie na Gocław, Grochów lub Saską Kępę w 20–30 minut i wymieni akumulator na miejscu."
     }
 ]
 
