@@ -115,10 +115,20 @@
   }
 
   @media (max-width: 768px) {
+    #akumulateo-sticky-call-bar {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 10000000 !important;
+    }
     .gdpr-cookie-banner,
     .sqs-cookie-banner-v2,
     .sqs-cookie-banner-v2-container,
-    [data-cookie-banner] {
+    .cookie-banner-mount-point,
+    [data-cookie-banner],
+    .manage-cookies-bar {
+      bottom: 74px !important;
       z-index: 10000005 !important;
     }
   }
@@ -194,24 +204,18 @@
     }
   });
 
-  // 5. Obsługa banera zgody cookies Squarespace (Incognito)
+  // 5. Obsługa banera zgody cookies Squarespace (Incognito) - Pasek telefonu ZAWSZE WIDOCZNY
   function syncCookieBannerWithStickyBar() {
-    var banner = document.querySelector('.gdpr-cookie-banner, .cookie-banner-mount-point, .sqs-cookie-banner-v2, [data-cookie-banner], .manage-cookies-bar');
     var bar = document.getElementById('akumulateo-sticky-call-bar');
-    if (!bar) return;
+    if (bar && window.innerWidth <= 768) {
+      bar.style.setProperty('display', 'flex', 'important');
+      document.body.style.setProperty('padding-bottom', '74px', 'important');
+    }
     
-    // Sprawdź czy baner cookie istnieje w DOM i jest renderowany
-    var isBannerActive = banner && (banner.offsetHeight > 0 || (banner.children && banner.children.length > 0)) && window.getComputedStyle(banner).display !== 'none' && window.getComputedStyle(banner).visibility !== 'hidden';
-    
-    if (isBannerActive) {
-      // Baner cookie jest aktywny – całkowicie ukryj dolny pasek telefonu, aby przyciski banera (Zarządzaj, Akceptuj wszystkie) były w 100% odsłonięte i klikalne
-      bar.style.setProperty('display', 'none', 'important');
-      document.body.style.setProperty('padding-bottom', '0px', 'important');
-    } else {
-      if (window.innerWidth <= 768) {
-        bar.style.removeProperty('display');
-        document.body.style.setProperty('padding-bottom', '74px', 'important');
-      }
+    var banner = document.querySelector('.gdpr-cookie-banner, .cookie-banner-mount-point, .sqs-cookie-banner-v2, [data-cookie-banner], .manage-cookies-bar');
+    if (banner && window.innerWidth <= 768) {
+      // Przesuń baner cookie bezpiecznie nad pasek telefonu, aby oba elementy były w 100% widoczne i klikalne
+      banner.style.setProperty('bottom', '74px', 'important');
     }
   }
 
