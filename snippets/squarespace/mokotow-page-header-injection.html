@@ -88,6 +88,79 @@
 .akumulateo-pulse-dot {
   animation: akumulateo-pulse 2s infinite ease-in-out;
 }
+
+/* Mobilny Przycisk Menu – Wysoki Kontrast */
+.ak-mobile-menu-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  background-color: #1e293b !important;
+  border: 2px solid #f59e0b !important;
+  border-radius: 10px !important;
+  padding: 5px 8px !important;
+  min-height: 34px !important;
+  color: #fbbf24 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 8px rgba(245, 158, 11, 0.25) !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  flex-shrink: 0 !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+@media (min-width: 640px) {
+  .ak-mobile-menu-btn {
+    gap: 5px !important;
+    border-radius: 12px !important;
+    padding: 6px 10px !important;
+    min-height: 38px !important;
+  }
+}
+
+.ak-mobile-menu-btn:hover,
+.ak-mobile-menu-btn:focus-visible {
+  background-color: #334155 !important;
+  border-color: #fbbf24 !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4) !important;
+}
+
+.ak-mobile-menu-btn:active {
+  transform: scale(0.96) !important;
+}
+
+.ak-mobile-menu-btn .ak-menu-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #fbbf24 !important;
+  line-height: 1 !important;
+}
+
+@media (min-width: 640px) {
+  .ak-mobile-menu-btn .ak-menu-text {
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+  }
+}
+
+.ak-mobile-menu-btn svg {
+  width: 15px !important;
+  height: 15px !important;
+  stroke: #fbbf24 !important;
+  stroke-width: 2.5px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+@media (min-width: 640px) {
+  .ak-mobile-menu-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+}
 </style>
 
 <!-- 4. TEMPLATE MOKOTOWA -->
@@ -114,12 +187,12 @@
   </div>
 
   <!-- 2. PASEK NAWIGACJI (STICKY HEADER) -->
-  <header class="bg-slate-900/95 backdrop-filter backdrop-blur-md sticky top-0 z-40 border-b border-slate-800 px-4 py-3.5">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+  <header class="bg-slate-900/95 backdrop-filter backdrop-blur-md sticky top-0 z-40 border-b border-slate-800 px-2 sm:px-4 py-2 sm:py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-1 sm:gap-4">
       
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 group text-decoration-none">
-        <div class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-1.5 shadow-md group-hover:border-amber-500 transition" style="width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;flex-shrink:0;">
+      <!-- Logo: zawsze klikalny link na stronę główną -->
+      <a href="/" class="flex items-center gap-1.5 sm:gap-2 group text-decoration-none min-w-0 cursor-pointer flex-shrink-0" aria-label="Akumulateo – Strona główna">
+        <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-1 shadow-md group-hover:border-amber-500 transition" style="width:28px;height:28px;min-width:28px;min-height:28px;max-width:36px;max-height:36px;flex-shrink:0;">
           <svg viewBox="0 0 68 68" style="width:100%;height:100%;display:block;" fill="none">
             <rect x="14" y="6" width="10" height="7" rx="2" fill="#94A3B8" />
             <rect x="44" y="6" width="10" height="7" rx="2" fill="#EF4444" />
@@ -129,10 +202,10 @@
           </svg>
         </div>
         <div class="leading-none">
-          <div class="text-lg md:text-xl font-black tracking-wider text-white">
+          <div class="text-sm sm:text-lg md:text-xl font-black tracking-wide sm:tracking-wider text-white whitespace-nowrap">
             AKUMULAT<span class="text-amber-500">E</span>O
           </div>
-          <div class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mt-1 flex items-center gap-1">
+          <div class="hidden sm:flex text-[8px] sm:text-[9px] font-black uppercase tracking-[0.16em] text-slate-400 mt-0.5 items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
             Pogotowie 24h
           </div>
@@ -149,14 +222,20 @@
         <a href="/#faq" class="hover:text-amber-400 transition font-bold">FAQ</a>
       </nav>
 
-      <!-- Telefon & Hamburger -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="tel:+48696556446" class="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-3.5 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition transform active:scale-95 text-xs sm:text-sm">
-          <span class="text-base sm:text-lg">📞</span>
-          <span class="tracking-wide">696 556 446</span>
+      <!-- Prawa strona: Telefon & Przycisk Menu -->
+      <div class="flex items-center gap-1 sm:gap-2.5 flex-shrink-0">
+        <a href="tel:+48696556446" class="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-2 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition transform active:scale-95 text-[11px] sm:text-sm whitespace-nowrap">
+          <span class="text-xs sm:text-base">📞</span>
+          <span class="tracking-tight sm:tracking-wide font-black">696 556 446</span>
         </a>
-        <button onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.toggle('hidden');" aria-label="Menu" class="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white border border-slate-700">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <button id="akMobileMenuBtn" onclick="var m=document.getElementById('akSubpageMobileDrawer')||document.getElementById('akMobileDrawer');if(m){var isHidden=m.classList.toggle('hidden');this.setAttribute('aria-expanded',!isHidden);var icon=this.querySelector('.ak-menu-icon');var closeIcon=this.querySelector('.ak-close-icon');var label=this.querySelector('.ak-menu-text');if(icon&&closeIcon){icon.classList.toggle('hidden',!isHidden);closeIcon.classList.toggle('hidden',isHidden);}if(label){label.textContent=isHidden?'MENU':'ZAMKNIJ';}}" aria-label="Menu nawigacji" aria-expanded="false" class="ak-mobile-menu-btn lg:hidden">
+          <span class="ak-menu-icon flex items-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </span>
+          <span class="ak-close-icon hidden flex items-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </span>
+          <span class="ak-menu-text">MENU</span>
         </button>
       </div>
 
@@ -164,13 +243,13 @@
 
     <!-- Mobilny Drawer -->
     <div id="akSubpageMobileDrawer" class="hidden pt-4 pb-3 border-t border-slate-800 mt-3 space-y-2">
-      <a href="/#uslugi" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">⚡ Usługi mobilne</a>
-      <a href="/#cennik" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">💰 Cennik usług</a>
-      <a href="/#marki" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">🔋 Oficjalne marki (Varta, Yuasa, Bosch)</a>
-      <a href="/obszar-dzialania-warszawa-i-okolice" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-amber-400">📍 Obszar działania (Warszawa & Aglomeracja)</a>
-      <a href="/#opinie" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">⭐ Opinie klientów (5.0 w Google Maps)</a>
-      <a href="/#faq" class="block px-4 py-3 rounded-xl bg-slate-800/80 font-bold text-slate-200 hover:text-amber-400">❓ FAQ – Pytania i Odpowiedzi</a>
-      <a href="tel:+48696556446" class="block w-full text-center bg-amber-500 text-slate-950 font-black py-3.5 rounded-xl text-base shadow-xl mt-2">📞 Zadzwoń: 696 556 446 (Pomoc 24h)</a>
+      <a href="/#uslugi" onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">⚡ Usługi mobilne</a>
+      <a href="/#cennik" onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">💰 Cennik usług</a>
+      <a href="/#marki" onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">🔋 Oficjalne marki (Varta, Yuasa, Bosch)</a>
+      <a href="/obszar-dzialania-warszawa-i-okolice" onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-amber-400">📍 Obszar działania (Warszawa & Aglomeracja)</a>
+      <a href="/#opinie" onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">⭐ Opinie klientów (5.0 w Google Maps)</a>
+      <a href="/#faq" onclick="var m=document.getElementById('akSubpageMobileDrawer');if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">❓ FAQ – Pytania i Odpowiedzi</a>
+      <a href="tel:+48696556446" class="block w-full text-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-3.5 px-4 rounded-xl text-base shadow-xl mt-2">📞 Zadzwoń: 696 556 446 (Pomoc 24h)</a>
     </div>
   </header>
 

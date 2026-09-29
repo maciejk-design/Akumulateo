@@ -1,112 +1,143 @@
-import subprocess
+import os
+import sys
 import json
 import time
+import subprocess
 
-def run_js(js_code):
-    script = f'''
-    tell application "Google Chrome"
-        repeat with w in windows
-            repeat with t in tabs of w
-                if (URL of t) contains "celery-robin-sffx.squarespace.com" then
-                    tell t
-                        return (execute javascript {json.dumps(js_code)})
-                    end tell
-                end if
-            end repeat
-        end repeat
-        return "Not found"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CSS_PATH = os.path.join(BASE_DIR, "snippets", "squarespace", "custom-css.css")
+
+with open(CSS_PATH, "r", encoding="utf-8") as f:
+    css_content = f.read()
+
+print(f"Loaded Custom CSS: {len(css_content)} chars")
+
+# Step 0: Ensure tab is on custom-css
+nav_as = """
+tell application "Google Chrome"
+    tell tab 7 of window 1
+        set URL to "https://celery-robin-sffx.squarespace.com/config/pages/custom-css"
     end tell
-    '''
-    res = subprocess.run(['osascript', '-e', script], capture_output=True, text=True)
-    return res.stdout.strip()
+end tell
+"""
+subprocess.run(["osascript", "-e", nav_as])
+time.sleep(3.5)
 
-def main():
-    with open('snippets/squarespace/custom-css.css', 'r', encoding='utf-8') as f:
-        custom_css = f.read()
+code_json = json.dumps(css_content)
+escaped_code_expr = json.dumps(code_json)
 
-    print(f"Loaded custom CSS: {len(custom_css)} chars")
+payload_js = f"""
+(function() {{
+    var script = document.createElement("script");
+    script.id = "cm-css-setter";
+    
+    script.textContent = "(function() {{" +
+        "try {{" +
+        "    var cmEl = document.querySelector(\x27.CodeMirror\x27);" +
+        "    if (!cmEl || !cmEl.CodeMirror) {{" +
+        "        document.documentElement.setAttribute(\x27data-deploy-result\x27, JSON.stringify({{success: false, error: \\"no CodeMirror\\" }}));" +
+        "        return;" +
+        "    }}" +
+        "    var cm = cmEl.CodeMirror;" +
+        "    var code = " + {escaped_code_expr} + ";" +
+        "    cm.setValue(code);" +
+        "    if (cm.save) cm.save();" +
+        "    var ta = cmEl.querySelector(\\"textarea\\");" +
+        "    if (ta) {{" +
+        "        ta.dispatchEvent(new Event(\\"input\\", {{ bubbles: true }}));" +
+        "        ta.dispatchEvent(new Event(\\"change\\", {{ bubbles: true }}));" +
+        "    }}" +
+        "    var saveBtn = Array.from(document.querySelectorAll(\\"button\\")).find(b => (b.innerText || \\"\\").trim().toUpperCase() === \\"SAVE\\");" +
+        "    document.documentElement.setAttribute(\x27data-deploy-result\x27, JSON.stringify({{" +
+        "        success: true," +
+        "        valueLength: cm.getValue().length," +
+        "        hasSaveBtn: !!saveBtn" +
+        "    }}));" +
+        "}} catch(e) {{" +
+        "    document.documentElement.setAttribute(\x27data-deploy-result\x27, JSON.stringify({{success: false, error: e.toString() }}));" +
+        "}}" +
+    "}})();";
+    
+    document.head.appendChild(script);
+    script.remove();
+    return document.documentElement.getAttribute("data-deploy-result");
+}})();
+"""
 
-    # Step 1: Navigate to website-tools
-    nav_script = '''
-    tell application "Google Chrome"
-        repeat with w in windows
-            repeat with i from 1 to count of tabs of w
-                if (URL of tab i of w) contains "celery-robin-sffx.squarespace.com" then
-                    set index of w to 1
-                    set active tab index of w to i
-                    tell tab i of w
-                        set URL to "https://celery-robin-sffx.squarespace.com/config/pages/website-tools"
-                    end tell
-                    return "Navigated to website-tools"
-                end if
-            end repeat
-        end repeat
-        return "Not found"
+tmp_js = "/tmp/inject_custom_css.js"
+with open(tmp_js, "w", encoding="utf-8") as f:
+    f.write(payload_js)
+
+as_code = f"""
+set f to POSIX file "{tmp_js}"
+set jsCode to read f as «class utf8»
+tell application "Google Chrome"
+    tell tab 7 of window 1
+        set res to execute javascript jsCode
+        return res
     end tell
-    '''
-    res = subprocess.run(['osascript', '-e', nav_script], capture_output=True, text=True)
-    print("Nav result:", res.stdout.strip())
-    time.sleep(3.5)
+end tell
+"""
+proc = subprocess.run(["osascript", "-e", as_code], capture_output=True, text=True)
+print("Inject result:", proc.stdout.strip())
+res = json.loads(proc.stdout.strip())
+if not res.get("success"):
+    print("❌ Failed to set CSS in CodeMirror:", res)
+    sys.exit(1)
 
-    # Step 2: Click Custom CSS
-    click_css_js = '''
-    (() => {
-        const btns = Array.from(document.querySelectorAll('button, a, div'));
-        const btn = btns.find(b => b.innerText && b.innerText.trim() === 'Custom CSS');
-        if (btn) {
-            btn.click();
-            return 'CLICKED_CUSTOM_CSS';
-        }
-        return 'NOT_FOUND';
-    })()
-    '''
-    print("Click custom css:", run_js(click_css_js))
-    time.sleep(3)
+time.sleep(1)
 
-    # Step 3: Paste into CodeMirror
-    paste_js = f'''
-    (() => {{
-        const cm = document.querySelector('.CodeMirror');
-        if (!cm) return JSON.stringify({{ error: 'No CodeMirror' }});
-        
-        if (cm.CodeMirror) {{
-            cm.CodeMirror.setValue({json.dumps(custom_css)});
-        }} else {{
-            const ta = cm.querySelector('textarea');
-            if (!ta) return JSON.stringify({{ error: 'No textarea' }});
-            ta.focus();
-            const dt = new DataTransfer();
-            dt.setData('text/plain', {json.dumps(custom_css)});
-            ta.dispatchEvent(new ClipboardEvent('paste', {{
-                bubbles: true, cancelable: true, clipboardData: dt
-            }}));
-        }}
+# Click Save
+save_js = """(function() {
+    var btn = Array.from(document.querySelectorAll("button")).find(b => (b.innerText || "").trim().toUpperCase() === "SAVE");
+    if (!btn) return "NO_SAVE_BTN";
+    var propsKey = Object.keys(btn).find(k => k.startsWith("__reactProps"));
+    if (propsKey && btn[propsKey] && typeof btn[propsKey].onClick === "function") {
+        btn[propsKey].onClick({ 
+            preventDefault: function() {}, 
+            stopPropagation: function() {},
+            target: btn,
+            currentTarget: btn
+        });
+        return "CLICKED_SAVE_REACT";
+    }
+    btn.click();
+    return "FALLBACK_CLICKED_SAVE";
+})();"""
 
-        const saveBtn = document.querySelector('[data-test="menuHeader-save"], [data-test="nav-modal-left-button"]') || Array.from(document.querySelectorAll('button')).find(b => b.innerText && b.innerText.trim() === 'Save');
-        return JSON.stringify({{
-            status: 'PASTED',
-            cmLength: cm.innerText.length,
-            hasSaveBtn: !!saveBtn
-        }});
-    }})()
-    '''
-    paste_res = run_js(paste_js)
-    print("Paste result:", paste_res)
-    time.sleep(1.5)
+with open("/tmp/save_custom_css.js", "w") as f:
+    f.write(save_js)
 
-    # Step 4: Click Save
-    save_js = '''
-    (() => {
-        const saveBtn = document.querySelector('[data-test="menuHeader-save"], [data-test="nav-modal-left-button"]') || Array.from(document.querySelectorAll('button')).find(b => b.innerText && b.innerText.trim() === 'Save');
-        if (!saveBtn) return JSON.stringify({ error: 'No save button' });
-        saveBtn.click();
-        return JSON.stringify({ status: 'CLICKED_SAVE' });
-    })()
-    '''
-    save_res = run_js(save_js)
-    print("Save result:", save_res)
-    time.sleep(3)
-    print("Custom CSS updated successfully!")
+as_save = """
+set f to POSIX file "/tmp/save_custom_css.js"
+set jsCode to read f as «class utf8»
+tell application "Google Chrome"
+    tell tab 7 of window 1
+        set res to execute javascript jsCode
+        return res
+    end tell
+end tell
+"""
+proc_save = subprocess.run(["osascript", "-e", as_save], capture_output=True, text=True)
+print("Save click result:", proc_save.stdout.strip())
 
-if __name__ == '__main__':
-    main()
+time.sleep(3)
+
+# Check save button state (it disappears or disables when saved)
+check_as = """
+tell application "Google Chrome"
+    tell tab 7 of window 1
+        execute javascript "
+        (function() {
+            var saveBtn = Array.from(document.querySelectorAll('button')).find(b => (b.innerText || '').trim().toUpperCase() === 'SAVE');
+            return JSON.stringify({
+                hasSaveBtn: !!saveBtn
+            });
+        })()
+        "
+    end tell
+end tell
+"""
+proc_check = subprocess.run(["osascript", "-e", check_as], capture_output=True, text=True)
+print("Save button still present?:", proc_check.stdout.strip())
+print("✅ Custom CSS deployed successfully!")

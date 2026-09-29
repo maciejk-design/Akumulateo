@@ -231,3 +231,158 @@ button.manage-cookies-bar {
   font-size: 11px !important;
 }
 
+/* 15. Mobilne menu nawigacji – Brandbook v2.2 (Maksymalna widoczność & CRO) */
+.ak-mobile-menu-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  background-color: #1e293b !important;
+  border: 2px solid #f59e0b !important;
+  border-radius: 10px !important;
+  padding: 5px 8px !important;
+  min-height: 34px !important;
+  color: #fbbf24 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 8px rgba(245, 158, 11, 0.25) !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  flex-shrink: 0 !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+@media (min-width: 640px) {
+  .ak-mobile-menu-btn {
+    gap: 5px !important;
+    border-radius: 12px !important;
+    padding: 6px 10px !important;
+    min-height: 38px !important;
+  }
+}
+
+.ak-mobile-menu-btn:hover,
+.ak-mobile-menu-btn:focus-visible {
+  background-color: #334155 !important;
+  border-color: #fbbf24 !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4) !important;
+}
+
+.ak-mobile-menu-btn:active {
+  transform: scale(0.96) !important;
+}
+
+.ak-mobile-menu-btn .ak-menu-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #fbbf24 !important;
+  line-height: 1 !important;
+}
+
+@media (min-width: 640px) {
+  .ak-mobile-menu-btn .ak-menu-text {
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+  }
+}
+
+.ak-mobile-menu-btn svg {
+  width: 15px !important;
+  height: 15px !important;
+  stroke: #fbbf24 !important;
+  stroke-width: 2.5px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+@media (min-width: 640px) {
+  .ak-mobile-menu-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+}
+
+/* Domyślny hamburger Squarespace na WSZYSTKICH standardowych podstronach CMS */
+@media (max-width: 1024px) {
+  .header-display-mobile .header-burger {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header-display-mobile .header-burger-btn {
+    background-color: #1e293b !important;
+    border: 2px solid #f59e0b !important;
+    border-radius: 10px !important;
+    padding: 5px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    min-height: 34px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 8px rgba(245, 158, 11, 0.25) !important;
+    transition: all 0.15s ease !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  @media (min-width: 640px) {
+    .header-display-mobile .header-burger-btn {
+      border-radius: 12px !important;
+      padding: 6px 10px !important;
+      gap: 5px !important;
+      min-height: 38px !important;
+    }
+  }
+
+  .header-display-mobile .header-burger-btn:hover,
+  .header-display-mobile .header-burger-btn:focus-visible {
+    background-color: #334155 !important;
+    border-color: #fbbf24 !important;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4) !important;
+  }
+
+  .header-display-mobile .header-burger-btn:active {
+    transform: scale(0.96) !important;
+  }
+
+  .header-display-mobile .burger-inner > div {
+    height: 2.5px !important;
+    background-color: #fbbf24 !important;
+    border-radius: 2px !important;
+  }
+
+  .header-display-mobile .header-burger-btn::after {
+    content: "MENU" !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 10.5px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.06em !important;
+    color: #fbbf24 !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+    margin-left: 2px !important;
+    line-height: 1 !important;
+  }
+
+  @media (min-width: 640px) {
+    .header-display-mobile .header-burger-btn::after {
+      font-size: 11px !important;
+      letter-spacing: 0.08em !important;
+    }
+  }
+
+  .header--menu-open .header-display-mobile .header-burger-btn::after {
+    content: "ZAMKNIJ" !important;
+    color: #f8fafc !important;
+  }
+
+  .header--menu-open .header-display-mobile .burger-inner > div {
+    background-color: #f8fafc !important;
+  }
+}
+
+
