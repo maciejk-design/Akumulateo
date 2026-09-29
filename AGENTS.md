@@ -120,6 +120,16 @@ W katalogu `.antigravity/agents/` zdefiniowano 4 wyspecjalizowanych podagentów 
    * Całkowity zakaz zewnętrznych ciężkich bibliotek (jQuery, Bootstrap, React).
    * Wszystkie skrypty muszą być hermetyzowane w IIFE `(function() { ... })();`.
    * Sztywne wymiary dla elementów dynamicznych i SVG – zapobieganie przesunięciom layoutu (**CLS = 0.00**).
+8. **Logo jako aktywny link (Home Link Invariant):**
+   * Logo `AKUMULATEO • POGOTOWIE 24H` w nagłówku na KAŻDEJ stronie i podstronie MUSI być aktywnym linkiem: `<a href="/" class="..." aria-label="Akumulateo – Strona główna">` z `cursor: pointer`.
+   * **BEZWZGLĘDNY ZAKAZ martwych odnośników `href="#"`**.
+9. **Budżet szerokości nagłówka mobilnego (Mobile Header Budget <= 320–340px) & Przycisk MENU:**
+   * W rzędzie nagłówka na urządzeniach mobilnych (`<640px`) elementy: (Logo + Telefon CTA `696 556 446` + Przycisk Menu) MUSZĄ łącznie mieścić się w **maksymalnie 320–340px**. W przeciwnym razie na ekranach 360px–390px przycisk menu zostaje wypchnięty poza ekran i ucięty.
+   * **Optymalizacje nagłówka mobile:**
+     - Logo: ikona 28px (`w-7 h-7 sm:w-9 sm:h-9`), tytuł `text-sm sm:text-lg font-black`. Zbyteczny mikro-podtytuł *„Pogotowie 24h”* w logo jest **ukrywany na mobile** (`hidden sm:flex`), ponieważ tożsama informacja widnieje w żółtym pasku dyżuru tuż nad nagłówkiem.
+     - Przycisk telefonu: zwarty padding `px-2 py-1.5 sm:px-3.5 sm:py-2.5`, rozmiar `text-[11px] sm:text-sm`.
+     - Przycisk menu (`.ak-mobile-menu-btn` oraz `.header-display-mobile .header-burger-btn` na podstronach CMS): **bezwzględny wymóg wysokiego kontrastu i widoczności** – tło `#1e293b`, 2px bursztynowa ramka `#f59e0b` z amber glow, solidny promień zaokrąglenia, oraz czytelna etykieta tekstowa **`MENU`** (`#fbbf24`, font-black, uppercase), która po otwarciu szuflady zmienia się na **`ZAMKNIJ`**.
+     - Zamknięcie menu: kliknięcie dowolnego linku w szufladzie mobilnej musi natychmiast ją zwijać (`classList.add('hidden')`).
 
 ---
 
@@ -173,4 +183,7 @@ Każdy agent i podagent bezwzględnie podlega poniższym ograniczeniom:
      - Weryfikacja działania w trybie Incognito pod kątem widoczności przycisków banera ciasteczek Squarespace (`.gdpr-cookie-banner`).
      - Weryfikacja responsywności na szerokości 320px bez ucinania górnego paska dyżuru.
      - Weryfikacja rozmiaru czcionki opisów usług (minimum 15.5px mobile / 16.5px desktop).
+     - Weryfikacja aktywnego linku w logo (musi posiadać `href="/"`, bezwzględny zakaz martwych `href="#"`).
+     - Weryfikacja braku ucinania nagłówka na ekranach 360px–390px (łączna szerokość Logo + Telefon + MENU <= 340px).
+     - Weryfikacja widoczności i działania przycisku MENU (kontrastowe tło, bursztynowa ramka, etykieta tekstowa "MENU" przełączająca się na "ZAMKNIJ").
 

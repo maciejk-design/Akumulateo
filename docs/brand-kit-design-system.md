@@ -88,7 +88,85 @@ Gwarantuje brak ucinania tekstu nawet na wąskich smartfonach (320px).
 
 ---
 
-### 2.2. Komponent 2: Mobility Notice Banner (Brak Odbioru Osobistego)
+### 2.2. Komponent 2: Sticky Header & Mobile Navigation (Logo Link + Kontrastowe MENU)
+Zapewnia:
+1. **Logo jako aktywny odnośnik** `<a href="/">` na stronę główną (bezwzględny zakaz martwych `href="#"`).
+2. **Budżet szerokości na mobile <= 340px**: Logo + Telefon + MENU mieszczą się w jednym rzędzie bez ucinania menu na ekranach 360px–390px (mikro-podtytuł „Pogotowie 24h” w logo jest ukryty na mobile `hidden sm:flex`).
+3. **Kontrastowy przycisk MENU**: tło `#1e293b`, 2px bursztynowa ramka `#f59e0b` z poświatą, wyraźny tekst **`MENU`** przełączający się na **`ZAMKNIJ`**.
+4. **Automatyczne zwijanie szuflady** po kliknięciu dowolnego linku.
+
+```html
+<!-- STICKY HEADER Z LOGO LINKIEM I MOBILNYM MENU -->
+<header class="bg-slate-900/95 backdrop-filter backdrop-blur-md sticky top-0 z-40 border-b border-slate-800 px-2 sm:px-4 py-2 sm:py-3.5">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-1 sm:gap-4">
+    
+    <!-- Logo (aktywny link do strony głównej) -->
+    <a href="/" class="flex items-center gap-1.5 sm:gap-2 group text-decoration-none min-w-0 cursor-pointer flex-shrink-0" aria-label="Akumulateo – Strona główna">
+      <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-1 shadow-md group-hover:border-amber-500 transition" style="width:28px;height:28px;min-width:28px;min-height:28px;max-width:36px;max-height:36px;flex-shrink:0;">
+        <svg viewBox="0 0 68 68" style="width:100%;height:100%;display:block;" fill="none">
+          <rect x="14" y="6" width="10" height="7" rx="2" fill="#94A3B8" />
+          <rect x="44" y="6" width="10" height="7" rx="2" fill="#EF4444" />
+          <rect x="6" y="12" width="56" height="52" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2" />
+          <path d="M37 17L22 38h9l-5 19 19-24h-10l7-16z" fill="#F59E0B" />
+          <circle cx="53" cy="56" r="3" fill="#10B981" />
+        </svg>
+      </div>
+      <div class="leading-none">
+        <div class="text-sm sm:text-lg md:text-xl font-black tracking-wide sm:tracking-wider text-white whitespace-nowrap">
+          AKUMULAT<span class="text-amber-500">E</span>O
+        </div>
+        <div class="hidden sm:flex text-[8px] sm:text-[9px] font-black uppercase tracking-[0.16em] text-slate-400 mt-0.5 items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          Pogotowie 24h
+        </div>
+      </div>
+    </a>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
+      <a href="/#uslugi" class="hover:text-amber-400 transition font-bold">Usługi mobilne</a>
+      <a href="/#cennik" class="hover:text-amber-400 transition font-bold">Cennik</a>
+      <a href="/#marki" class="hover:text-amber-400 transition font-bold">Oficjalne Marki</a>
+      <a href="/obszar-dzialania-warszawa-i-okolice" class="text-amber-400 font-bold">Warszawa & Aglomeracja</a>
+      <a href="/#opinie" class="hover:text-amber-400 transition font-bold">Opinie Google</a>
+      <a href="/#faq" class="hover:text-amber-400 transition font-bold">FAQ</a>
+    </nav>
+
+    <!-- Prawa strona: Telefon & Przycisk Menu -->
+    <div class="flex items-center gap-1 sm:gap-2.5 flex-shrink-0">
+      <a href="tel:+48696556446" class="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-2 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition transform active:scale-95 text-[11px] sm:text-sm whitespace-nowrap">
+        <span class="text-xs sm:text-base">📞</span>
+        <span class="tracking-tight sm:tracking-wide font-black">696 556 446</span>
+      </a>
+      <button id="akMobileMenuBtn" onclick="var m=document.getElementById('akMobileDrawer')||document.getElementById('akSubpageMobileDrawer');if(m){var isHidden=m.classList.toggle('hidden');this.setAttribute('aria-expanded',!isHidden);var icon=this.querySelector('.ak-menu-icon');var closeIcon=this.querySelector('.ak-close-icon');var label=this.querySelector('.ak-menu-text');if(icon&&closeIcon){icon.classList.toggle('hidden',!isHidden);closeIcon.classList.toggle('hidden',isHidden);}if(label){label.textContent=isHidden?'MENU':'ZAMKNIJ';}}" aria-label="Menu nawigacji" aria-expanded="false" class="ak-mobile-menu-btn lg:hidden">
+        <span class="ak-menu-icon flex items-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </span>
+        <span class="ak-close-icon hidden flex items-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </span>
+        <span class="ak-menu-text">MENU</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobilny Drawer z auto-zamykaniem po kliknięciu linku -->
+  <div id="akMobileDrawer" class="hidden pt-4 pb-3 border-t border-slate-800 mt-3 space-y-2">
+    <a href="/#uslugi" onclick="var m=this.parentElement;if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">⚡ Usługi mobilne</a>
+    <a href="/#cennik" onclick="var m=this.parentElement;if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">💰 Cennik usług</a>
+    <a href="/#marki" onclick="var m=this.parentElement;if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">🔋 Oficjalne marki (Varta, Yuasa, Bosch)</a>
+    <a href="/obszar-dzialania-warszawa-i-okolice" onclick="var m=this.parentElement;if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-amber-400">📍 Obszar działania (Warszawa & Aglomeracja)</a>
+    <a href="/#opinie" onclick="var m=this.parentElement;if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">⭐ Opinie klientów (5.0 w Google Maps)</a>
+    <a href="/#faq" onclick="var m=this.parentElement;if(m)m.classList.add('hidden');" class="block px-4 py-3 rounded-xl bg-slate-800/90 font-bold text-slate-100 hover:text-amber-400">❓ FAQ – Pytania i Odpowiedzi</a>
+    <a href="tel:+48696556446" class="block w-full text-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-3.5 px-4 rounded-xl text-base shadow-xl mt-2">📞 Zadzwoń: 696 556 446 (Pomoc 24h)</a>
+  </div>
+</header>
+```
+
+---
+
+### 2.3. Komponent 3: Mobility Notice Banner (Brak Odbioru Osobistego)
 Chroni budżet reklamowy i natychmiast uświadamia klienta o dojeździe.
 
 ```html
