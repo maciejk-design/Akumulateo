@@ -253,7 +253,7 @@ def deploy_district(name, page_title, url_slug, snippet_path):
     escaped_slug = json.dumps(url_slug)
     set_slug_and_title = f"""(function() {{
         var res = {{}};
-        var titleInput = document.querySelector(\x27input[aria-label="Page Title"]\x27) || document.querySelector(\x27input[name="title"]\x27);
+        var titleInput = document.querySelector('input[aria-label="Page Title"]') || document.querySelector('input[name="title"]');
         if (titleInput) {{
             var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
             nativeSetter.call(titleInput, {escaped_title});
@@ -261,7 +261,15 @@ def deploy_district(name, page_title, url_slug, snippet_path):
             titleInput.dispatchEvent(new Event("change", {{ bubbles: true }}));
             res.title = "UPDATED";
         }}
-        var slugInput = document.querySelector(\x27input[aria-label="URL Slug"]\x27) || document.querySelector(\x27input[name="urlId"]\x27);
+        var navTitleInput = document.querySelector('input[aria-label="Navigation Title"]') || document.querySelector('input[name="navigationTitle"]');
+        if (navTitleInput) {{
+            var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+            nativeSetter.call(navTitleInput, {escaped_title});
+            navTitleInput.dispatchEvent(new Event("input", {{ bubbles: true }}));
+            navTitleInput.dispatchEvent(new Event("change", {{ bubbles: true }}));
+            res.navTitle = "UPDATED";
+        }}
+        var slugInput = document.querySelector('input[aria-label="URL Slug"]') || document.querySelector('input[name="urlId"]');
         if (slugInput) {{
             var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
             nativeSetter.call(slugInput, {escaped_slug});

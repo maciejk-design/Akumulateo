@@ -2,6 +2,8 @@
 """
 Aktualizacja wstrzyknięcia kodu dla strony Hub (/obszar-dzialania-warszawa-i-okolice)
 w panelu Squarespace.
+Wymusza stan 'dirty' formularza, aby przycisk SAVE stał się aktywny,
+wstrzykuje kod do CodeMirror i zapisuje.
 """
 
 import os
@@ -11,6 +13,7 @@ import json
 import subprocess
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(BASE_DIR, "scripts"))
 
 from deploy_district import get_chrome_sqs_tab, run_js, ensure_pages_panel
 
@@ -36,10 +39,30 @@ open_hub = """(function() {
 
 res_hub = run_js(open_hub, win_idx, tab_idx)
 print("   Wynik:", res_hub)
-time.sleep(2)
+time.sleep(2.5)
 
-# 2. Przejdź do zakładki Advanced
-print("2. Klikanie zakładki Advanced...")
+# 2. Wywołaj stan 'dirty' w zakładce General, aby aktywować przycisk SAVE
+print("2. Aktywacja przycisku SAVE (zmiana stanu formularza)...")
+trigger_dirty = """(function() {
+    var input = document.querySelector("input[aria-label=\\"Page Title\\"]") || document.querySelector("input[name=title]");
+    if (!input) return "NO_TITLE_INPUT";
+    var val = input.value;
+    var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+    nativeSetter.call(input, val + " ");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+    
+    // Przywróć oryginalną wartość z zachowaniem flagi dirty
+    nativeSetter.call(input, val);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+    return "FORM_MARKED_DIRTY";
+})();"""
+print("   Wynik:", run_js(trigger_dirty, win_idx, tab_idx))
+time.sleep(1.5)
+
+# 3. Przejdź do zakładki Advanced
+print("3. Klikanie zakładki Advanced...")
 click_adv = """(function() {
     var dialog = document.querySelector("[role=dialog]");
     if (!dialog) return "NO_DIALOG";
@@ -65,7 +88,7 @@ if res_adv != "CLICKED_ADVANCED":
 
 time.sleep(2)
 
-# 3. Wczytaj zaktualizowany kod wstrzyknięcia
+# 4. Wczytaj zaktualizowany kod wstrzyknięcia
 snippet_path = os.path.join(BASE_DIR, "snippets", "squarespace", "obszar-dzialania-page-header-injection.html")
 with open(snippet_path, "r", encoding="utf-8") as f:
     hub_code = f.read()
@@ -136,8 +159,8 @@ if "true" not in (res_inject or ""):
 
 time.sleep(1.5)
 
-# 4. Kliknij SAVE
-print("4. Klikanie SAVE...")
+# 5. Kliknij SAVE
+print("5. Klikanie SAVE...")
 save_js = """(function() {
     var btn = document.querySelector(\x27[data-test="nav-modal-left-button"]\x27);
     if (!btn) return "NO_SAVE_BTN";
@@ -159,7 +182,7 @@ res_save = run_js(save_js, win_idx, tab_idx)
 print("   Wynik zapisu:", res_save)
 time.sleep(4)
 
-# 5. Weryfikacja zamknięcia modala
+# 6. Weryfikacja zamknięcia modala
 check_js = """(function() {
     var dialog = document.querySelector("[role=dialog]");
     return dialog ? "DIALOG_STILL_OPEN" : "DIALOG_CLOSED_SAVED";
@@ -171,9 +194,9 @@ if status == "DIALOG_STILL_OPEN":
     run_js(save_js, win_idx, tab_idx)
     time.sleep(3)
 
-# 6. Test na żywo
+# 7. Test na żywo
 live_url = "https://www.akumulateo.pl/obszar-dzialania-warszawa-i-okolice"
-print(f"5. Weryfikacja HTTP na żywo: {live_url}...")
+print(f"7. Weryfikacja HTTP na żywo: {live_url}...")
 for attempt in range(6):
     curl_proc = subprocess.run(["/usr/bin/curl", "-s", "-I", live_url], capture_output=True, text=True)
     first_line = curl_proc.stdout.splitlines()[0] if curl_proc.stdout else "Brak"
