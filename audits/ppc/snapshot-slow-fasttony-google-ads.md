@@ -177,4 +177,13 @@
 ### C. Aktualny bilans listy wykluczeń:
 - Łączna liczba wykluczeń na liście Google Ads: **115 fraz**.
 
+### D. Włączenie 12 kluczowych fraz ratunkowych (30.09.2026):
+- Włączono w sekcji „Uwzględnione” FastTony: `awaryjne odpalanie auta`, `odpalanie auta na miejscu`, `rozruch samochodu`, `rozruch samochodu pomoc`, `uruchamianie auta 24h`, `odpalanie samochodów`, `wymiana akumulatorów warszawa`, `akumulatory wymiana warszawa`, `akumulatory 24 warszawa`, `akumulatory 24 7`, `Usługa Dostawy Akumulatora z Montażem`, `wymiana akumulatora w samochodzie`.
+
+### E. Zdjęcie 7 blokad broad match z wykluczeń (30.09.2026):
+- Przestawiono na OFF w FastTony: `sprzedaż`, `kupno`, `mechanik`, `sklep`, `assistance`, `warsztat`, `opinie`.
+- Odblokowano wartościowe zapytania wielowyrazowe z intencją usługi mobilnej.
+- Przeanalizowano 21 wykluczeń ze statusem OFF: wykazano przepalanie budżetu przez frazę `akumulatory dolna` (39,68 zł za 3 kliknięcia przy sklepie stacjonarnym na Mokotowie).
+
+
 
