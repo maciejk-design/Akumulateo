@@ -109,6 +109,7 @@ Każdy nowy pomysł oraz każde zadanie do zrobienia są rejestrowane w tym plik
 | **CRO-01** | 🔴 `DO ZROBIENIA` | **P2 (Wysoki)** | Testy paska Sticky Call Bar na iOS Safari | Weryfikacja zachowania dolnego paska z telefonem na iPhone’ach przy wysuwającym się dolnym pasku nawigacji Safari (dopasowanie `padding-bottom: env(safe-area-inset-bottom)`). |
 | **CRO-02** | 🔴 `DO ZROBIENIA` | **P3 (Średni)** | Mikroanimacja pulsu na przycisku telefonu | Dodanie po 5 sekundach bezczynności subtelnego impulsu (amber glow pulse) na przycisku zadzwoń, aby przyciągnąć wzrok zdezorientowanego kierowcy. |
 | **CRO-03** | 🔴 `DO ZROBIENIA` | **P3 (Średni)** | Optymalizacja LCP tła Hero w Squarespace | Wdrożenie `<link rel="preload">` dla właściwego pliku WebP tła sekcji hero w Header Injection w celu dalszego skrócenia LCP na łączach 4G. |
+| **CRO-04** | 🔴 `DO ZROBIENIA` | **P2 (Wysoki)** | Lekki widżet opinii Google 5.0★ (Zero-Overhead & SEO) | Wdrożenie komponentu HTML/CSS z mikrodanymi Schema.org `AggregateRating` + `Review` (0 KB obcego JS, brak obciążenia LCP, CLS = 0.000, indeksowanie recenzji przez Googlebot). Do wykonania w czacie „WWW - Squarespace Audyt SEO i UX”. |
 
 ---
 
