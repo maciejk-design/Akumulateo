@@ -24,6 +24,14 @@ Głównym celem systemu jest **maksymalizacja zysku netto i liczby konwertujący
    * Każde zlecenie z zyskiem poniżej 180 PLN jest operacyjnie nieopłacalne.
 4. **Ochrona budżetu marketingowego przed przepaleniem:**
    * Bezwzględny zakaz marnowania budżetu Google Ads / Meta Ads na zapytania o sklepy stacjonarne, darmowe assistance ubezpieczeniowe (PZU, Warta), stacjonarne warsztaty naprawcze czy wulkanizację.
+5. **Konfiguracja Profilu Firmy w Google Maps (GBP Invariant):**
+   * Kategoria podstawowa: **`Sklep z akumulatorami`**.
+   * Kategorie dodatkowe: **`Mechanik samochodowy`**, **`Elektryk samochodowy`**.
+   * **BEZWZGLĘDNY ZAKAZ KATEGORII `Pomoc drogowa`:** Kategoria ta nie może być dodawana, ponieważ kieruje do firmy połączenia z prośbą o wulkanizację, naprawę opon, zmianę kół i holowanie.
+6. **Strategia PPC (Google Ads / FastTony):**
+   * **Geolokalizacja:** Promień **40 km wokół Warszawy**.
+   * **Wykluczenia krytyczne:** Blokada wulkanizacji (`wulkanizacja`, `wulkanizator`, `wulkanizacja mobilna`, `wymiana koła`, `naprawa opon`, `шиномонтаж`) oraz drogiego elektryka instalacyjnego (`elektryk samochodowy warszawa z dojazdem`, `mobilny elektryk samochodowy`).
+   * **Polityka słowa „cena”:** Pojedyncze słowo `cena` jako broad match **MUSA BYĆ ODBLOKOWANE** (wyłączone z wykluczeń), aby nie blokować konwertujących zapytań o usługę mobilną (`wymiana akumulatora z dojazdem cena`). Wykluczane mogą być wyłącznie konkretne frazy produktowe/porównywarkowe (`ceny akumulatorów`, `ile kosztuje akumulator do samochodu`, `tanie`).
 
 ---
 

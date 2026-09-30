@@ -156,3 +156,25 @@
 - W FastTony wykluczenia są wyłączone, co oznacza, że reguły FastTony nie blokują tych zapytań.
 - Współdzielona lista wykluczeń w Google Ads (`[Forsant API] Negative keyword list - 1742476080`) wymaga manualnego zgłoszenia do supportu FastTony lub nadania uprawnień edycyjnych dla konta Google Ads w celu fizycznego usunięcia wpisów takich jak `akumulator ursus`.
 
+---
+
+## 5. Aktualizacja Snapshotu: 29–30 września 2026 r.
+
+### A. Nowe wykluczenia dodane do listy (Blokada wulkanizacji i drogiego elektryka):
+1. `шиномонтаж` (wulkanizacja cyrylicą – odcięcie zapytań o serwisy oponiarskie w języku ukraińskim/rosyjskim)
+2. `wulkanizacja mobilna`
+3. `wymiana koła`
+4. `naprawa opon`
+5. `elektryk samochodowy warszawa z dojazdem` (ochrona budżetu przed stawkami 35 zł/klik na naprawę wiązek)
+6. `mobilny elektryk samochodowy`
+
+### B. Odblokowanie wykluczenia słowa „cena” (Rozwiązanie konfliktu Google Ads):
+- **Słowo:** `cena` (dopasowanie przybliżone / broad match)
+- **Stan:** **ODBLOKOWANE / WYŁĄCZONE (OFF)** w FastTony i usunięte z listy `[Forsant API] Negative keyword list - 1742476080`.
+- **Powód:** Konflikt algorytmiczny w Google Ads. Słowo `cena` blokowało w 100% kluczowe konwertujące frazy: `wymiana akumulatora z dojazdem cena` oraz `wymiana akumulatora cena`.
+- **Skutek:** Wynik optymalizacji Google Ads wzrósł do 69,9%, odzyskano wyświetlenia dla klientów poszukujących cennika usługi mobilnej w Warszawie.
+
+### C. Aktualny bilans listy wykluczeń:
+- Łączna liczba wykluczeń na liście Google Ads: **115 fraz**.
+
+
