@@ -336,25 +336,25 @@ html, body {
 }
 
 /* ==========================================================================
-   SPÓJNE ODSTĘPY MIĘDZY SEKCJSMI (RYTM WIZUALNY)
+   SPÓJNE ODSTĘPY MIĘDZY SEKCJSMI (RYTM WIZUALNY DESKTOP & MOBILE)
    ========================================================================== */
 .ak-section {
   width: 100% !important;
-  padding-top: 4.5rem !important;
-  padding-bottom: 4.5rem !important;
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
   position: relative !important;
   box-sizing: border-box !important;
 }
 @media (min-width: 640px) {
   .ak-section {
-    padding-top: 5.5rem !important;
-    padding-bottom: 5.5rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
   }
 }
 @media (min-width: 1024px) {
   .ak-section {
-    padding-top: 6.5rem !important;
-    padding-bottom: 6.5rem !important;
+    padding-top: 4.75rem !important;
+    padding-bottom: 4.75rem !important;
   }
 }
 
@@ -366,7 +366,7 @@ html, body {
 }
 
 /* ==========================================================================
-   RAMKI I KARTY (PRZESTRONNE PADDINGI & WYRAŹNE KONTRASTY)
+   RAMKI I KARTY (PRZESTRONNE PADDINGI, EQUAL-HEIGHT & WYRAŹNE KONTRASTY)
    ========================================================================== */
 .ak-card {
   background-color: #0f172a !important;
@@ -377,6 +377,10 @@ html, body {
   width: 100% !important;
   box-sizing: border-box !important;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
 }
 @media (min-width: 640px) {
   .ak-card {
@@ -399,6 +403,44 @@ html, body {
   border-color: #fbbf24 !important;
   box-shadow: 0 20px 45px -5px rgba(0, 0, 0, 0.8), 0 0 35px -3px rgba(245, 158, 11, 0.35) !important;
 }
+
+/* Specjalne panele bannerowe – Uczciwa Diagnoza i Koło Ratunkowe */
+.ak-guarantee-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-radius: 1.5rem !important;
+  padding: 2.25rem 1.75rem !important;
+  text-align: center !important;
+  max-width: 56rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(245, 158, 11, 0.15) !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 640px) {
+  .ak-guarantee-card {
+    padding: 3rem 3.5rem !important;
+  }
+}
+
+.ak-rescue-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(9, 14, 29, 0.98) 100%) !important;
+  border: 2px solid #f59e0b !important;
+  border-radius: 1.5rem !important;
+  padding: 2.25rem 1.75rem !important;
+  text-align: center !important;
+  max-width: 56rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-shadow: 0 20px 45px -5px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(245, 158, 11, 0.25) !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 640px) {
+  .ak-rescue-card {
+    padding: 3rem 3.5rem !important;
+  }
+}
+
 
 /* Kompaktowe boksy ikon i numerów kroków */
 .ak-icon-box {
@@ -447,11 +489,13 @@ html, body {
   grid-template-columns: 1fr !important;
   gap: 1.75rem !important;
   width: 100% !important;
+  align-items: stretch !important;
 }
 @media (min-width: 768px) {
   .ak-grid-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 2rem !important;
+    align-items: stretch !important;
   }
 }
 @media (min-width: 1280px) {
@@ -1059,7 +1103,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {
 
       <!-- NAGŁÓWEK H1 (DUŻY I CZYTELNY) -->
       <h1 class="ak-h1 mb-6 ak-break-text">
-        Awaryjne Uruchomienie Auta <br class="hidden sm:inline" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">Warszawa 24h/7</span>
+        Awaryjne Uruchomienie Auta <br class="hidden sm:inline" /><span class="text-amber-400 font-black">Warszawa 24h/7</span>
       </h1>
 
       <!-- OPIS PERSWAZYJNY LEAD (MIN 16.5px MOBILE / 18.5px DESKTOP) -->
@@ -1100,8 +1144,8 @@ details.ak-faq-item[open] summary .ak-faq-icon {
       </div>
 
       <!-- AUTENTYCZNE ZDJĘCIE ZE SQUARESPACE W ELEGANCKIM PANELU -->
-      <div class="mt-10 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative max-w-3xl mx-auto group">
-        <img src="https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/f8da5f14-890b-4f74-b2f5-47fb173e0390/awaryjne-uruchomienie-auta-warszawa.png" alt="Awaryjne uruchamianie auta Warszawa – Mobilny Serwis Akumulateo" class="w-full h-auto object-cover max-h-[420px] brightness-90 group-hover:brightness-100 transition duration-300" loading="eager" />
+      <div class="mt-10 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative max-w-4xl mx-auto group">
+        <img src="https://images.squarespace-cdn.com/content/v1/685d174157b18362d5b7b0f3/f8da5f14-890b-4f74-b2f5-47fb173e0390/awaryjne-uruchomienie-auta-warszawa.png" alt="Awaryjne uruchamianie auta Warszawa – Mobilny Serwis Akumulateo" class="w-full h-auto object-cover max-h-[380px] brightness-90 group-hover:brightness-100 transition duration-300" loading="eager" />
         <div class="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 bg-slate-950/90 backdrop-filter backdrop-blur-md border border-slate-700/80 px-4 py-3 rounded-2xl text-left max-w-[92%] shadow-xl">
           <div class="text-sm sm:text-base font-black text-amber-400 flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 akumulateo-pulse-dot flex-shrink-0"></span>
@@ -1117,7 +1161,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {
   <!-- 4. SEKCJA: UCZCIWA DIAGNOZA & USŁUGA MOBILNA (ALT #0b1329) -->
   <section class="ak-section ak-section-alt">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-      <div class="bg-gradient-to-r from-amber-500/10 via-amber-500/15 to-amber-500/10 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-12 text-center shadow-xl">
+      <div class="ak-guarantee-card">
         <div class="ak-eyebrow mb-4">
           <span>🛡️</span> Gwarancja Uczciwej Diagnozy Akumulateo
         </div>
@@ -1199,15 +1243,15 @@ details.ak-faq-item[open] summary .ak-faq-icon {
         </h2>
       </div>
 
-      <div class="ak-grid-2">
+      <div class="ak-grid-4">
         
         <div class="ak-card">
           <div class="ak-step-num">
             01
           </div>
-          <h3 class="ak-h3">Telefon pod numer 696 556 446</h3>
+          <h3 class="ak-h3">Telefon 696 556 446</h3>
           <p class="ak-body">
-            Podajesz dzielnicę, adres oraz markę i model pojazdu. Dyspozytor od razu potwierdza czas dojazdu technika oraz przejrzysty, z góry ustalony koszt usługi.
+            Podajesz dzielnicę, adres oraz markę i model pojazdu. Dyspozytor od razu potwierdza czas dojazdu technika oraz stały, z góry ustalony koszt usługi.
           </p>
         </div>
 
@@ -1215,7 +1259,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {
           <div class="ak-step-num">
             02
           </div>
-          <h3 class="ak-h3">Dojazd technika w 20–30 min</h3>
+          <h3 class="ak-h3">Dojazd w 20–30 min</h3>
           <p class="ak-body">
             Mobilny serwisant wyrusza natychmiast na miejsce. Dojeżdżamy pod dom, biuro, centrum handlowe lub do garażu podziemnego w całej Warszawie i aglomeracji.
           </p>
@@ -1225,9 +1269,9 @@ details.ak-faq-item[open] summary .ak-faq-icon {
           <div class="ak-step-num">
             03
           </div>
-          <h3 class="ak-h3">Bezpieczny rozruch boosterem</h3>
+          <h3 class="ak-h3">Bezpieczny rozruch</h3>
           <p class="ak-body">
-            Technik podłącza atestowaną stację rozruchową 12V/24V, weryfikuje polaryzację i uruchamia silnik ze stabilizacją napięcia, bez ryzyka błędu komputera pokładowego.
+            Technik podłącza atestowaną stację rozruchową 12V/24V, weryfikuje polaryzację i uruchamia silnik ze stabilizacją napięcia (Anti-Spike), bez ryzyka błędu komputera pokładowego.
           </p>
         </div>
 
@@ -1235,7 +1279,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {
           <div class="ak-step-num">
             04
           </div>
-          <h3 class="ak-h3">Pomiar baterii i wygodna płatność</h3>
+          <h3 class="ak-h3">Pomiar i płatność</h3>
           <p class="ak-body">
             Sprawdzamy stan akumulatora i alternatora. Płatności dokonasz wygodnie kartą, kodem BLIK lub gotówką. Dla firm wystawiamy fakturę VAT 23% na miejscu.
           </p>
@@ -1247,8 +1291,8 @@ details.ak-faq-item[open] summary .ak-faq-icon {
 
   <!-- 7. SEKCJA: KOŁO RATUNKOWE AKUMULATEO (CANVAS #020617) -->
   <section class="ak-section">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 w-full">
-      <div class="ak-card ak-card-featured p-6 sm:p-12 text-center relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+      <div class="ak-rescue-card">
         
         <div class="ak-eyebrow mb-5">
           <span>⭐ Koło Ratunkowe Akumulateo</span>
@@ -1278,7 +1322,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {
         </div>
 
         <div class="flex justify-center w-full">
-          <a href="tel:+48696556446" class="ak-btn-primary">
+          <a href="tel:+48696556446" class="ak-btn-primary max-w-md mx-auto">
             <span>📞 Zadzwoń: 696 556 446 (Pomoc 24h)</span>
           </a>
         </div>
@@ -1303,8 +1347,8 @@ details.ak-faq-item[open] summary .ak-faq-icon {
       <div class="ak-grid-3">
         
         <!-- PAKIET 1: ROZRUCH PODSTAWOWY -->
-        <div class="ak-card flex flex-col justify-between">
-          <div>
+        <div class="ak-card">
+          <div class="flex-grow flex flex-col">
             <div class="text-xs sm:text-[13px] uppercase font-black text-slate-400 tracking-wider mb-2">Pakiet Podstawowy</div>
             <h3 class="ak-h3 text-white">Awaryjny Rozruch 12V</h3>
             <div class="text-3xl sm:text-4xl font-black text-white mb-6">od 180 zł</div>
@@ -1315,17 +1359,19 @@ details.ak-faq-item[open] summary .ak-faq-icon {
               <li class="flex items-start gap-2.5 ak-list-item"><span class="text-emerald-400 font-black text-lg leading-none">✓</span> <span>Podstawowa kontrola ładowania</span></li>
             </ul>
           </div>
-          <a href="tel:+48696556446" class="ak-btn-secondary">
-            Zamów rozruch ➔
-          </a>
+          <div class="mt-auto pt-4 w-full">
+            <a href="tel:+48696556446" class="ak-btn-secondary">
+              Zamów rozruch ➔
+            </a>
+          </div>
         </div>
 
         <!-- PAKIET 2: WYRÓŻNIONY – ROZRUCH + PEŁNA DIAGNOSTYKA -->
-        <div class="ak-card ak-card-featured flex flex-col justify-between relative">
-          <div class="inline-flex items-center self-start bg-amber-500 text-slate-950 font-black text-xs sm:text-[13px] uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md mb-3">
-            ★ Najczęściej Wybierany Pakiet
-          </div>
-          <div>
+        <div class="ak-card ak-card-featured relative">
+          <div class="flex-grow flex flex-col">
+            <div class="inline-flex items-center self-start bg-amber-500 text-slate-950 font-black text-xs sm:text-[13px] uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md mb-3">
+              ★ Najczęściej Wybierany Pakiet
+            </div>
             <div class="text-xs sm:text-[13px] uppercase font-black text-amber-400 tracking-wider mb-2">Pakiet Bezpieczeństwo</div>
             <h3 class="ak-h3 text-white">Rozruch + Pełna Diagnoza</h3>
             <div class="text-3xl sm:text-4xl font-black text-amber-400 mb-6">od 220 zł</div>
@@ -1337,14 +1383,16 @@ details.ak-faq-item[open] summary .ak-faq-icon {
               <li class="flex items-start gap-2.5 ak-list-item"><span class="text-emerald-400 font-black text-lg leading-none">✓</span> <span>Rekomendacja dalszej eksploatacji</span></li>
             </ul>
           </div>
-          <a href="tel:+48696556446" class="ak-btn-primary w-full">
-            Wybierz Pełną Diagnozę ➔
-          </a>
+          <div class="mt-auto pt-4 w-full">
+            <a href="tel:+48696556446" class="ak-btn-primary w-full">
+              Wybierz Pełną Diagnozę ➔
+            </a>
+          </div>
         </div>
 
         <!-- PAKIET 3: PEŁNE ROZWIĄZANIE – WYMIANA BATERII -->
-        <div class="ak-card flex flex-col justify-between">
-          <div>
+        <div class="ak-card">
+          <div class="flex-grow flex flex-col">
             <div class="text-xs sm:text-[13px] uppercase font-black text-slate-400 tracking-wider mb-2">Rozwiązanie Trwałe</div>
             <h3 class="ak-h3 text-white">Rozruch z Wymianą Baterii</h3>
             <div class="text-3xl sm:text-4xl font-black text-white mb-6">Cena baterii + montaż</div>
@@ -1356,9 +1404,11 @@ details.ak-faq-item[open] summary .ak-faq-icon {
               <li class="flex items-start gap-2.5 ak-list-item"><span class="text-emerald-400 font-black text-lg leading-none">✓</span> <span>Odbiór starej baterii (brak kaucji 30 zł)</span></li>
             </ul>
           </div>
-          <a href="tel:+48696556446" class="ak-btn-secondary">
-            Wymień na miejscu ➔
-          </a>
+          <div class="mt-auto pt-4 w-full">
+            <a href="tel:+48696556446" class="ak-btn-secondary">
+              Wymień na miejscu ➔
+            </a>
+          </div>
         </div>
 
       </div>
