@@ -27,7 +27,7 @@ https://www.akumulateo.pl/awaryjne-uruchomienie-auta-warszawa
    - S11 (Obszar działania): Canvas #020617
    - Stopka: Slate 950 z border-t #1e293b
 3. JEDNOLITY KONTENER: max-w-6xl mx-auto px-4 sm:px-6 dla każdej sekcji.
-4. MIKRODANE SCHEMA.ORG: EmergencyService, AutoRepair, AggregateRating (5.0, 160+ recenzji) + Review.
+4. MIKRODANE SCHEMA.ORG: EmergencyService, AutoRepair, AggregateRating (5.0, 102 recenzje) + Review.
 """
 
 import os
@@ -94,8 +94,8 @@ HTML_CONTENT = f"""<!-- ========================================================
     "ratingValue": "5.0",
     "bestRating": "5.0",
     "worstRating": "1.0",
-    "ratingCount": "160",
-    "reviewCount": "160"
+    "ratingCount": "102",
+    "reviewCount": "102"
   }},
   "review": [
     {{
@@ -1017,7 +1017,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {{
       <div class="flex items-center gap-3 flex-shrink-0 text-xs sm:text-[13px] font-bold">
         <span class="hidden md:inline-flex items-center gap-1 font-extrabold text-slate-950 bg-amber-300/90 px-2 py-0.5 rounded text-xs">🇬🇧 English</span>
         <a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800 flex items-center gap-1 transition cursor-pointer font-black">
-          <span>⭐ <span>5.0</span> w Google (160+ opinii) ↗</span>
+          <span>⭐ <span>5.0</span> w Google (102 opinie) ↗</span>
         </a>
       </div>
     </div>
@@ -1127,7 +1127,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {{
         
         <div class="bg-slate-900/90 border border-slate-800 p-4 sm:p-5 rounded-2xl text-center shadow-md">
           <div class="text-amber-400 font-black text-base sm:text-lg">⭐ 5.0 w Google</div>
-          <div class="text-slate-300 text-[13.5px] sm:text-sm font-semibold mt-1">160+ recenzji kierowców</div>
+          <div class="text-slate-300 text-[13.5px] sm:text-sm font-semibold mt-1">102 opinie kierowców</div>
         </div>
 
         <div class="bg-slate-900/90 border border-slate-800 p-4 sm:p-5 rounded-2xl text-center shadow-md">
@@ -1430,7 +1430,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {{
           Ocena 5.0 ★★★★★ w Google Maps
         </h2>
         <p class="ak-body max-w-2xl mx-auto mt-2">
-          Ponad <strong>160 zweryfikowanych opinii</strong> od kierowców uratowanych w Warszawie i okolicach. Dojazd w 20–30 min, profesjonalny sprzęt i zero naciągania.
+          <strong>102 zweryfikowane opinie (100% 5.0★)</strong> od kierowców uratowanych w Warszawie i okolicach. Dojazd w 20–30 min, profesjonalny sprzęt i zero naciągania.
         </p>
       </div>
 
@@ -1439,8 +1439,8 @@ details.ak-faq-item[open] summary .ak-faq-icon {{
         <meta itemprop="ratingValue" content="5.0">
         <meta itemprop="bestRating" content="5.0">
         <meta itemprop="worstRating" content="1.0">
-        <meta itemprop="ratingCount" content="160">
-        <meta itemprop="reviewCount" content="160">
+        <meta itemprop="ratingCount" content="102">
+        <meta itemprop="reviewCount" content="102">
 
         <div class="ak-google-logo-wrapper" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="34" height="34" class="ak-google-logo-svg" focusable="false">
@@ -1463,7 +1463,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {{
             </div>
           </div>
           <div class="ak-google-reviews-count-text">
-            Średnia z <strong>160+ recenzji</strong> w Google Maps
+            Średnia ze <strong>102 recenzji (100% 5.0★)</strong> w Google Maps
           </div>
         </div>
 
