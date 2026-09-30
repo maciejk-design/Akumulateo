@@ -185,5 +185,11 @@
 - Odblokowano wartościowe zapytania wielowyrazowe z intencją usługi mobilnej.
 - Przeanalizowano 21 wykluczeń ze statusem OFF: wykazano przepalanie budżetu przez frazę `akumulatory dolna` (39,68 zł za 3 kliknięcia przy sklepie stacjonarnym na Mokotowie).
 
+### F. Włączenie wykluczeń dla adresów sklepów stacjonarnych konkurencji (30.09.2026):
+- Włączono aktywne wykluczenia (ON) w FastTony i zsynchronizowano z Google Ads (`[Forsant API] Negative keyword list - 1742476080`):
+  * `dolna`, `herbstadolna`, `herbsta`, `zamieniecka`, `akumulatory zamieniecka`, `akumulatory modlińska`, `radzymińska akumulatory`, `akumulatory dolna`.
+- Wynik: 100% ochrona przed kliknięciami osób poszukujących wyłącznie fizycznych sklepów stacjonarnych na tych ulicach.
+
+
 
 
