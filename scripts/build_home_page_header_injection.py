@@ -280,7 +280,7 @@ body.homepage main#page {{
     // Zastosuj centralną konfigurację ocen i linków do opinii Google
     try {
       var cfg = window.AKUMULATEO_CONFIG || {
-        reviewsCount: "146",
+        reviewsCount: "100+",
         ratingValue: "5.0",
         googleMapsUrl: "https://g.page/r/CXjN9llopHR_EBM/"
       };
