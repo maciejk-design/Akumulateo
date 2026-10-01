@@ -450,7 +450,7 @@ def generate_local_page_html(d, is_suburb=False):
       <span>• Dojazd {d['eta']}: {location_label}</span>
     </div>
     <div style="font-weight:800;">
-      ⭐ 5.0 w Google (100+ opinii)
+      ⭐ <span data-ak-cfg="ratingValue">5.0</span> w Google (<span data-ak-cfg="reviewsCount">100+</span> opinii)
     </div>
   </div>
 
@@ -673,7 +673,7 @@ def generate_hub_page_html(districts, suburbs):
       <span>• Warszawa (20–30 min) & Aglomeracja Podwarszawska</span>
     </div>
     <div style="font-weight:800;">
-      ⭐ 5.0 w Google (100+ opinii)
+      ⭐ <span data-ak-cfg="ratingValue">5.0</span> w Google (<span data-ak-cfg="reviewsCount">100+</span> opinii)
     </div>
   </div>
 

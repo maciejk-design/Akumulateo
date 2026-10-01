@@ -164,7 +164,7 @@
     responseTime: "20–30 min"
   };
 
-  // 2. Automatyczne uzupełnianie elementów z atrybutem data-ak-cfg
+  // 2. Automatyczne uzupełnianie elementów z atrybutem data-ak-cfg oraz Schema.org JSON-LD
   function applyConfig() {
     var cfg = window.AKUMULATEO_CONFIG;
     if (!cfg) return;
@@ -179,6 +179,24 @@
         el.textContent = cfg[key];
       }
     }
+
+    // Dynamiczna aktualizacja Schema.org JSON-LD w locie (Googlebot & SEO Rich Snippets)
+    try {
+      var scripts = document.querySelectorAll('script[type="application/ld+json"]');
+      for (var j = 0; j < scripts.length; j++) {
+        var s = scripts[j];
+        if (s.textContent && s.textContent.indexOf('aggregateRating') !== -1) {
+          var data = JSON.parse(s.textContent);
+          if (data && data.aggregateRating) {
+            data.aggregateRating.ratingValue = cfg.ratingValue || "5.0";
+            var num = parseInt(cfg.reviewsCount, 10) || 100;
+            data.aggregateRating.ratingCount = String(num);
+            data.aggregateRating.reviewCount = String(num);
+            s.textContent = JSON.stringify(data);
+          }
+        }
+      }
+    } catch(e) {}
   }
 
   // 3. Śledzenie kliknięć w telefon (GA4 + Ads)

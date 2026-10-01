@@ -269,7 +269,7 @@ def generate_district_html(d):
       <span>• Dojazd 20–30 min: Warszawa {d['name']}</span>
     </div>
     <div style="font-weight:800;">
-      ⭐ 5.0 w Google (100+ opinii)
+      ⭐ <span data-ak-cfg="ratingValue">5.0</span> w Google (<span data-ak-cfg="reviewsCount">100+</span> opinii)
     </div>
   </div>
 

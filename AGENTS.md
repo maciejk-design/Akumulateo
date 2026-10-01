@@ -33,10 +33,11 @@ Głównym celem systemu jest **maksymalizacja zysku netto i liczby konwertujący
    * **Wykluczenia krytyczne:** Blokada wulkanizacji (`wulkanizacja`, `wulkanizator`, `wulkanizacja mobilna`, `wymiana koła`, `naprawa opon`, `шиномонтаж`) oraz drogiego elektryka instalacyjnego (`elektryk samochodowy warszawa z dojazdem`, `mobilny elektryk samochodowy`).
    * **Polityka słowa „cena”:** Pojedyncze słowo `cena` jako broad match **MUSA BYĆ ODBLOKOWANE** (wyłączone z wykluczeń), aby nie blokować konwertujących zapytań o usługę mobilną (`wymiana akumulatora z dojazdem cena`). Wykluczane mogą być wyłącznie konkretne frazy produktowe/porównywarkowe (`ceny akumulatorów`, `ile kosztuje akumulator do samochodu`, `tanie`).
 7. **Zasada formatowania ocen i aktualności opinii Google (GBP Reviews Invariant):**
-   * **Format oceny:** Wyłącznie **`5.0`** (lub `5.0★`, `5.0 ★★★★★`). **BEZWZGLĘDNY ZAKAZ zapisu ułamkowego `5.0/5.0` oraz `5/5`**.
+   * **Format oceny:** Wyłącznie **`5.0`** (lub `5.0★`, `5.0 ★★★★★`). **BEZWZGLĘDNY ZAKAZ zapisu ułamkowego `5.0` oraz `5/5`**.
    * **Pojedyncze Źródło Prawdy (Single Source of Truth):** Wszystkie dane o opiniach i reputacji definiowane są w `src/config/business-profile.json` oraz `scripts/business_config.py`.
    * **Aktualizacja wiedzy:** Przed zmianą liczby weryfikuj panel przez `python3 scripts/gbp-review-count.py`. Propagację do wszystkich plików w repozytorium wykonuj atomowo komendą: `python3 scripts/update-review-count.py <liczba>`.
    * **Automatyczna hydratacja w przeglądarce:** Każdy element w kodzie HTML prezentujący liczbę lub ocenę musi posiadać atrybut `data-ak-cfg="reviewsCount"` lub `data-ak-cfg="ratingValue"`, co gwarantuje natychmiastową, automatyczną aktualizację w całym serwisie z poziomu `window.AKUMULATEO_CONFIG`.
+   * **Wyzwalacz operacyjny (User Trigger):** Gdy użytkownik wyda polecenie *„zaktualizuj opinie”* (lub poda nową liczbę), agent bez zbędnych pytań natychmiast uruchamia skrypt `python3 scripts/update-review-count.py`, który w jednym kroku aktualizuje profil, pliki i wysyła zmianę do Squarespace.
 
 ---
 
