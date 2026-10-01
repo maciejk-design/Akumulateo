@@ -94,8 +94,8 @@ HTML_CONTENT = f"""<!-- ========================================================
     "ratingValue": "5.0",
     "bestRating": "5.0",
     "worstRating": "1.0",
-    "ratingCount": "102",
-    "reviewCount": "102"
+    "ratingCount": "100",
+    "reviewCount": "100"
   }},
   "review": [
     {{
@@ -1513,7 +1513,7 @@ details.ak-faq-item[open] summary .ak-faq-icon {{
             </div>
           </div>
           <div class="ak-google-reviews-count-text">
-            Średnia ze <strong>102 recenzji (100% 5.0★)</strong> w Google Maps
+            Średnia ze <strong>100+ recenzji (100% 5.0★)</strong> w Google Maps
           </div>
         </div>
 

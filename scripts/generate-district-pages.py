@@ -239,8 +239,8 @@ def generate_district_html(d):
             "ratingValue": "5.0",
             "bestRating": "5.0",
             "worstRating": "1.0",
-            "ratingCount": "160",
-            "reviewCount": "160"
+            "ratingCount": "100",
+            "reviewCount": "100"
         }
     }
 
@@ -269,7 +269,7 @@ def generate_district_html(d):
       <span>• Dojazd 20–30 min: Warszawa {d['name']}</span>
     </div>
     <div style="font-weight:800;">
-      ⭐ 5.0 w Google (160+ opinii)
+      ⭐ 5.0 w Google (100+ opinii)
     </div>
   </div>
 

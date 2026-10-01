@@ -109,7 +109,7 @@ Każdy nowy pomysł oraz każde zadanie do zrobienia są rejestrowane w tym plik
 | **CRO-01** | 🔴 `DO ZROBIENIA` | **P2 (Wysoki)** | Testy paska Sticky Call Bar na iOS Safari | Weryfikacja zachowania dolnego paska z telefonem na iPhone’ach przy wysuwającym się dolnym pasku nawigacji Safari (dopasowanie `padding-bottom: env(safe-area-inset-bottom)`). |
 | **CRO-02** | 🔴 `DO ZROBIENIA` | **P3 (Średni)** | Mikroanimacja pulsu na przycisku telefonu | Dodanie po 5 sekundach bezczynności subtelnego impulsu (amber glow pulse) na przycisku zadzwoń, aby przyciągnąć wzrok zdezorientowanego kierowcy. |
 | **CRO-03** | 🔴 `DO ZROBIENIA` | **P3 (Średni)** | Optymalizacja LCP tła Hero w Squarespace | Wdrożenie `<link rel="preload">` dla właściwego pliku WebP tła sekcji hero w Header Injection w celu dalszego skrócenia LCP na łączach 4G. |
-| **CRO-04** | 🟢 `UKOŃCZONE` | **P2 (Wysoki)** | Lekki widżet opinii Google 5.0★ (Zero-Overhead & SEO) | Wdrożono lekki komponent HTML/CSS z mikrodanymi Schema.org `AggregateRating` + `Review` (0 KB obcego JS, brak obciążenia LCP, CLS = 0.000, 160+ recenzji, rich snippets z gwiazdkami). Wdrożono w `src/widgets/google-reviews-widget.html`, `snippets/squarespace/google-reviews-widget.html`, na podstronie `/awaryjne-uruchomienie-auta-warszawa` oraz w szablonie strony głównej. |
+| **CRO-04** | 🟢 `UKOŃCZONE` | **P2 (Wysoki)** | Lekki widżet opinii Google 5.0★ (Zero-Overhead & SEO) | Wdrożono lekki komponent HTML/CSS z mikrodanymi Schema.org `AggregateRating` + `Review` (0 KB obcego JS, brak obciążenia LCP, CLS = 0.000, 100+ recenzji, rich snippets z gwiazdkami). Wdrożono w `src/widgets/google-reviews-widget.html`, `snippets/squarespace/google-reviews-widget.html`, na podstronie `/awaryjne-uruchomienie-auta-warszawa` oraz w szablonie strony głównej. |
 
 ---
 
@@ -128,7 +128,7 @@ Każdy nowy pomysł oraz każde zadanie do zrobienia są rejestrowane w tym plik
 ### Innowacja 2: System Automatycznego Pozyskiwania Opinii Google przez SMS
 * **Status:** ⏸️ `WSTRZYMANE / BACKLOG` (Do decyzji technicznej: bramka SMS API vs skrypt na telefonie)
 * **Priorytet:** Bardzo wysoki (kluczowy lewar w Local SEO i budowaniu dominacji nad konkurencją).
-* **Cel:** Zwiększenie bazy ocen z obecnych >160 opinii do ponad 300 opinii 5.0★.
+* **Cel:** Zwiększenie bazy ocen z obecnych 100+ opinii do ponad 300 opinii 5.0★.
 * **Scenariusz działania:**
   1. Technik po wykonaniu montażu wpisuje numer klienta lub system wysyła automatyczny SMS po 20 minutach.
   2. Treść wiadomości:

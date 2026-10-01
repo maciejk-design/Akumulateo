@@ -127,7 +127,7 @@ Użytkownik pogotowia akumulatorowego różni się od typowego konsumenta e-comm
   *Uwaga UX:* Należy upewnić się, że pasek nie zasłania zgody na cookies (cookie banner) ani stopki na najmniejszych ekranach (iPhone SE / telefony z małą rozdzielczością).
 * **Brak sekcji Trust Badges na stronie głównej:**  
   Mimo obecności kodu w repozytorium, strona główna nie prezentuje w widocznym miejscu:
-  - Licznika opinii: **5.0/5.0 w Google (99 zweryfikowanych opinii)**
+  - Licznika opinii: **5.0 w Google (99 zweryfikowanych opinii)**
   - Oznaczeń wygody: **Karta / BLIK u technika**, **Gwarancja do 3 lat**, **Faktura VAT 23%**
   - Wyraźnego komunikatu o braku sklepu stacjonarnego.
 

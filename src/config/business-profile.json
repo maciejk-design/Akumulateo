@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Akumulateo – Pogotowie Akumulatorowe Warszawa 24h",
+  "shortName": "Akumulateo",
+  "serviceType": "Mobilne pogotowie akumulatorowe 24h/7 z dojazdem",
+  "phone": "696 556 446",
+  "phoneRaw": "+48696556446",
+  "eta": "20–30 min",
+  "rating": {
+    "value": "5.0",
+    "stars": "★★★★★",
+    "formatRule": "BEZWZGLĘDNY ZAKAZ zapisu '5.0/5.0' lub '5/5'. Zawsze stosuj wyłącznie '5.0' lub '5.0 ★★★★★'."
+  },
+  "reviews": {
+    "display": "100+",
+    "displayLong": "100+ zweryfikowanych opinii",
+    "schemaCount": 100,
+    "lastVerifiedActual": 99,
+    "lastVerifiedDate": "2026-10-01",
+    "sourceRule": "Aktualizacja WYŁĄCZNIE po weryfikacji przez scripts/gbp-review-count.py z otwartego panelu GBP."
+  },
+  "urls": {
+    "website": "https://www.akumulateo.pl",
+    "googleMaps": "https://g.page/r/CXjN9llopHR_EBM/",
+    "googleReview": "https://g.page/r/CXjN9llopHR_EBM/review"
+  },
+  "brands": {
+    "allowed": [
+      "Varta",
+      "Yuasa",
+      "Bosch",
+      "4Max",
+      "BP",
+      "Eco-Force"
+    ],
+    "forbidden": [
+      "Centra",
+      "Banner"
+    ]
+  }
+}

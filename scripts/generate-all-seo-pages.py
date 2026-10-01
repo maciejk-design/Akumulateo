@@ -7,7 +7,7 @@ Wdraża standard Brandbook v2.2:
 - Czas dojazdu: 20-30 min w Warszawie, 20-40 min w aglomeracji
 - Prekwalifikacja mobilna (Brak sklepu stacjonarnego)
 - Oficjalne marki: Varta, Yuasa (YUASA), Bosch, 4Max (zero Centra/Banner)
-- Ustrukturyzowane dane Schema.org EmergencyService JSON-LD (5.0★, 160+ opinii)
+- Ustrukturyzowane dane Schema.org EmergencyService JSON-LD (5.0★, 100+ opinii)
 - Generuje stronę zbiorczą Hub: /obszar-dzialania-warszawa-i-okolice z kompletną siatką linków wewnętrznych
 """
 
@@ -420,8 +420,8 @@ def generate_local_page_html(d, is_suburb=False):
             "ratingValue": "5.0",
             "bestRating": "5.0",
             "worstRating": "1.0",
-            "ratingCount": "160",
-            "reviewCount": "160"
+            "ratingCount": "100",
+            "reviewCount": "100"
         }
     }
 
@@ -450,7 +450,7 @@ def generate_local_page_html(d, is_suburb=False):
       <span>• Dojazd {d['eta']}: {location_label}</span>
     </div>
     <div style="font-weight:800;">
-      ⭐ 5.0 w Google (160+ opinii)
+      ⭐ 5.0 w Google (100+ opinii)
     </div>
   </div>
 
@@ -602,8 +602,8 @@ def generate_hub_page_html(districts, suburbs):
             "ratingValue": "5.0",
             "bestRating": "5.0",
             "worstRating": "1.0",
-            "ratingCount": "160",
-            "reviewCount": "160"
+            "ratingCount": "100",
+            "reviewCount": "100"
         },
         "description": "Obszar działania mobilnego pogotowia akumulatorowego Akumulateo. Całodobowy dojazd w 20-30 min we wszystkich 18 dzielnicach Warszawy oraz szybki dojazd trasami ekspresowymi do miejscowości aglomeracji podwarszawskiej. Tel: 696 556 446."
     }
@@ -673,7 +673,7 @@ def generate_hub_page_html(districts, suburbs):
       <span>• Warszawa (20–30 min) & Aglomeracja Podwarszawska</span>
     </div>
     <div style="font-weight:800;">
-      ⭐ 5.0 w Google (160+ opinii)
+      ⭐ 5.0 w Google (100+ opinii)
     </div>
   </div>
 

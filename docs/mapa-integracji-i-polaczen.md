@@ -16,7 +16,7 @@ Niniejszy dokument stanowi centralne źródło wiedzy o **wszystkich połączeni
 | **Google Cloud Service Account** | • E-mail: `akumulateo-agent@akumulateo-analytics.iam.gserviceaccount.com`<br>• Plik: `service-account.json` | • Główny katalog: `service-account.json`<br>• `.env`: `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` | Bezpieczna, bezhasłowa autoryzacja OAuth2 JWT dla skryptów Pythona/Node. | • Umożliwienie AI i skryptom CLI bezpośredniego odpytywania GSC i GA4 bez używania przeglądarki. |
 | **Google Consent Mode v2 + FastTony Bridge** | • Skrypt JS: tryb domyślny `denied`, synchronizacja do `granted` | • Header Injection: linie 1–102 w pliku nagłówkowym | Zgodność z RODO oraz wymogami Digital Markets Act (DMA). Synchronizacja z banerem Squarespace. | • Zapobieganie utracie danych w Google Ads i GA4.<br>• Poprawne modelowanie konwersji w Google bez łamania prywatności. |
 | **Squarespace CMS 7.1** | • Instancja: `celery-robin-sffx.squarespace.com`<br>• Domena: `https://www.akumulateo.pl` | • Custom CSS<br>• Header Code Injection<br>• Footer Code Injection | Środowisko produkcyjne witryny, serwowanie treści, formularzy i paska Click-to-Call. | • Hostowanie 18 dedykowanych landing page'y dzielnicowych oraz podstron miast aglomeracji. |
-| **Profil Firmy Google (GBP / Maps)** | • Link wizytówki: `https://g.page/r/CXjN9llopHR_EBM/`<br>• Ocena: 5.0★ (>160 opinii) | • Linki w stopce i widżetach<br>• Schema.org JSON-LD | Główne źródło bezpośrednich połączeń telefonicznych z map Google w Warszawie. | • Dominacja w Local SEO na hasła typu „pogotowie akumulatorowe warszawa”.<br>• Zdobycie 300+ opinii 5.0★. |
+| **Profil Firmy Google (GBP / Maps)** | • Link wizytówki: `https://g.page/r/CXjN9llopHR_EBM/`<br>• Ocena: 5.0★ (100+ opinii) | • Linki w stopce i widżetach<br>• Schema.org JSON-LD | Główne źródło bezpośrednich połączeń telefonicznych z map Google w Warszawie. | • Dominacja w Local SEO na hasła typu „pogotowie akumulatorowe warszawa”.<br>• Zdobycie 300+ opinii 5.0★. |
 
 ---
 
@@ -137,7 +137,7 @@ Niniejszy dokument stanowi centralne źródło wiedzy o **wszystkich połączeni
 
 ### 3.7. Profil Firmy w Google (GBP / Google Maps)
 * **Konto:** Akumulateo – Pogotowie akumulatorowe Warszawa 24h
-* **Ocena:** 5.0★ (>160 opinii)
+* **Ocena:** 5.0★ (100+ opinii)
 * **Kategoria główna:** **`Sklep z akumulatorami`**
 * **Kategorie dodatkowe:** **`Mechanik samochodowy`**, **`Elektryk samochodowy`**
 * **Żelazny zakaz:** Kategoria **`Pomoc drogowa`** została trwale usunięta (generowała nieopłacalne telefony o wulkanizację, zmianę kół i holowanie).

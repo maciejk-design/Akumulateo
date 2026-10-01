@@ -16,7 +16,7 @@ Standard Brandbook v2.2:
 - Czas dojazdu: 20-30 min
 - Prekwalifikacja mobilna (Brak sklepu stacjonarnego)
 - Oficjalne marki: Varta, Yuasa (YUASA), Bosch, 4Max (zero Centra/Banner)
-- Schema.org EmergencyService JSON-LD (5.0★, 160+ opinii)
+- Schema.org EmergencyService JSON-LD (5.0★, 100+ opinii)
 """
 
 import os
@@ -41,7 +41,7 @@ NAV_HEADER_HTML = """
       <div class="flex items-center gap-2.5 flex-shrink-0 text-[11px] font-bold">
         <span class="hidden md:inline-flex items-center gap-1 font-extrabold text-slate-950 bg-amber-300/90 px-1.5 py-0.5 rounded text-[10px]" title="We speak English – call us directly">🇬🇧 We speak English</span>
         <a href="https://g.page/r/CXjN9llopHR_EBM/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800 hover:underline flex items-center gap-1 transition cursor-pointer" title="Zobacz opinie Akumulateo w Google Maps">
-          <span>⭐ 5.0 w Google (160+ opinii) ↗</span>
+          <span>⭐ 5.0 w Google (100+ opinii) ↗</span>
         </a>
       </div>
     </div>
@@ -125,7 +125,7 @@ UNIFIED_FOOTER_HTML = """
         <p class="text-slate-400 text-xs leading-relaxed">
           Mobilny serwis i pogotowie akumulatorowe 24h na terenie Warszawy oraz aglomeracji podwarszawskiej. Wymiana, diagnostyka i awaryjny rozruch pod domem klienta.
         </p>
-        <div class="text-xs text-amber-400 font-bold">⭐ 5.0 w Google (160+ recenzji)</div>
+        <div class="text-xs text-amber-400 font-bold">⭐ 5.0 w Google (100+ recenzji)</div>
       </div>
 
       <div class="space-y-2">
@@ -258,8 +258,8 @@ def generate_district_injection(d):
             "ratingValue": "5.0",
             "bestRating": "5.0",
             "worstRating": "1.0",
-            "ratingCount": "160",
-            "reviewCount": "160"
+            "ratingCount": "100",
+            "reviewCount": "100"
         }
     }
     schema_str = json.dumps(schema, ensure_ascii=False, indent=2)
