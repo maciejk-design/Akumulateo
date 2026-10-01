@@ -38,6 +38,10 @@ Głównym celem systemu jest **maksymalizacja zysku netto i liczby konwertujący
    * **Aktualizacja wiedzy:** Przed zmianą liczby weryfikuj panel przez `python3 scripts/gbp-review-count.py`. Propagację do wszystkich plików w repozytorium wykonuj atomowo komendą: `python3 scripts/update-review-count.py <liczba>`.
    * **Automatyczna hydratacja w przeglądarce:** Każdy element w kodzie HTML prezentujący liczbę lub ocenę musi posiadać atrybut `data-ak-cfg="reviewsCount"` lub `data-ak-cfg="ratingValue"`, co gwarantuje natychmiastową, automatyczną aktualizację w całym serwisie z poziomu `window.AKUMULATEO_CONFIG`.
    * **Wyzwalacz operacyjny (User Trigger):** Gdy użytkownik wyda polecenie *„zaktualizuj opinie”* (lub poda nową liczbę), agent bez zbędnych pytań natychmiast uruchamia skrypt `python3 scripts/update-review-count.py`, który w jednym kroku aktualizuje profil, pliki i wysyła zmianę do Squarespace.
+8. **Zakaz fabrykowania marek sprzętu diagnostycznego (Diagnostic Equipment Brands Invariant):**
+   * Firma posługuje się profesjonalnym, uniwersalnym sprzętem mobilnym (elektroniczne testery obciążeniowe, mikroprocesorowe boostery rozruchowe 12V/24V, komputery OBD2/BMS).
+   * **BEZWZGLĘDNY ZAKAZ podawania, przypisywania i publikowania konkretnych marek urządzeń diagnostycznych (np. Topdon, Autel, Bosch KTS itp.) w tekstach na stronie WWW, artykułach, postach, opisach w profilu GBP oraz na generowanych grafikach**, chyba że właściciel firmy wprost wskaże daną markę/model w poleceniu.
+   * Wszelkie generowane materiały graficzne i zdjęcia sprzętu technicznego MUSZĄ przedstawiać wyłącznie neutralne, bezmarkowe urządzenia bez widocznych logotypów producentów oraz odzież roboczą bez obcych/fałszywych logotypów firmowych.
 
 ---
 

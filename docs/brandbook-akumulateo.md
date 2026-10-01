@@ -233,6 +233,7 @@ Przed zatwierdzeniem jakiejkolwiek zmiany na stronie głównej lub podstronie dz
 - [ ] **Górny pasek dyżuru:** Czy na ekranie o szerokości 320px–360px pasek mieści się bez ucinania tekstu.
 - [ ] **Karta Najczęściej Wybierana:** Czy wyróżniona karta ma ramkę bursztynową, czytelny badge i elastyczne łamanie ceny.
 - [ ] **Filtr marek (Brand Exclusion):** Czy na stronie **NIE występują** słowa Centra ani Banner (zastąpione marką **Yuasa**).
+- [ ] **Czystość sprzętu i brak fałszywych marek:** Czy testery i urządzenia diagnostyczne w tekstach i na grafikach są w 100% neutralne/bezmarkowe (bezwzględny zakaz marek Topdon, Autel itp. oraz fałszywych logotypów na odzieży).
 - [ ] **Model mobilny:** Czy na stronie jasno zaznaczono brak sklepu stacjonarnego i dojazd 24h.
 
 ---
