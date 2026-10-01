@@ -87,8 +87,9 @@ Każdy nowy pomysł oraz każde zadanie do zrobienia są rejestrowane w tym plik
 | ID | Status | Priorytet | Zadanie | Opis i Kroki Wdrożeniowe |
 | :--- | :---: | :---: | :--- | :--- |
 | **GBP-01** | 🔴 `DO ZROBIENIA` | **P1 (Krytyczny)** | Wdrożenie procedury zbierania opinii SMS | Uruchomienie prostego nawyku lub szablonu SMS wysyłanego przez technika 15 min po montażu z bezpośrednim linkiem: `https://g.page/r/CXjN9llopHR_EBM/review`. Cel: 200+ opinii 5.0★. |
-| **GBP-02** | 🔴 `DO ZROBIENIA` | **P2 (Wysoki)** | Publikacja geolokalizowanych wpisów ze zdjęciami | Dodawanie 1-2 wpisów tygodniowo w panelu GBP ze zdjęciami z interwencji (wymiana baterii Varta/Yuasa, kodowanie BMS pod blokiem na Mokotowie, Woli itp.). Algorytm Maps mocno premiuje aktywne wizytówki. |
-| **GBP-03** | 🔴 `DO ZROBIENIA` | **P3 (Średni)** | Sekcja pytań i odpowiedzi (Q&A) w Wizytówce | Dodanie i samodzielne udzielenie odpowiedzi na pytania o dojazd w 20-30 min, płatność kartą/BLIK, brak sklepu stacjonarnego oraz kodowanie BMS. |
+| **GBP-02** | 🟡 `PRZYGOTOWANO` | **P2 (Wysoki)** | Publikacja geolokalizowanych wpisów ze zdjęciami | Dodawanie 1-2 wpisów tygodniowo w panelu GBP z linkami do podstron dzielnicowych. Gotowy pakiet 6 postów przygotowano w `content/gbp/etap-4-wizytowka-google-podstrony.md`. |
+| **GBP-03** | 🟡 `PRZYGOTOWANO` | **P3 (Średni)** | Sekcja pytań i odpowiedzi (Q&A) w Wizytówce | Baza 5 prekwalifikujących pytań i odpowiedzi z linkami do podstron gotowa w `content/gbp/etap-4-wizytowka-google-podstrony.md`. |
+| **GBP-04** | 🟡 `PRZYGOTOWANO` | **P1 (Krytyczny)** | Karty Produktów z bezpośrednimi linkami do podstron | Opracowano 4 karty produktów (Wymiana 24h, Booster, Diagnostyka, Obszar działania) z cenami i linkami CTA do wdrożenia w sekcji „Edytuj ofertę” w GBP. |
 
 ---
 
