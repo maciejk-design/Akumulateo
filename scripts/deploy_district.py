@@ -23,7 +23,18 @@ tell application "Google Chrome"
         set tabIdx to 0
         repeat with t in tabs of w
             set tabIdx to tabIdx + 1
-            if URL of t contains "celery-robin-sffx.squarespace.com/config/pages" then
+            if (id of t as text) is "1964394678" then
+                return (winIdx as text) & ":" & (tabIdx as text)
+            end if
+        end repeat
+    end repeat
+    set winIdx to 0
+    repeat with w in windows
+        set winIdx to winIdx + 1
+        set tabIdx to 0
+        repeat with t in tabs of w
+            set tabIdx to tabIdx + 1
+            if (URL of t contains "celery-robin-sffx.squarespace.com/config/pages" and URL of t does not contain "code-injection") then
                 return (winIdx as text) & ":" & (tabIdx as text)
             end if
         end repeat
@@ -69,7 +80,7 @@ def ensure_pages_panel(win_idx, tab_idx):
         return window.location.href;
     })();"""
     url = run_js(js, win_idx, tab_idx)
-    if "config/pages" not in url:
+    if url.rstrip("/") != "https://celery-robin-sffx.squarespace.com/config/pages":
         nav_as = f"""
 tell application "Google Chrome"
     tell tab {tab_idx} of window {win_idx}
@@ -78,7 +89,7 @@ tell application "Google Chrome"
 end tell
 """
         subprocess.run(["osascript", "-e", nav_as])
-        time.sleep(3)
+        time.sleep(4)
 
 def deploy_district(name, page_title, url_slug, snippet_path):
     print(f"\n========================================================")

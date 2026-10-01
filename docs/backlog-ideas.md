@@ -98,8 +98,8 @@ Każdy nowy pomysł oraz każde zadanie do zrobienia są rejestrowane w tym plik
 | ID | Status | Priorytet | Zadanie | Opis i Kroki Wdrożeniowe |
 | :--- | :---: | :---: | :--- | :--- |
 | **LANG-01** | 🟢 `WDROŻONO (EN)` | **P1 (Krytyczny)** | Dodanie usług EN w panelu Google Business Profile (0 PLN) | W panelu GBP w sekcji Usługi dodano i opublikowano usługi:<br>• *Mobile car battery replacement & delivery 24/7*<br>• *Emergency car jump start (12V/24V booster)* |
-| **LANG-02** | 🔴 `DO ZROBIENIA` | **P2 (Wysoki)** | Wzmianka językowa w opisie profilu Google Maps | Dopisanie w opisie firmy: *„English speaking support available 24/7”*. |
-| **LANG-03** | 🔴 `DO ZROBIENIA` | **P2 (Wysoki)** | Utworzenie podstron SEO dla obcokrajowców | Opublikowanie w Squarespace podstrony:<br>• `/car-battery-replacement-warsaw`<br>Wyzerowanie konkurencji w Google na zapytania ekspatów. |
+| **LANG-02** | 🟢 `WDROŻONO` | **P2 (Wysoki)** | Wzmianka językowa w opisie profilu Google Maps | Zaktualizowano opis w panelu GBP o informację: *„English speaking support available 24/7”* oraz uwzględniono markę Yuasa. Zmiana zapisana w Google. |
+| **LANG-03** | 🟢 `WDROŻONO` | **P2 (Wysoki)** | Utworzenie podstron SEO dla obcokrajowców | Opublikowano i wdrożono na żywo na Squarespace podstronę:<br>• [`/car-battery-replacement-warsaw`](https://www.akumulateo.pl/car-battery-replacement-warsaw)<br>Pełny design Brandbook v2.2, Schema.org EmergencyService EN, 0 CLS. |
 
 ---
 
