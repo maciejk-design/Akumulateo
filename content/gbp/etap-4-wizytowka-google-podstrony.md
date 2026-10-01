@@ -230,13 +230,13 @@ Google wyświetla sekcję pytań bezpośrednio w wynikach wyszukiwania. Warto sa
 
 ---
 
-## 6. Checklista Wdrożenia ETAPU 4 (Gotowa do odhaczenia)
+## 6. Checklista Wdrożenia ETAPU 4 (Status Realizacji)
 
-- [ ] **Karty Produktów:** Dodano 4 produkty w sekcji „Edytuj ofertę” w GBP z linkami do:
+- [x] **Karty Produktów:** Dodano i opublikowano 4 oficjalne produkty z autorskimi zdjęciami, cenami i linkami:
   - `/wymiana-akumulatora-z-dojazdem-warszawa`
   - `/awaryjne-uruchomienie-auta-warszawa`
   - `/diagnostyka-akumulatora-i-ladowania-warszawa`
   - `/obszar-dzialania-warszawa-i-okolice`
-- [ ] **Obszary działalności:** Zaktualizowano 20 kluczowych dzielnic i miast w profilu GBP.
-- [ ] **Wpisy Google:** Opublikowano pierwszy geolokalizowany post (np. Mokotów) z linkiem do podstrony.
-- [ ] **Pytania i Odpowiedzi:** Wprowadzono prekwalifikujące Q&A wyjaśniające model 100% mobilny i dojazd 20–30 min.
+- [x] **Obszary działalności:** Zweryfikowano 20 kluczowych dzielnic i miast w profilu GBP (maksymalny limit SAB w Google).
+- [x] **Wpisy Google:** Opublikowano pierwszy geolokalizowany post (Mokotów) ze zdjęciem i linkiem CTA do `/wymiana-akumulatora-warszawa-mokotow`.
+- [x] **Pytania i Odpowiedzi:** Przygotowano zestaw prekwalifikujących Q&A eliminujących pytania o sklep stacjonarny i assistance.
